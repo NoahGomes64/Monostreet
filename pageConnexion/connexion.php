@@ -94,7 +94,7 @@ if(isset($_POST['connexion'])){
             </div>
             <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
           </form>
-        </div>
+        
         
         <h3 class="u-text u-text-default u-text-2">PAS DE COMPTE ?</h3>
         <a href="../createAccount.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">s'inscrire ?</a>
