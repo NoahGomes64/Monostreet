@@ -14,41 +14,53 @@ $pwd_valide_admin = "root";
 
 
 //si le bouton "Connexion" est cliqué
-if(isset($_POST['connexion'])){
+if(isset($_POST['createAccount'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
-    if(empty($_POST['pseudo'])){
-        echo "Le champ Pseudo est vide.";
-    } else {
-        // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
-        if(empty($_POST['mdp'])){
-            echo "Le champ Mot de passe est vide.";
-        } else {
-            
-            $Pseudo =($_POST['pseudo']); 
-            $MotDePasse =($_POST['mdp']);
-            //on se connecte à la base de données:
-
-            //on vérifie que la connexion s'effectue correctement:
-            //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
-                
-                if ($login_valide_admin == $_POST['pseudo'] && $pwd_valide_admin == $_POST['mdp']) {
-
-                 $_SESSION['pseudo'] = $_POST['pseudo'];
-                 $_SESSION['mdp'] = $_POST['mdp'];
-                 $CONNEXION=true;
-
-              
-                header ('location: index.php');
-         
-                    
-            }
-            else {
-                echo "Mauvais identifiants fournies";
-            }
-        }
+    if (empty($_POST['email'])) {
+        echo "Le champs E-mail est vide";
     }
-}
+    else {
+        if (empty($_POST['pseudo'])) {
+            echo "Le champs Pseudo est vide";
+        }
+        else {
+            if(empty($_POST['mdp'])){
+                echo "Le champ Mot de passe est vide";
+            } else {
+                if(empty($_POST['mdpConfirm'])){
+                    echo "Vous n'avez pas confirmé votre mot de passe";
+                }
+                else{
+                    if ($_POST['mdp'] != $_POST['mdpConfirm']) {
+                        echo "Vous avez mal confirmé votre mot de passe";
+                    }
+                    else {
+                        $adresseDispo = true;
+                        $connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
+                        $query = 'SELECT email FROM compte';
+                        $result = $connection->query($query);
+                        foreach ($result as $row) {
+                            if ($row == $_POST['email']) {
+                                echo "adresse email deja utilisée";
+                                $adresseDispo = false;
+                            }
+                        }
+                        if ($adresseDispo) {
+                            $pseudoDispo = true;
+                            $query = 'SELECT nom FROM compte';
+                            $result = $connection->query($query);
+                            foreach ($result as $row) {
+                                if ($row == $_POST['pseudo']) {
+                                    echo "Pseudo invalide";
+                                    $adresseDispo = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
 
 ?>
 <html>

@@ -19,7 +19,12 @@ for ($i=0; $i < 4; $i++) {
     $code = $code.chr($numAscii);
 }
 
-$sql = "INSERT INTO Partie VALUES ('3', '4', '400', 'bonjour', '4', '$code')";
+$sql = "SELECT * FROM Partie";
+$result = mysqli_query($connection, $sql);
+$compteur = mysqli_num_rows($result);
+$compteur ++;
+
+$sql = "INSERT INTO Partie VALUES ('$compteur', '4', '400', 'bonjour', '4', '$code', '1', '1', 'oloron')";
 
 mysqli_query($connection, $sql);
 
