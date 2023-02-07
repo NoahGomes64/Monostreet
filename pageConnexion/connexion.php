@@ -78,7 +78,11 @@ if(isset($_POST['connexion'])){
     <meta property="og:type" content="website">
     <link rel="canonical" href="/">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body class="u-body u-xl-mode" data-lang="fr">
+  <body class="u-body u-xl-mode" data-lang="fr"><header class="u-black u-clearfix u-header u-header" id="sec-e5d6"><div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+        <a href="../index.php" class="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
+          <img src="images/logo.PNG" class="u-logo-image u-logo-image-1">
+        </a>
+      </div></header>
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-864e">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">connexion</h1>
@@ -98,7 +102,7 @@ if(isset($_POST['connexion'])){
         </div>
        
         <h3 class="u-text u-text-default u-text-2">PAS DE COMPTE ?</h3>
-        <a href="../createAccount.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">s'inscrire ?</a>
+        <a href="../pageInscription/inscription.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">s'inscrire ?</a>
       </div>
     </section>
     
