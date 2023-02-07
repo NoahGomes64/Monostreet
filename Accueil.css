@@ -114,12 +114,13 @@
   }
 
   .u-section-1 .u-text-1 {
-    margin-top: 159px;
-    margin-left: 5px;
     font-size: 3rem;
+    margin-top: 179px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .u-section-1 .u-layout-wrap-1 {
-    margin-top: 84px;
+    margin-top: 64px;
   }
 }
