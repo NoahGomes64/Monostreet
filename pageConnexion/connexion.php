@@ -107,9 +107,6 @@ if(isset($_POST['connexion'])){
     </section>
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-98d6"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">MONOSTREET 2023 TOUT DROITS RESERVES</p>
-      </div></footer>
-   
+
   
 </body></html>
