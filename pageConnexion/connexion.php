@@ -79,7 +79,7 @@ if(isset($_POST['connexion'])){
     <meta property="og:type" content="website">
     <link rel="canonical" href="/">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body class="u-body u-xl-mode" data-lang="fr"><header class="u-black u-clearfix u-header u-sticky u-header" id="sec-e5d6"><div class="u-clearfix u-sheet u-sheet-1">
+  <body class="u-body u-xl-mode" data-lang="fr"><header class="u-black u-clearfix u-header u-sticky u-header" id="sec-e5d6"><div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
         <a href="../index.php" class="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
           <img src="images/logo.PNG" class="u-logo-image u-logo-image-1">
         </a>
@@ -110,10 +110,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         <label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label>
                         <input type="password" placeholder="Saisir votre mot de passe" id="password" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="required">
                       </div>
-                     
+                     <br>
                       <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
                     </form>
                   </div>
+                  
                 </div>
               </div>
             </div>
