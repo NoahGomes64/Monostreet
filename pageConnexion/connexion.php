@@ -56,7 +56,7 @@ if(isset($_POST['connexion'])){
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>CONNEXION</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-2.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
@@ -78,12 +78,12 @@ if(isset($_POST['connexion'])){
     <meta property="og:type" content="website">
     <link rel="canonical" href="/">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-home-page="https://website3965907.nicepage.io/Page-2.html?version=cf4b8671-525a-4d30-8372-ab1945778d4d" data-home-page-title="Page 2" class="u-body u-xl-mode" data-lang="fr">
+  <body class="u-body u-xl-mode" data-lang="fr">
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-864e">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">connexion</h1>
         <div class="u-form u-form-1">
-        <form action="connexion.php"  style="padding: 10px;" method="post">
+          <form action="connexion.php"  style="padding: 10px;" method="post">
             <div class="u-form-group u-form-name">
               <label for="name-1eed" class="u-label u-label-1">LOGIN</label>
               <input type="text" placeholder="Saisir votre login" id="login" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="">
@@ -92,21 +92,19 @@ if(isset($_POST['connexion'])){
               <label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label>
               <input type="password" placeholder="Saisir votre mot de passe" id="password" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="required">
             </div>
-            <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
+            
           </form>
-        
-        
-      </div>
-      <div>
-        <h3 class="u-text u-text-default u-text-2">PAS DE COMPTE ?</h3>
-        <a href="../createAccount.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">S'INSCRIRE ?</a>
         </div>
+        <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
+        <h3 class="u-text u-text-default u-text-2">PAS DE COMPTE ?</h3>
+        <a href="https://nicepage.com/c/sale-website-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">s'inscrire ?</a>
+      </div>
     </section>
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-98d6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">MONOSTREET 2023 TOUT DROITS RESERVES</p>
       </div></footer>
-    
+   
   
 </body></html>
