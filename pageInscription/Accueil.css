@@ -89,13 +89,12 @@
 
   .u-section-1 .u-text-1 {
     width: auto;
-    margin-top: 312px;
-    margin-left: -46px;
-    margin-right: -46px;
+    margin-top: 268px;
+    font-size: 3.75rem;
   }
 
   .u-section-1 .u-layout-wrap-1 {
-    margin-top: -3px;
+    margin-top: 41px;
   }
 
   .u-section-1 .u-container-layout-1 {
@@ -115,13 +114,13 @@
   }
 
   .u-section-1 .u-text-1 {
-    font-size: 3.75rem;
-    margin-top: 310px;
-    margin-left: -28px;
-    margin-right: -28px;
+    font-size: 3rem;
+    margin-top: 186px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .u-section-1 .u-layout-wrap-1 {
-    margin-top: -1px;
+    margin-top: 58px;
   }
 }
