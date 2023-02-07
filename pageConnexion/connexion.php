@@ -94,7 +94,7 @@ if(isset($_POST['connexion'])){
             </div>
             <style>
               button{
-                padding-top : 10px;
+                padding-top : 30px;
               }
             </style>
             <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
