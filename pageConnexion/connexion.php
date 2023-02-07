@@ -92,10 +92,10 @@ if(isset($_POST['connexion'])){
               <label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label>
               <input type="password" placeholder="Saisir votre mot de passe" id="password" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="required">
             </div>
-            
+            <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
           </form>
         </div>
-        <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
+       
         <h3 class="u-text u-text-default u-text-2">PAS DE COMPTE ?</h3>
         <a href="../createAccount.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">s'inscrire ?</a>
       </div>
