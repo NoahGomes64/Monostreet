@@ -73,11 +73,12 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               <label for="text-1100" class="u-label u-label-4">CONFIRMATION DU MOT DE PASSE</label>
               <input type="text" placeholder="Saisir de nouveau votre mot de passe" id="text-4ab2" name="mdpConfirm" class="u-input u-input-rectangle u-radius-46 u-white u-input-4">
             </div>
+            <br>
             <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">inscription</button>
           </form>
         </div>
-        <br>
-        <a href="" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">inscription</a>
+
+ 
       </div>
     </section>
     
