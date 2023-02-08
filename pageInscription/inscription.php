@@ -20,7 +20,8 @@ if(isset($_POST['inscription'])){
     $result = mysqli_query($connection, $query);
     $compteur = mysqli_num_rows($result);
     if ($compteur > 0) {
-      echo "Adresse mail invalide";
+      $message='Adresse mail déjà utilisée';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
       $adresseDispo = false;
     }
 
@@ -29,7 +30,8 @@ if(isset($_POST['inscription'])){
     $result = mysqli_query($connection, $query);
     $compteur = mysqli_num_rows($result);
     if ($compteur > 0) {
-      echo "Pseudo invalide";
+      $message='Pseudo déjà utilisé';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
       $pseudoDispo = false;
     }
     
@@ -43,20 +45,6 @@ if(isset($_POST['inscription'])){
       $_SESSION['pseudo'] = $_POST['pseudo'];
       $_SESSION['mdp'] = $_POST['mdp'];
       header ('location: ../index.php');
-    }
-  }
-  else {
-    if (empty($_POST['email'])) {
-      echo "Le champs E-mail est vide";
-    }
-    if (empty($_POST['pseudo'])) {
-      echo "Le champs pseudo est vide";
-    }
-    if (empty($_POST['mdp'])) {
-      echo "Le champs Mot de Passe est vide";
-    }
-    if (empty($_POST['mdpConfirm'])) {
-      echo "Vous n'avez pas confirmé votre mdp";
     }
   }
 }
@@ -108,11 +96,11 @@ if(isset($_POST['inscription'])){
           <form action="inscription.php" style="padding: 10px;" method="post">
             <div class="u-form-group u-form-group-1">
               <label for="text-443c" class="u-label u-label-1">ADRESSE MAIL</label>
-              <input type="email" placeholder="Saisir votre adresse mail" id="text-443c" name="email" class="u-input u-input-rectangle u-radius-46 u-white u-input-1">
+              <input type="email" placeholder="Saisir votre adresse mail" id="text-443c" name="email" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="required">
             </div>
             <div class="u-form-group u-form-name u-form-group-2">
               <label for="name-1eed" class="u-label u-label-2">PSEUDO</label>
-              <input type="text" placeholder="Saisir votre pseudo" id="name-1eed" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="">
+              <input type="text" placeholder="Saisir votre pseudo" id="name-1eed" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="required">
             </div>
             <div class="u-form-group u-form-group-3">
               <label for="email-1eed" class="u-label u-label-3">MOT DE PASSE</label>
@@ -120,7 +108,7 @@ if(isset($_POST['inscription'])){
             </div>
             <div class="u-form-group u-form-group-4">
               <label for="text-1100" class="u-label u-label-4">CONFIRMATION DU MOT DE PASSE</label>
-              <input type="password" placeholder="Saisir de nouveau votre mot de passe" id="text-4ab2" name="mdpConfirm" class="u-input u-input-rectangle u-radius-46 u-white u-input-4">
+              <input type="password" placeholder="Saisir de nouveau votre mot de passe" id="text-4ab2" name="mdpConfirm" class="u-input u-input-rectangle u-radius-46 u-white u-input-4" required="required">
             </div>
            <br>
             <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">inscription</button>
