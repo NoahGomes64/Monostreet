@@ -58,7 +58,7 @@ if(isset($_POST['createAccount'])){
                     }
                 }
             }
-    }
+    }}}
 
 ?>
 <html>
@@ -107,4 +107,3 @@ foreach ($result as $row) {
 ?>
 
 </html>
-
