@@ -8,7 +8,11 @@ session_start();
  * date 
  * 
  * */
+<<<<<<< HEAD
 $connection = mysqli_connect("mysql-monostreet.alwaysdata.net","298407_guillaume","monostreet64!!","monostreet_utilisateur");
+=======
+$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
+>>>>>>> 31bbd10db53a2cb4ae458894c95452771d42183c
 
 //si le bouton "Connexion" est cliqué 
 if(isset($_POST['inscription'])){
