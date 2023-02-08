@@ -39,9 +39,7 @@ if(isset($_POST['inscription'])){
       $sql = "SELECT * FROM compte";
       $result = mysqli_query($connection, $sql);
       $compteur = mysqli_num_rows($result);
-      var_dump($compteur);
       $compteur ++;
-      var_dump($compteur);
       $sql = "INSERT INTO compte VALUES ('$compteur', '$_POST[pseudo]', '$_POST[mdp]', '0', '$_POST[email]')";
       mysqli_query($connection, $sql);
       $_SESSION['pseudo'] = $_POST['pseudo'];
