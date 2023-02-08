@@ -15,10 +15,17 @@ $connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","g
 
 
 $leCode = $_GET['code'];
-$result = mysqli_query($connection, "SELECT * FROM Partie WHERE codePartie='$leCode'");
+if (strlen($leCode) == 4) {
+    $result = mysqli_query($connection, "SELECT * FROM Partie WHERE codePartie='$leCode'");
 
-/* Get the number of rows in the result set */
-$row_cnt = mysqli_num_rows($result);
+    /* Get the number of rows in the result set */
+    $row_cnt = mysqli_num_rows($result);
+    $bonCode = true;
+}
+else {
+    echo "<h1>Desolé, tu n'as pas reussi a drop notre database</h1></br>";
+    $bonCode = false;
+}
 
 
 ?>
@@ -37,7 +44,7 @@ $row_cnt = mysqli_num_rows($result);
     </style>
     <body>
         <?php
-        if ($row_cnt == 1) {
+        if ($bonCode && $row_cnt == 1) {
             trouverParcours($_SESSION['rueDeDepart'],false);
         }
         else {
