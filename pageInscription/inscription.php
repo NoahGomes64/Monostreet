@@ -8,11 +8,58 @@ session_start();
  * date 
  * 
  * */
+$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
 
-$login_valide_admin = "root";
-$pwd_valide_admin = "root";
+//si le bouton "Connexion" est cliqué 
+if(isset($_POST['inscription'])){
+  // on vérifie que le champ "Pseudo" n'est pas vide
+  // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
+  if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
+    $adresseDispo = true;
+    $query = "SELECT * FROM compte WHERE email='$_POST[email]'";
+    $result = mysqli_query($connection, $query);
+    $compteur = mysqli_num_rows($result);
+    if ($compteur > 0) {
+      echo "Adresse mail invalide";
+      $adresseDispo = false;
+    }
 
-
+    $pseudoDispo = true;
+    $query = "SELECT * FROM compte WHERE nom='$_POST[pseudo]'";
+    $result = mysqli_query($connection, $query);
+    $compteur = mysqli_num_rows($result);
+    if ($compteur > 0) {
+      echo "Pseudo invalide";
+      $pseudoDispo = false;
+    }
+    
+    if ($pseudoDispo && $adresseDispo) {
+      $sql = "SELECT * FROM compte";
+      $result = mysqli_query($connection, $sql);
+      $compteur = mysqli_num_rows($result);
+      $compteur ++;
+      $sql = "INSERT INTO compte VALUES ('$compteur', '$_POST[pseudo]', '$_POST[mdp]', '0', '$_POST[email]')";
+      mysqli_query($connection, $sql);
+      $_SESSION['pseudo'] = $_POST['pseudo'];
+      $_SESSION['mdp'] = $_POST['mdp'];
+      header ('location: ../index.php');
+    }
+  }
+  else {
+    if (empty($_POST['email'])) {
+      echo "Le champs E-mail est vide";
+    }
+    if (empty($_POST['pseudo'])) {
+      echo "Le champs pseudo est vide";
+    }
+    if (empty($_POST['mdp'])) {
+      echo "Le champs Mot de Passe est vide";
+    }
+    if (empty($_POST['mdpConfirm'])) {
+      echo "Vous n'avez pas confirmé votre mdp";
+    }
+  }
+}
 
 
 ?>
@@ -49,17 +96,19 @@ $pwd_valide_admin = "root";
         <a href="../index.php" class="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
           <img src="images/logo.PNG" class="u-logo-image u-logo-image-1">
         </a>
-      </div><style class="u-sticky-style" data-style-id="1613">.u-sticky-fixed.u-sticky-1613:before, .u-body.u-sticky-fixed .u-sticky-1613:before {
-borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
-}</style></header>
+      </div><style class="u-sticky-style" data-style-id="1613">
+      .u-sticky-fixed.u-sticky-1613:before, .u-body.u-sticky-fixed .u-sticky-1613:before {
+        borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
+      }
+</style></header>
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-864e">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">INSCRIPTION</h1>
         <div class="u-expanded-width-xs u-form u-form-1">
-          <form action="inscription.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+          <form action="inscription.php" style="padding: 10px;" method="post">
             <div class="u-form-group u-form-group-1">
               <label for="text-443c" class="u-label u-label-1">ADRESSE MAIL</label>
-              <input type="text" placeholder="Saisir votre adresse mail" id="text-443c" name="email" class="u-input u-input-rectangle u-radius-46 u-white u-input-1">
+              <input type="email" placeholder="Saisir votre adresse mail" id="text-443c" name="email" class="u-input u-input-rectangle u-radius-46 u-white u-input-1">
             </div>
             <div class="u-form-group u-form-name u-form-group-2">
               <label for="name-1eed" class="u-label u-label-2">PSEUDO</label>
@@ -67,13 +116,13 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             </div>
             <div class="u-form-group u-form-group-3">
               <label for="email-1eed" class="u-label u-label-3">MOT DE PASSE</label>
-              <input placeholder="Saisir votre mot de passe" id="email-1eed" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-3" required="required" type="text">
+              <input placeholder="Saisir votre mot de passe" id="email-1eed" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-3" required="required" type="password">
             </div>
             <div class="u-form-group u-form-group-4">
               <label for="text-1100" class="u-label u-label-4">CONFIRMATION DU MOT DE PASSE</label>
-              <input type="text" placeholder="Saisir de nouveau votre mot de passe" id="text-4ab2" name="mdpConfirm" class="u-input u-input-rectangle u-radius-46 u-white u-input-4">
+              <input type="password" placeholder="Saisir de nouveau votre mot de passe" id="text-4ab2" name="mdpConfirm" class="u-input u-input-rectangle u-radius-46 u-white u-input-4">
             </div>
-            <br>
+           <br>
             <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">inscription</button>
           </form>
         </div>
@@ -89,55 +138,4 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     
   
 </body>
-<?php
-//si le bouton "Connexion" est cliqué 
-if(isset($_POST['inscription'])){
-  echo "ok";
-  // on vérifie que le champ "Pseudo" n'est pas vide
-  // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
-  if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
-    $adresseDispo = true;
-    $connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
-    $query = 'SELECT email FROM compte';
-    $result = $connection->query($query);
-    foreach ($result as $row) {
-      if ($row == $_POST['email']) {
-        echo "adresse email deja utilisée";
-        $adresseDispo = false;
-      }
-    }
-    $pseudoDispo = true;
-    $query = 'SELECT nom FROM compte';
-    $result = $connection->query($query);
-    foreach ($result as $row) {
-      if ($row == $_POST['pseudo']) {
-        echo "Pseudo invalide";
-        $pseudoDispo = false;
-      }
-    }
-    if ($pseudoDispo && $adresseDispo) {
-      $sql = "SELECT * FROM compte";
-      $result = mysqli_query($connection, $sql);
-      $compteur = mysqli_num_rows($result);
-      $compteur ++;
-      $sql = "INSERT INTO compte VALUES ('$compteur', 'ok', 'ok', '0', 'ok')";
-      mysqli_query($connection, $sql);
-    }
-  }
-  else {
-    if (empty($_POST['email'])) {
-      echo "Le champs E-mail est vide";
-    }
-    if (empty($_POST['pseudo'])) {
-      echo "Le champs pseudo est vide";
-    }
-    if (empty($_POST['mdp'])) {
-      echo "Le champs Mot de Passe est vide";
-    }
-    if (empty($_POST['mdpConfirm'])) {
-      echo "Vous n'avez pas confirmé votre mdp";
-    }
-  }
-}
-?>
 </html>

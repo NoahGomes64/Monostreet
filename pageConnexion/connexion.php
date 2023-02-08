@@ -9,9 +9,7 @@ session_start();
  * 
  * */
 
-$login_valide_admin = "root";
-$pwd_valide_admin = "root";
-
+$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
 
 //si le bouton "Connexion" est cliqué
 if(isset($_POST['connexion'])){
@@ -31,17 +29,17 @@ if(isset($_POST['connexion'])){
 
             //on vérifie que la connexion s'effectue correctement:
             //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
-                
-                if ($login_valide_admin == $_POST['pseudo'] && $pwd_valide_admin == $_POST['mdp']) {
+            $query = "SELECT * FROM compte WHERE nom='$Pseudo' and mdp='$MotDePasse'";
+            $result = mysqli_query($connection, $query);
+            $compteur = mysqli_num_rows($result);    
 
-                 $_SESSION['pseudo'] = $_POST['pseudo'];
-                 $_SESSION['mdp'] = $_POST['mdp'];
-                 $CONNEXION=true;
+            if ($compteur > 0) {
+              $_SESSION['pseudo'] = $_POST['pseudo'];
+              $_SESSION['mdp'] = $_POST['mdp'];
+              $CONNEXION=true;
 
               
-                header ('location: ../index.php');
-         
-                    
+              header ('location: ../index.php');       
             }
             else {
                 echo "Mauvais identifiants fournies";
