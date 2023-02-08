@@ -45,7 +45,7 @@ if(isset($_POST['connexion'])){
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Connexion</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-2.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
