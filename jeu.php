@@ -8,11 +8,10 @@
  * 
  * */
 
-include("rechercheDeRue/main.php");
-
+ 
 session_start();
 require 'connexionBD.php';
-
+include("rechercheDeRue/creationPlateau.php");
 
 $leCode = $_GET['code'];
 if (strlen($leCode) == 4) {
@@ -45,7 +44,7 @@ else {
     <body>
         <?php
         if ($bonCode && $row_cnt == 1) {
-            trouverParcours($_SESSION['rueDeDepart'],false);
+            creerPlateau($_SESSION['rueDeDepart']);
         }
         else {
             echo "partie non trouvé";

@@ -229,9 +229,9 @@ function trouverParcours($laRue,$affiche){
     }
     
 
-    $listeDesRuesPourCoordonnees = listeDeRues1("rechercheDeRue/Oloron80.csv");
+    $listeDesRuesPourCoordonnees = listeDeRues1("http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE2/Monostreet/rechercheDeRue/Oloron80.csv");
 
-    $listeFinalePointToutes = listeDeRues2("rechercheDeRue/Oloron80.csv");
+    $listeFinalePointToutes = listeDeRues2("http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE2/Monostreet/rechercheDeRue/Oloron80.csv");
     // recherche des coordonnees de la rue donnée
     $rue = rechercheCoordonnees($laRue,$listeDesRuesPourCoordonnees);
     foreach ($listeFinalePointToutes as $rueElement) {
@@ -655,7 +655,7 @@ function trouverParcours($laRue,$affiche){
 
 
     //affichage final
-    echo "<div id='parcoursRue'>";
+    /**echo "<div id='parcoursRue'>";
     for ($i=0; $i < count($listeFin); $i++) { 
         if ($listeFin[$i] != null) {
             switch ($i) {
@@ -682,7 +682,9 @@ function trouverParcours($laRue,$affiche){
             echo "None";
         }
     }
-    echo "</div>";
+    echo "</div>";**/
+
+    return $listeFin;
 
     if ($affiche) {
         imagepng($img,"Parcours.png");
