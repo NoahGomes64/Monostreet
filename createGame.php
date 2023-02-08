@@ -19,13 +19,23 @@ for ($i=0; $i < 4; $i++) {
 }
 
 $sql = "SELECT * FROM Partie";
-$result = mysqli_query($connection, $sql);
-$compteur = mysqli_num_rows($result);
-$compteur ++;
 
-$sql = "INSERT INTO Partie VALUES ('$compteur', '4', '400', 'bonjour', '4', '$code', '1', '1', 'oloron')";
+try {
+    $pdo = new PDO("mysql:host=lakartxela;dbname=garricastres_bd", "garricastres_bd", "garricastres_bd");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-mysqli_query($connection, $sql);
+    $result = $pdo->query("SELECT COUNT(*) FROM Partie");
+    $compteur = $result->fetchColumn();
+    $compteur ++;
+
+    $sql = "INSERT INTO Partie VALUES (:compteur, 4, 400, 'bonjour', 4, :code, 1, 1, 'oloron')";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':compteur', $compteur, PDO::PARAM_INT);
+    $stmt->bindValue(':code', $code, PDO::PARAM_STR);
+    $stmt->execute();
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
 header("Location: jeu.php?code=$code");
 

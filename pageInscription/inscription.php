@@ -11,42 +11,49 @@ session_start();
 require '../connexionBD.php';
 
 //si le bouton "Connexion" est cliqué 
-if(isset($_POST['inscription'])){
-  // on vérifie que le champ "Pseudo" n'est pas vide
-  // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
+if (isset($_POST['inscription'])) {
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
-    $adresseDispo = true;
-    $query = "SELECT * FROM compte WHERE email='$_POST[email]'";
-    $result = mysqli_query($connection, $query);
-    $compteur = mysqli_num_rows($result);
-    if ($compteur > 0) {
-      $message='Adresse mail déjà utilisée';
+      $adresseDispo = true;
+      $query = "SELECT * FROM compte WHERE email=:email";
+      $stmt = $pdo->prepare($query);
+      $stmt->execute(array(':email' => $_POST['email']));
+      $result = $stmt->fetch();
+      if ($result) {
+      $message = 'Adresse mail déjà utilisée';
       echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
       $adresseDispo = false;
+      }
+    $pseudoDispo = true;
+    $query = "SELECT * FROM compte WHERE nom=:nom";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(array(':nom' => $_POST['pseudo']));
+    $result = $stmt->fetch();
+    if ($result) {
+        $message = 'Pseudo déjà utilisé';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        $pseudoDispo = false;
     }
 
-    $pseudoDispo = true;
-    $query = "SELECT * FROM compte WHERE nom='$_POST[pseudo]'";
-    $result = mysqli_query($connection, $query);
-    $compteur = mysqli_num_rows($result);
-    if ($compteur > 0) {
-      $message='Pseudo déjà utilisé';
-      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-      $pseudoDispo = false;
-    }
-    
     if ($pseudoDispo && $adresseDispo) {
-      $sql = "SELECT * FROM compte";
-      $result = mysqli_query($connection, $sql);
-      $compteur = mysqli_num_rows($result);
-      $compteur ++;
-      $sql = "INSERT INTO compte VALUES ('$compteur', '$_POST[pseudo]', '$_POST[mdp]', '0', '$_POST[email]')";
-      mysqli_query($connection, $sql);
-      $_SESSION['pseudo'] = $_POST['pseudo'];
-      $_SESSION['mdp'] = $_POST['mdp'];
-      header ('location: ../index.php');
+        $query = "SELECT * FROM compte";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $compteur = count($result) + 1;
+        $query = "INSERT INTO compte VALUES (:id, :nom, :mdp, :rang, :email)";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(array(
+            ':id' => $compteur,
+            ':nom' => $_POST['pseudo'],
+            ':mdp' => $_POST['mdp'],
+            ':rang' => 0,
+            ':email' => $_POST['email']
+        ));
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['mdp'] = $_POST['mdp'];
+        header ('location: ../index.php');
     }
-  }
+}
 }
 
 

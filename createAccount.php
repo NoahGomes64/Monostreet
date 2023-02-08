@@ -11,7 +11,6 @@ session_start();
 
 require 'connexionBD.php';
 
-
 //si le bouton "Connexion" est cliqué
 if(isset($_POST['createAccount'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
@@ -91,19 +90,30 @@ if(isset($_POST['createAccount'])){
             </div>
         </div>
 </header>
-
-
 <?php
-$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
-$query = 'SELECT nom FROM compte';
-$result = $connection->query($query);
-foreach ($result as $row) {
-    echo "<section id='$row[idPartie]'>";
-    echo "$row[idPartie]"."<br/>";
-    echo "$row[codePartie]";
-    echo "</section>";
+$host = "lakartxela";
+$user = "garricastres_bd";
+$pass = "garricastres_bd";
+$dbname = "garricastres_bd";
+
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+    $query = 'SELECT nom FROM compte';
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<section id='$row[idPartie]'>";
+        echo "$row[idPartie]"."<br/>";
+        echo "$row[codePartie]";
+        echo "</section>";
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
+$conn = null;
 ?>
 
 </html>

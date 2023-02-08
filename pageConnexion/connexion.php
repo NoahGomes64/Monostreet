@@ -13,30 +13,36 @@ require '../connexionBD.php';
 
 //si le bouton "Connexion" est cliqué
 if(isset($_POST['connexion'])){
-    // on vérifie que le champ "Pseudo" n'est pas vide
-    // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
     if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
-        $Pseudo =strip_tags($_POST['pseudo']); 
-        $MotDePasse =strip_tags($_POST['mdp']);
-        //on se connecte à la base de données:
-        //on vérifie que la connexion s'effectue correctement:
-        //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
-        $query = "SELECT * FROM compte WHERE nom='$Pseudo' and mdp='$MotDePasse'";
-        $result = mysqli_query($connection, $query);
-        $compteur = mysqli_num_rows($result);    
-        if ($compteur > 0) {
-          $_SESSION['pseudo'] = $Pseudo;
-          $_SESSION['mdp'] = $MotDePasse;
-          $CONNEXION=true;
+        $pseudo = strip_tags($_POST['pseudo']); 
+        $mdp = strip_tags($_POST['mdp']);
 
+        try {
+            $pdo = new PDO("mysql:host=host;dbname=dbname", "username", "password");
+        } catch (PDOException $e) {
+            die("Erreur de connexion : " . $e->getMessage());
+        }
         
-          header ('location: ../index.php');       
-          }
-          else {
-            echo "Mauvais identifiants fournies";
-          }
+        $query = "SELECT * FROM compte WHERE nom = :pseudo AND mdp = :mdp";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(array(
+            ':pseudo' => $pseudo,
+            ':mdp' => $mdp
+        ));
+        $count = $stmt->rowCount();
+        
+        if ($count > 0) {
+            session_start();
+            $_SESSION['pseudo'] = $pseudo;
+            $_SESSION['mdp'] = $mdp;
+            $connexion = true;
+            header ('location: ../index.php');
+        } else {
+            echo "Mauvais identifiants fournis";
+        }
     }
 }
+
 
 ?>
 <html style="font-size: 16px;" lang="fr"><head>
