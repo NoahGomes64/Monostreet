@@ -11,7 +11,7 @@
 include("rechercheDeRue/main.php");
 
 session_start();
-require 'connexionBD.php';
+$connection = mysqli_connect("mysql-monostreet.alwaysdata.net","298407_guillaume","monostreet64!!","monostreet_utilisateur",3306);
 
 
 $leCode = $_GET['code'];
