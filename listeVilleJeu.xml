@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<continents>
+    <europe>
+        <France>
+            <ville>Paris</ville>
+            <ville>Marseille</ville>
+        </France>
+        <Allemagne>
+            <ville>Berlin</ville>
+        </Allemagne>
+        <Angleterre>
+            <ville>Londres</ville>
+        </Angleterre>
+    </europe>
+    <asie>
+        <Japon>
+            <ville>Tokyo</ville>
+            <ville>Kyoto</ville>
+        </Japon>
+        <Inde>
+            <ville>New Delhi</ville>
+            <ville>Mumbai</ville>
+        </Inde>
+    </asie>
+    <AmeriqueDuNord>
+        <EtatsUnis>
+            <ville>Wahington DC</ville>
+            <ville>Las Vegas</ville>
+        </EtatsUnis>
+    </AmeriqueDuNord>
+</continents>
