@@ -25,8 +25,8 @@ if(isset($_POST['connexion'])){
             echo "Le champ Mot de passe est vide.";
         } else {
             
-            $Pseudo =($_POST['pseudo']); 
-            $MotDePasse =($_POST['mdp']);
+            $Pseudo =strip_tags($_POST['pseudo']); 
+            $MotDePasse =strip_tags($_POST['mdp']);
             //on se connecte à la base de données:
 
             //on vérifie que la connexion s'effectue correctement:
