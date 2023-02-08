@@ -9,8 +9,7 @@ session_start();
  * 
  * */
 
-$login_valide_admin = "root";
-$pwd_valide_admin = "root";
+require 'connexionBD.php';
 
 
 //si le bouton "Connexion" est cliqué
@@ -37,7 +36,6 @@ if(isset($_POST['createAccount'])){
                     }
                     else {
                         $adresseDispo = true;
-                        $connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
                         $query = 'SELECT email FROM compte';
                         $result = $connection->query($query);
                         foreach ($result as $row) {

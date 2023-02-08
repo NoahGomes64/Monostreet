@@ -9,42 +9,32 @@ session_start();
  * 
  * */
 
-$connection = mysqli_connect("mysql-monostreet.alwaysdata.net","298407_guillaume","monostreet64!!","monostreet_utilisateur",3306);
+require '../connexionBD.php';
 
 //si le bouton "Connexion" est cliqué
 if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
-    if(empty($_POST['pseudo'])){
-        echo "Le champ Pseudo est vide.";
-    } else {
-        // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
-        if(empty($_POST['mdp'])){
-            echo "Le champ Mot de passe est vide.";
-        } else {
-            
-            $Pseudo =($_POST['pseudo']); 
-            $MotDePasse =($_POST['mdp']);
-            //on se connecte à la base de données:
+    if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
+        $Pseudo =strip_tags($_POST['pseudo']); 
+        $MotDePasse =strip_tags($_POST['mdp']);
+        //on se connecte à la base de données:
+        //on vérifie que la connexion s'effectue correctement:
+        //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
+        $query = "SELECT * FROM compte WHERE nom='$Pseudo' and mdp='$MotDePasse'";
+        $result = mysqli_query($connection, $query);
+        $compteur = mysqli_num_rows($result);    
+        if ($compteur > 0) {
+          $_SESSION['pseudo'] = $Pseudo;
+          $_SESSION['mdp'] = $MotDePasse;
+          $CONNEXION=true;
 
-            //on vérifie que la connexion s'effectue correctement:
-            //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
-            $query = "SELECT * FROM compte WHERE nom='$Pseudo' and mdp='$MotDePasse'";
-            $result = mysqli_query($connection, $query);
-            $compteur = mysqli_num_rows($result);    
-
-            if ($compteur > 0) {
-              $_SESSION['pseudo'] = $_POST['pseudo'];
-              $_SESSION['mdp'] = $_POST['mdp'];
-              $CONNEXION=true;
-
-              
-              header ('location: ../index.php');       
-            }
-            else {
-                echo "Mauvais identifiants fournies";
-            }
-        }
+        
+          header ('location: ../index.php');       
+          }
+          else {
+            echo "Mauvais identifiants fournies";
+          }
     }
 }
 
@@ -102,7 +92,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     <form action="connexion.php"  style="padding: 10px;" method="post">
                       <div class="u-form-group u-form-name">
                         <label for="name-1eed" class="u-label u-label-1">LOGIN</label>
-                        <input type="text" placeholder="Saisir votre login" id="login" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="">
+                        <input type="text" placeholder="Saisir votre login" id="login" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="required">
                       </div>
                       <div class="u-form-group">
                         <label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label>
