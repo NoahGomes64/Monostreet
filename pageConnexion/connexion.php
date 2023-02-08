@@ -16,8 +16,8 @@ if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
     if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
-        $Pseudo =strip_tags($_POST['pseudo']); 
-        $MotDePasse =strip_tags($_POST['mdp']);
+        $Pseudo =mysqli_real_escape_string($connection,$_POST['pseudo']); 
+        $MotDePasse =mysqli_real_escape_string($connection,$_POST['mdp']);
         //on se connecte à la base de données:
         //on vérifie que la connexion s'effectue correctement:
         //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
