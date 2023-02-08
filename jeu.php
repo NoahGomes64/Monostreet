@@ -45,7 +45,7 @@ else {
     <body>
         <?php
         if ($bonCode && $row_cnt == 1) {
-            trouverParcours($_SESSION['rueDeDepart'],false);
+            trouverParcours($_SESSION['rueDeDepart'],true);
         }
         else {
             echo "partie non trouvé";
