@@ -1,8 +1,8 @@
 <?php
-$host = "lakartxela";
-$dbname = "garricastres_bd";
-$username = "garricastres_bd";
-$password = "garricastres_bd";
+$host = "mysql-monostreet.alwaysdata.net";
+$dbname = "monostreet_utilisateur";
+$username = "298407_guillaume";
+$password = "monostreet64!!";
 
 try {
   $connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
