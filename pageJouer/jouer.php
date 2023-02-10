@@ -7,6 +7,22 @@ foreach ($lesRues as $nomDeRues) {
     }
 ?>
 
+
+<?php
+        if(isset($_POST['codePartie'])){
+            echo "<script type='text/javascript'>document.location.replace('jeu.php?code=$_POST[codePartie]');</script>";
+        }
+
+        if(isset($_POST['envoie'])){
+            if(isset($_POST['laRuePriv'])){
+                $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
+                if (isset($_POST['nbJoueurPriv'])) {
+                    echo "<script type='text/javascript'>document.location.replace('../createGame.php');</script>";
+                }
+            }
+        }
+    ?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,11 +66,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-container-layout u-container-layout-1">
                   <h1 class="u-hover-feature u-text u-text-default u-text-2">CREER UNE PARTIE</h1>
                   <div class="u-expanded-width u-form u-form-1">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                    <form action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" method="POST" style="padding: 10px;">
                       <div class="u-form-group u-form-select u-label-top u-form-group-1">
                         <label for="select-f858" class="u-label u-label-1">Choix de la rue de départ</label>
                         <div class="u-form-select-wrapper">
-                          <select id="select-f858" name="select" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-1">
+                          <select id="select-f858" name="laRuePriv" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-1">
                           <option value="">Choisissez une rue</option>
                         <?php
                             foreach ($listeParNom as $nomDeRue) {
@@ -88,7 +104,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <h1 class="u-hover-feature u-text u-text-default u-text-3">REJOINDRE UNE PARTIE</h1>
                   <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-2">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                    <form action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" method="POST" style="padding: 10px;">
                       <div class="u-form-email u-form-group u-label-top">
                         <label for="email-709f" class="u-label u-label-4">Code de la partie</label>
                         <input type="text" placeholder="Entrez un code" id="email-709f" name="email" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
