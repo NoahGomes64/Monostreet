@@ -1,4 +1,13 @@
 <?php
-$connection = mysqli_connect("mysql-monostreet.alwaysdata.net","298407_guillaume","monostreet64!!","monostreet_utilisateur",3306);
-//$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd"); 
+$host = "lakartxela";
+$dbname = "garricastres_bd";
+$username = "garricastres_bd";
+$password = "garricastres_bd";
+
+try {
+  $connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+  $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur de connexion : " . $e->getMessage();
+}
 ?>
