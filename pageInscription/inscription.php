@@ -10,43 +10,73 @@ session_start();
  * */
 require '../connexionBD.php';
 
-//si le bouton "Connexion" est cliqué 
+// si le bouton "Connexion" est cliqué
+if(isset($_POST['connexion'])){
+  // vérification que les champs "Pseudo" et "Mot de passe" ne sont pas vides
+  if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
+    $Pseudo = strip_tags($_POST['pseudo']);
+    $MotDePasse = strip_tags($_POST['mdp']);
+    try {
+      $stmt = $connection->prepare("SELECT * FROM compte WHERE nom = :nom AND mdp = :mdp");
+      $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
+      $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
+      $stmt->execute();
+      if ($stmt->rowCount() > 0) {
+        $_SESSION['pseudo'] = $Pseudo;
+        $_SESSION['mdp'] = $MotDePasse;
+        header ('location: ../index.php');
+      } else {
+        echo "Mauvais identifiants fournis";
+      }
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+// si le bouton "Inscription" est cliqué
 if(isset($_POST['inscription'])){
-  // on vérifie que le champ "Pseudo" n'est pas vide
-  // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
+  // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
     $adresseDispo = true;
-    $query = "SELECT * FROM compte WHERE email='$_POST[email]'";
-    $result = mysqli_query($connection, $query);
-    $compteur = mysqli_num_rows($result);
-    if ($compteur > 0) {
-      $message='Adresse mail déjà utilisée';
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
+    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+      $message='Adresse email déjà utilisée';
       echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
       $adresseDispo = false;
     }
 
     $pseudoDispo = true;
-    $query = "SELECT * FROM compte WHERE nom='$_POST[pseudo]'";
-    $result = mysqli_query($connection, $query);
-    $compteur = mysqli_num_rows($result);
-    if ($compteur > 0) {
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
       $message='Pseudo déjà utilisé';
       echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
       $pseudoDispo = false;
     }
     
     if ($pseudoDispo && $adresseDispo) {
-      $sql = "SELECT * FROM compte";
-      $result = mysqli_query($connection, $sql);
-      $compteur = mysqli_num_rows($result);
-      $compteur ++;
-      $sql = "INSERT INTO compte VALUES ('$compteur', '$_POST[pseudo]', '$_POST[mdp]', '0', '$_POST[email]')";
-      mysqli_query($connection, $sql);
-      $_SESSION['pseudo'] = $_POST['pseudo'];
-      $_SESSION['mdp'] = $_POST['mdp'];
-      header ('location: ../index.php');
-    }
+        // si le pseudo et l'adresse email sont disponibles, on peut inscrire le nouvel utilisateur
+        $stmt = $connection->query("SELECT MAX(id) as max_id FROM compte");
+        $max = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+        $compteur = $max['max_id'];
+        $compteur ++;
+        $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email) VALUES (:id, :nom, :mdp, :estPrivilegie, :email)");
+        $stmt->bindParam(':id', $compteur, PDO::PARAM_INT);
+        $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+        $stmt->bindParam(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+        $stmt->bindValue(':estPrivilegie', 0, PDO::PARAM_INT);
+        $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->execute();
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['mdp'] = $_POST['mdp'];
+        header ('location: ../index.php');
   }
+}
 }
 
 
