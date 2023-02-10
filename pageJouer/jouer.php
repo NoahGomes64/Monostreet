@@ -91,7 +91,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
                       <div class="u-form-email u-form-group u-label-top">
                         <label for="email-709f" class="u-label u-label-4">Code de la partie</label>
-                        <input type="email" placeholder="Entrez un code" id="email-709f" name="email" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
+                        <input type="text" placeholder="Entrez un code" id="email-709f" name="email" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit u-label-top">
                         
@@ -116,16 +116,10 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-98d6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">MONOSTREET 2023 TOUT DROITS RESERVES</p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
-        <span>Website Design</span>
+      <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="../pageConfidentialite/confidentialite.php">
+        <span>Politique de confidentialite</span>
       </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
     </section>
   
 </body></html>
