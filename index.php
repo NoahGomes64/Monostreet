@@ -59,7 +59,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <a href="playGame.php?" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">jouer</a>
+                  <a href="pageJouer/jouer.php?" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">jouer</a>
                 </div>
               </div>
               
