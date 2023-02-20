@@ -76,13 +76,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         <input type="email" placeholder="Saisir une adresse mail valide" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Soumettre</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden">
+                        
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Merci ! Votre message a été envoyé. </div>
-                      <div class="u-form-send-error u-form-send-message"> Impossible d'envoyer votre message. Merci de corriger les erreurs et réessayer. </div>
-                      <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="35328c33c2e9b8d5b4a08b7359ce30c3">
+                      
                     </form>
                   </div>
                 </div>
