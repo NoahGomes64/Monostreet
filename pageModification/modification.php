@@ -11,13 +11,12 @@ session_start();
 
 
 ?>
-
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="modification du profil">
     <meta name="description" content="">
-    <title>Modification du profil</title>
+    <title>Page 1</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
@@ -45,7 +44,7 @@ session_start();
 borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
 }</style></header>
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-7434">
-      <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">modification du profil</h1>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
@@ -60,13 +59,13 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-container-layout-2">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-xl u-container-layout-2">
                   <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="images/0372c92a50c4845a7b15477773da14c9588c2c010fdf267a7b6f473d421756ac9ebea27f41570fa7d99196437a98d993f41b72d3164ca4b5e91035_1280.png" alt="" data-image-width="1280" data-image-height="1280">
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
-                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-container-layout-3">
-                  <div class="u-form u-form-1">
+                <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-3">
+                  <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
                     <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
                       <div class="u-form-group u-form-name">
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
@@ -77,9 +76,13 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         <input type="email" placeholder="Saisir une adresse mail valide" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        
+                        <a href="#" class="u-btn u-btn-submit u-button-style">Soumettre</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
-                      
+                      <div class="u-form-send-message u-form-send-success"> Merci ! Votre message a été envoyé. </div>
+                      <div class="u-form-send-error u-form-send-message"> Impossible d'envoyer votre message. Merci de corriger les erreurs et réessayer. </div>
+                      <input type="hidden" value="" name="recaptchaResponse">
+                      <input type="hidden" name="formServices" value="35328c33c2e9b8d5b4a08b7359ce30c3">
                     </form>
                   </div>
                 </div>
@@ -99,7 +102,6 @@ background-color: #000000 !important
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-98d6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">MONOSTREET 2023 TOUT DROITS RESERVES</p>
       </div></footer>
-    
       <section class="u-backlink u-clearfix u-grey-80">
         <a class="u-link" href="../pageConfidentialite/confidentialite.php">
           <span>Politique de confidentialite</span>
