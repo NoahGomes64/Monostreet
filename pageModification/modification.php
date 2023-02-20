@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+/**
+ * @file profil.php 
+ * @brief fichier permettant a etablire la connexion et deconnexion des utilisateur depuis leur profil
+ * @autor Guillaume Arricastre
+ * version 
+ * date 
+ * 
+ * */
+session_start();
+
+
+?>
+
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
