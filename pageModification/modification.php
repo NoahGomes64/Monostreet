@@ -10,8 +10,8 @@
 session_start();
 require '../connexionBD.php';
 
-// si le bouton "Inscription" est cliqué
-if(isset($_POST['inscription'])){
+// si le bouton "Enregistré" est cliqué
+if(isset($_POST['enregistrer'])){
   // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
     $adresseDispo = true;
@@ -129,7 +129,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
           </div>
         </div>
         
-        <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
+        <button type="submit" name="enregistrer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
       </div>
     </section>
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
