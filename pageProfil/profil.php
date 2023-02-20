@@ -56,7 +56,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               </div>
               <div class="u-container-style u-layout-cell u-size-14-xl u-size-15-lg u-size-17-md u-size-17-sm u-size-17-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <a href="" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">modifier le profil<br>
+                  <a href="pageModification/modification.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">modifier le profil<br>
                   </a>
                 </div>
               </div>
