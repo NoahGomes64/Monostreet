@@ -118,11 +118,12 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-align-left u-form-group u-form-submit">
                         
                       </div>
-                      <br>
-                      <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
+                     
                     </form>
                   </div>
                 </div>
+                <br>
+                      <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
               </div>
             </div>
           </div>
