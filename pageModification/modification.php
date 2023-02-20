@@ -57,7 +57,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
                       <div class="u-form-group u-form-name">
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
-                        <input type="text" placeholder="Saisir votre nom" id="name-3c8c" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+                        <input type="text" value="<?php $_SESSION['pseudo']?>" id="name-3c8c" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-form-email u-form-group">
                         <label for="email-3c8c" class="u-label">EMAIL</label>
