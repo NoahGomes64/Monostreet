@@ -8,8 +8,48 @@
  * 
  * */
 session_start();
+require '../connexionBD.php';
 
+// si le bouton "Inscription" est cliqué
+if(isset($_POST['inscription'])){
+  // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
+  if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
+    $adresseDispo = true;
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
+    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+      $message='Adresse email déjà utilisée';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+      $adresseDispo = false;
+    }
 
+    $pseudoDispo = true;
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+      $message='Pseudo déjà utilisé';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+      $pseudoDispo = false;
+    }
+    $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    $id=$stmt->fetch();
+
+    if ($pseudoDispo && $adresseDispo) {
+        
+        $stmt = $connection->prepare("UPDATE compte SET nom= ':nom',email= ':email' WHERE id=$id");
+        $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+        $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->execute();
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['mdp'] = $_POST['mdp'];
+        header ('location: ../index.php');
+  }
+}
+}
 ?>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,10 +106,10 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
                 <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-3">
                   <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                    <form action="modification.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"   style="padding: 10px;" method="post">
                       <div class="u-form-group u-form-name">
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
-                        <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+                        <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="pseudo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-form-email u-form-group">
                         <label for="email-3c8c" class="u-label">EMAIL</label>
@@ -78,7 +118,8 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-align-left u-form-group u-form-submit">
                         
                       </div>
-                      
+                      <br>
+                      <button type="submit" name="inscription" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
                     </form>
                   </div>
                 </div>
@@ -86,7 +127,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             </div>
           </div>
         </div>
-        <a href="https://nicepage.com/joomla-page-builder" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">enregistrer<br>
+        
         </a>
       </div>
     </section>
