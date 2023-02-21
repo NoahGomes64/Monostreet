@@ -45,10 +45,10 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <h4 class="u-hover-feature u-text u-text-default u-text-palette-3-base u-text-2">
                         <span style="font-weight: 700;">Responsable de la publication du site :</span>
                         <br>
-                        <br>Noah Gomes<br>
+                        <br>Maxime Segot<br>
                         <br>
                         <span style="font-weight: 700;">Webmaster :</span>&nbsp;<br>
-                        <br>Noah Gomes<br>
+                        <br>Guillaume Arricastres<br>
                         <br>
                         <span style="font-weight: 700;">Conception Graphique :</span>&nbsp;<br>
                         <br>Noah Gomes
