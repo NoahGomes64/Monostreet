@@ -11,10 +11,11 @@ session_start();
 require '../connexionBD.php';
 
 
-$stmt = $connection->prepare("SELECT email FROM compte WHERE nom='$_SESSION'");
+$stmt = $connection->prepare("SELECT email FROM compte WHERE nom=$_SESSION");
 
 $stmt->execute();
 $email=$stmt->fetch();
+
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
