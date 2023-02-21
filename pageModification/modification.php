@@ -19,13 +19,13 @@ $email = $stmt->fetch();
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
   $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
-    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
 
     
         
-        $stmt = $connection->prepare("UPDATE compte SET nom= ':nom',email= ':email' WHERE id=$id");
+        $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=$id[0]");
         $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
         $stmt->execute();
