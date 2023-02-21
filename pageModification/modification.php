@@ -10,6 +10,12 @@
 session_start();
 require '../connexionBD.php';
 
+
+$stmt = $connection->prepare("SELECT email FROM compte WHERE nom='$_SESSION'");
+
+$stmt->execute();
+$email=$stmt->fetch();
+
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
   // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
@@ -50,6 +56,11 @@ if(isset($_POST['enregistrer'])){
   }
 }
 }
+
+
+
+
+
 ?>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,7 +124,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       </div>
                       <div class="u-form-email u-form-group">
                         <label for="email-3c8c" class="u-label">EMAIL</label>
-                        <input type="email" placeholder="Saisir une adresse mail valide" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+                        <input type="email" value="<?php echo $email?>" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
                         
