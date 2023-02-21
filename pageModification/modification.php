@@ -116,7 +116,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
                 <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-3">
                   <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-                    <form action="modification.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"   style="padding: 10px;" method="post">
+                    <form method="POST" action="#" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"   style="padding: 10px;">
                       <div class="u-form-group u-form-name">
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
                         <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="pseudo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
@@ -140,6 +140,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         </div>
         
         <button type="submit" name="enregistrer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
+        
       </div>
     </section>
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
