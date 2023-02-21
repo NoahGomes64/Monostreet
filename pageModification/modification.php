@@ -18,33 +18,12 @@ $email = $stmt->fetch();
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
-  // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
-  if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
-    $adresseDispo = true;
-    $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
-    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) {
-      $message='Adresse email déjà utilisée';
-      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-      $adresseDispo = false;
-    }
-
-    $pseudoDispo = true;
-    $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
-    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) {
-      $message='Pseudo déjà utilisé';
-      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-      $pseudoDispo = false;
-    }
-    $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
+  $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
 
-    if ($pseudoDispo && $adresseDispo) {
+    
         
         $stmt = $connection->prepare("UPDATE compte SET nom= ':nom',email= ':email' WHERE id=$id");
         $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
@@ -54,8 +33,7 @@ if(isset($_POST['enregistrer'])){
         $_SESSION['mdp'] = $_POST['mdp'];
         header ('location: ../index.php');
   }
-}
-}
+
 
 
 
