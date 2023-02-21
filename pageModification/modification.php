@@ -14,7 +14,7 @@ require '../connexionBD.php';
 $stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
-$email = $stmt->fetch(PDO::FETCH_ASSOC);
+$email = $stmt->fetch();
 
 
 // si le bouton "Enregistré" est cliqué
@@ -125,7 +125,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       </div>
                       <div class="u-form-email u-form-group">
                         <label for="email-3c8c" class="u-label">EMAIL</label>
-                        <input type="email" value="<?php echo $email[0]?>" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+                        <input type="email" value="<?php echo $email?>" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
                         
