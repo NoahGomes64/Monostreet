@@ -11,8 +11,8 @@ session_start();
 require '../connexionBD.php';
 
 
-$stmt = $connection->prepare("SELECT email FROM compte WHERE nom='$_SESSION['pseudo']'");
-
+$stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $email = $stmt->fetch(PDO::FETCH_ASSOC);
 
