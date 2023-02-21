@@ -5,7 +5,7 @@
     <meta name="keywords" content="POLITIQUE DE CONFIDENTIALITE">
     <meta name="description" content="">
     <title>Confidentialite</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="confidentialite.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>

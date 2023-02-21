@@ -30,7 +30,7 @@ foreach ($lesRues as $nomDeRues) {
     <meta name="keywords" content="POLITIQUE DE CONFIDENTIALITE">
     <meta name="description" content="">
     <title>Jouer</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Copie-de-confidentialite.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
