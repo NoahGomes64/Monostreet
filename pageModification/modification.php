@@ -129,11 +129,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         
                       </div>
                      
-                    </form>
+                    
                   </div>
                 </div>
                 <br>
-                <input type="Submit" value="enregistrer">
+               
               </div>
             </div>
           </div>
@@ -142,6 +142,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         <button type="submit" name="enregistrer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
         
       </div>
+      </form>
     </section>
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
 background-color: #000000 !important
