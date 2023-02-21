@@ -65,7 +65,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-container-layout u-container-layout-1">
                   <h1 class="u-hover-feature u-text u-text-default u-text-2">CREER UNE PARTIE</h1>
                   <div class="u-expanded-width u-form u-form-1">
-                    <form action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" method="POST" style="padding: 10px;">
+                    <form method="POST" action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;">
                       <div class="u-form-group u-form-select u-label-top u-form-group-1">
                         <label for="select-f858" class="u-label u-label-1">Choix de la rue de départ</label>
                         <div class="u-form-select-wrapper">
@@ -104,7 +104,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <h1 class="u-hover-feature u-text u-text-default u-text-3">REJOINDRE UNE PARTIE</h1>
                   <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-2">
-                    <form action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" method="POST" style="padding: 10px;">
+                    <form method="POST" action="jouer.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;">
                       <div class="u-form-email u-form-group u-label-top">
                         <label for="email-709f" class="u-label u-label-4">Code de la partie</label>
                         <input type="text" placeholder="Entrez un code" id="email-709f" name="email" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
