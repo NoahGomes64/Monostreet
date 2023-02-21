@@ -94,11 +94,12 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       
                       </div>
                       
-                    </form>
+                   
                   </div>
                   <button type="submit" name="envoie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Creer</button>
                 </div>
               </div>
+              </form>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <h1 class="u-hover-feature u-text u-text-default u-text-3">REJOINDRE UNE PARTIE</h1>
@@ -112,7 +113,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         
                       </div>
                       
-                    </form>
+                    
                   </div>
                   
                   <button type="submit" name="envoie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Rejoindre</button>
@@ -122,7 +123,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
           </div>
         </div>
       </div>
-      
+      </form>
       
       
     </section>
