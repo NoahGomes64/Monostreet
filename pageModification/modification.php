@@ -102,6 +102,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-form-email u-form-group">
                         <label for="email-3c8c" class="u-label">EMAIL</label>
                         <input type="email" value="<?php echo $email[0]?>" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+                        <a href="../pageNouveauMdp/nouveauMdp.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">deconnexion<br>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
                         
@@ -118,6 +119,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         </div>
         
         <button type="submit" name="enregistrer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
+
         
       </div>
       </form>
