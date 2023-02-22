@@ -74,7 +74,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-hover-feature u-text u-text-default u-title u-text-1">modification du mot de passe</h1>
         <div class="u-form u-form-1">
-          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+          <form  method="POST" action="nouveauMdp.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
             <div class="u-form-group u-form-name">
               <label for="name-c594" class="u-label u-label-1">Nouveau mot de passe</label>
               <input type="password" placeholder="Saisir votre nouveau mot de passe" id="name-c594" name="mdp" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
