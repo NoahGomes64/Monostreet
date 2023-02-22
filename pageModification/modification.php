@@ -105,7 +105,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                      
+                      <a href="../pageNouveauMdp/nouveauMdp.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">Modification du Mot de Passe ?<br></a>
                       </div>
                      
                     
@@ -117,7 +117,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             </div>
           </div>
         </div>
-        <a href="../pageNouveauMdp/nouveauMdp.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-3">Modification du Mot de Passe ?<br>
+      
         <button type="submit" name="enregistrer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">ENREGISTRER</button>
 
         
