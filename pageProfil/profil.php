@@ -8,20 +8,15 @@
  * 
  * */
 session_start();
-
 require '../connexionBD.php';
-
-
 $stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $email = $stmt->fetch();
-
-
 ?>
 
 
-<!DOCTYPE html>
+
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -81,9 +76,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                   <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
                     <div class="u-container-layout u-container-layout-3">
                       <h1 class="u-text u-text-default u-text-2">Bienvenue</h1>
-                      <h2 class="u-hover-feature u-text u-text-default u-text-3">Pseudo:<br>
+                      <h2 class="u-hover-feature u-text u-text-default u-text-3">Pseudo:&nbsp;<?php echo $_SESSION['pseudo']?><br>
                       </h2>
-                      <h2 class="u-hover-feature u-text u-text-default u-text-4">Adresse Mail:</h2>
+                      <h2 class="u-hover-feature u-text u-text-default u-text-4">Adresse Mail:&nbsp;<?php echo $email[0]?></h2>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
