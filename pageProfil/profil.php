@@ -83,7 +83,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <h1 class="u-text u-text-default u-text-2">Bienvenue</h1>
                       <h2 class="u-hover-feature u-text u-text-default u-text-3">Pseudo:&nbsp;<?php echo $_SESSION['pseudo']?><br>
                       </h2>
-                      <h2 class="u-hover-feature u-text u-text-default u-text-4">Adresse Mail:&nbsp;<?php echo $email[0]?></h2>
+                      <h2 class="u-hover-feature u-text u-text-default u-text-4">Adresse Mail:<?php echo $email[0]?></h2>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
