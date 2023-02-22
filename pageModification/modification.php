@@ -96,11 +96,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                   <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
                     <form method="POST" action="modification.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"   style="padding: 10px;">
                       <div class="u-form-group u-form-name">
-                        <label for="name-3c8c" class="u-label u-label-1">PSEUDO</label>
+                        <label for="name-3c8c" class="u-label">PSEUDO</label>
                         <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="pseudo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
                       <div class="u-form-email u-form-group">
-                        <label for="email-3c8c" class="u-label u-label-2">EMAIL</label>
+                        <label for="email-3c8c" class="u-label">EMAIL</label>
                         <input type="email" value="<?php echo $email[0]?>" id="email-3c8c" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                         
                       </div>
