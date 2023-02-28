@@ -99,8 +99,8 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       
      <!-- On limite le fichier à 100Ko -->
      <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-     Fichier : <input type="file" name="avatar">
-     <input type="submit" name="envoyer" value="Envoyer le fichier">
+     Photo de Profil: <input type="file" name="avatar">
+     
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
                         <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="pseudo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
                       </div>
