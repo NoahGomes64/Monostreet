@@ -97,9 +97,10 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     <form method="POST" action="modification.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"   style="padding: 10px;">
                       <div class="u-form-group u-form-name">
                       
-     <!-- On limite le fichier à 100Ko -->
-     <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+     <!-- On limite le fichier à 10Mo -->
+     <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
      Photo de Profil: <input type="file" name="avatar">
+     <br>
      
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
                         <input type="text" value="<?php echo $_SESSION['pseudo']?>" id="name-3c8c" name="pseudo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
