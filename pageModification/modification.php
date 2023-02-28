@@ -69,7 +69,7 @@ if(isset($_POST['enregistrer'])){
         $_SESSION['mdp'] = $_POST['mdp'];
 
 
-        //header ('location: ../index.php');
+        header ('location: ../index.php');
   }
 
 
