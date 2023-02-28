@@ -137,7 +137,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       
      <!-- On limite le fichier à 10Mo -->
      <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
-     PHOTO DE PROFIL: <br>
+     PHOTO DE PROFIL <br>
      <input type="file" name="avatar">
      <br>
      
