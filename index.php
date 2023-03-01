@@ -14,7 +14,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="keywords" content="MONOSTREET">
     <meta name="description" content="">
-    <title>Accueil</title>
+    <title>MONOSTREET | Accueil</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Accueil.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
