@@ -46,7 +46,7 @@ if(isset($_POST['enregistrer'])){
             echo 'Upload effectué avec succès !';
             $image="/upload";
             $image .= $fichier;
-            var_dump($image);
+
             $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
@@ -56,8 +56,13 @@ if(isset($_POST['enregistrer'])){
         
         $stmt = $connection->prepare("UPDATE compte SET photo= :photo WHERE id=$id[0]");
         $stmt->bindParam(':photo',$image, PDO::PARAM_STR);
-        var_dump($stmt);
+
         $stmt->execute();
+
+        $stmt = $connection->prepare("SELECT photo FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+$stmt->execute();
+$photo = $stmt->fetch();
 
        }
        else //Sinon (la fonction renvoie FALSE).
@@ -153,7 +158,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle-lg u-valign-middle-xl u-container-layout-2">
-                  <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="upload/" alt="" data-image-width="1280" data-image-height="1280">
+                  <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="<?php $photo[0]?>" alt="" data-image-width="1280" data-image-height="1280">
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
