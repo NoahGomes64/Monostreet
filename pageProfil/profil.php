@@ -15,6 +15,10 @@ $stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $email = $stmt->fetch();
+$stmt = $connection->prepare("SELECT photo FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+$stmt->execute();
+$photo = $stmt->fetch();
 
 ?>
 
@@ -69,7 +73,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-layout-col">
                   <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-2">
                     <div class="u-container-layout u-valign-middle u-container-layout-2">
-                      <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="images/0372c92a50c4845a7b15477773da14c9588c2c010fdf267a7b6f473d421756ac9ebea27f41570fa7d99196437a98d993f41b72d3164ca4b5e91035_1280.png" alt="" data-image-width="1280" data-image-height="1280">
+                      <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="<?php echo $photo[0]?>" alt="" data-image-width="1280" data-image-height="1280">
                     </div>
                   </div>
                 </div>
