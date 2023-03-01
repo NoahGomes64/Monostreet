@@ -15,6 +15,10 @@ $stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $email = $stmt->fetch();
+$stmt = $connection->prepare("SELECT photo FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+$stmt->execute();
+$photo = $stmt->fetch();
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
