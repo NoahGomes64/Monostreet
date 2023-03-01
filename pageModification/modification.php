@@ -52,7 +52,7 @@ if(isset($_POST['enregistrer'])){
     
         
         $stmt = $connection->prepare("UPDATE compte SET photo= :photo WHERE id=$id[0]");
-        $stmt->bindParam(':nom', $_FILES['avatar']['tmp_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':photo', $_FILES['avatar']['tmp_name'], PDO::PARAM_STR);
         $stmt->execute();
 
        }
