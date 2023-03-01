@@ -25,7 +25,7 @@ $ok=false;
 if(isset($_POST['enregistrer'])){
 
   if(isset($_FILES['profil'])){
-    var_dump($_FILES['profil'])
+    var_dump($_FILES['profil']);
   $dossier = 'upload/';
   $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 500000;
