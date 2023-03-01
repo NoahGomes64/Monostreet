@@ -44,6 +44,17 @@ if(isset($_POST['enregistrer'])){
        if(move_uploaded_file($_FILES['profil']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
        {
             echo 'Upload effectué avec succès !';
+            $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    $id=$stmt->fetch();
+
+    
+        
+        $stmt = $connection->prepare("UPDATE compte SET photo= :photo WHERE id=$id[0]");
+        $stmt->bindParam(':nom', $_FILES['avatar']['tmp_name'], PDO::PARAM_STR);
+        $stmt->execute();
+
        }
        else //Sinon (la fonction renvoie FALSE).
        {
@@ -138,7 +149,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle-lg u-valign-middle-xl u-container-layout-2">
-                  <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="upload/Hernan-Humberto-Alvarez-Valera.jpg" alt="" data-image-width="1280" data-image-height="1280">
+                  <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="upload/" alt="" data-image-width="1280" data-image-height="1280">
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
