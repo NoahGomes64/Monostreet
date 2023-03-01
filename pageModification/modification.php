@@ -169,7 +169,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-form-group u-form-name">
                       
      <!-- On limite le fichier à 10Mo -->
-     <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+     <input type="hidden" name="MAX_FILE_SIZE" value="500000">
      PHOTO DE PROFIL <br>
      <input type="file" name="profil" id="profil">
      <br>
