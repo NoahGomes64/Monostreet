@@ -20,11 +20,11 @@ $email = $stmt->fetch();
 if(isset($_POST['enregistrer'])){
 
   $dossier = 'upload/';
-  $fichier = basename($_FILES['avatar']['name']);
+  $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 100000;
-  $taille = filesize($_FILES['avatar']['tmp_name']);
+  $taille = filesize($_FILES['profil']['tmp_name']);
   $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-  $extension = strrchr($_FILES['avatar']['name'], '.'); 
+  $extension = strrchr($_FILES['profil']['name'], '.'); 
   //Début des vérifications de sécurité...
   if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
   {
@@ -138,7 +138,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
      <!-- On limite le fichier à 10Mo -->
      <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
      PHOTO DE PROFIL <br>
-     <input type="file" name="avatar">
+     <input type="file" name="profil" id="profil">
      <br>
      
                         <label for="name-3c8c" class="u-label">PSEUDO</label>
