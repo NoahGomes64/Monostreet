@@ -15,6 +15,7 @@ session_start();
     <meta name="keywords" content="MONOSTREET">
     <meta name="description" content="">
     <title>MONOSTREET | Accueil</title>
+    <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Accueil.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
