@@ -24,8 +24,8 @@ $ok=false;
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
 
-  if(isset($_FILES['profil'])){
-    var_dump($_FILES['profil']['name']);
+  if(($_FILES['profil']['name'])!=""){
+    
   $dossier = 'upload/';
   $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 500000;
