@@ -39,7 +39,7 @@ if(isset($_POST['enregistrer'])){
   }
   if($taille>$taille_maxi)
   {
-       $erreur = 'Le fichier est trop gros...';
+       $erreur = 'Le fichier est trop volumineux... Choisissez une image plus petite !';
   }
   if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
   {
@@ -89,7 +89,7 @@ $ok = true;
        }
        else //Sinon (la fonction renvoie FALSE).
        {
-            echo 'Echec de l\'upload !';
+            echo 'Echec de l\'upload ! Veuillez reessayer';
        }
   }
   else
