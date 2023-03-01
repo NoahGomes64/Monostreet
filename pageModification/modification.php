@@ -26,7 +26,7 @@ if(isset($_POST['enregistrer'])){
 
   $dossier = 'upload/';
   $fichier = basename($_FILES['profil']['name']);
-  $taille_maxi = 100000;
+  $taille_maxi = 500000;
   $taille = filesize($_FILES['profil']['tmp_name']);
   $extensions = array('.png', '.gif', '.jpg', '.jpeg');
   $extension = strrchr($_FILES['profil']['name'], '.'); 
