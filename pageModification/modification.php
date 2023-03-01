@@ -44,6 +44,9 @@ if(isset($_POST['enregistrer'])){
        if(move_uploaded_file($_FILES['profil']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
        {
             echo 'Upload effectué avec succès !';
+            $image="/upload";
+            $image .= $fichier;
+            var_dump($image);
             $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
@@ -52,7 +55,7 @@ if(isset($_POST['enregistrer'])){
     
         
         $stmt = $connection->prepare("UPDATE compte SET photo= :photo WHERE id=$id[0]");
-        $stmt->bindParam(':photo', $_FILES['avatar']['tmp_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':photo',$image, PDO::PARAM_STR);
         var_dump($stmt);
         $stmt->execute();
 
