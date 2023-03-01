@@ -63,6 +63,7 @@ if(isset($_POST['enregistrer'])){
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $photo = $stmt->fetch();
+header ('location: ../index.php');
 
 
        }
@@ -94,7 +95,7 @@ $photo = $stmt->fetch();
         $_SESSION['mdp'] = $_POST['mdp'];
 
 
-        //header ('location: ../index.php');
+       
   }
 
 
