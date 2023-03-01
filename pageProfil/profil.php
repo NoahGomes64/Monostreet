@@ -30,6 +30,7 @@ $photo = $stmt->fetch();
     <meta name="keywords" content="modification du profil">
     <meta name="description" content="">
     <title>Mon Profil</title>
+    <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">
    
