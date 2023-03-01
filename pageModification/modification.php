@@ -24,6 +24,7 @@ $ok=false;
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
 
+  if(isset($_FILES['profil'])){
   $dossier = 'upload/';
   $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 500000;
@@ -82,7 +83,7 @@ $ok = true;
        echo $erreur;
   }
 
-
+  }
 
 
   $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
