@@ -97,7 +97,7 @@ $ok = true;
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
         $stmt->execute();
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        $_SESSION['mdp'] = $_POST['mdp'];
+        //$_SESSION['mdp'] = $_POST['mdp'];
 
       if($ok==true)
       {
