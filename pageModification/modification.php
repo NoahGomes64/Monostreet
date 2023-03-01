@@ -94,7 +94,7 @@ $photo = $stmt->fetch();
         $_SESSION['mdp'] = $_POST['mdp'];
 
 
-        //header ('location: ../index.php');
+        header ('location: ../index.php');
   }
 
 
