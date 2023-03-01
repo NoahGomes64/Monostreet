@@ -44,7 +44,7 @@ if(isset($_POST['enregistrer'])){
        if(move_uploaded_file($_FILES['profil']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
        {
             echo 'Upload effectué avec succès !';
-            $image="/upload";
+            $image="/upload/";
             $image .= $fichier;
 
             $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
