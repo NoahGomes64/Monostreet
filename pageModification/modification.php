@@ -63,6 +63,7 @@ if(isset($_POST['enregistrer'])){
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $photo = $stmt->fetch();
+var_dump($photo);
 
        }
        else //Sinon (la fonction renvoie FALSE).
