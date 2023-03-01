@@ -70,6 +70,19 @@ if(isset($_POST['enregistrer'])){
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $photo = $stmt->fetch();
+$stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    $id=$stmt->fetch();
+
+    
+        
+        $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=$id[0]");
+        $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+        $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->execute();
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        //$_SESSION['mdp'] = $_POST['mdp'];
 $ok = true;
 
 
@@ -84,22 +97,25 @@ $ok = true;
        echo $erreur;
   }
 
+  
   }
-
-
+if(($_FILES['profil']['name'])==""){
   $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
-    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
-    $stmt->execute();
-    $id=$stmt->fetch();
+  $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+  $stmt->execute();
+  $id=$stmt->fetch();
 
-    
-        
-        $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=$id[0]");
-        $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
-        $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-        $stmt->execute();
-        $_SESSION['pseudo'] = $_POST['pseudo'];
-        //$_SESSION['mdp'] = $_POST['mdp'];
+  
+      
+      $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=$id[0]");
+      $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+      $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+      $stmt->execute();
+      $_SESSION['pseudo'] = $_POST['pseudo'];
+      //$_SESSION['mdp'] = $_POST['mdp'];
+      $ok=true;
+
+}
 
       if($ok==true)
       {
