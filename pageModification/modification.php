@@ -134,7 +134,7 @@ if(($_FILES['profil']['name'])==""){
     <meta charset="utf-8">
     <meta name="keywords" content="modification du profil">
     <meta name="description" content="">
-    <title>Modification</title>
+    <title>MONOSTREET | Modification</title>
     <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">

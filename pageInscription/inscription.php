@@ -87,7 +87,7 @@ if(isset($_POST['inscription'])){
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Inscription</title>
+    <title>MONOSTREET | Inscription</title>
     <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-2.css" media="screen">

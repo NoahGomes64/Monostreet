@@ -29,7 +29,7 @@ foreach ($lesRues as $nomDeRues) {
     <meta charset="utf-8">
     <meta name="keywords" content="POLITIQUE DE CONFIDENTIALITE">
     <meta name="description" content="">
-    <title>Jouer</title>
+    <title>MONOSTREET | Jouer</title>
     <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Copie-de-confidentialite.css" media="screen">
