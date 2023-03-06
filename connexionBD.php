@@ -1,4 +1,5 @@
 <?php
+//Connexion alwaysData
 $host = "mysql-monostreet.alwaysdata.net";
 $dbname = "monostreet_utilisateur";
 $username = "298407_guillaume";

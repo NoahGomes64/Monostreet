@@ -15,7 +15,8 @@ if(isset($_POST['connexion'])){
   // vérification que les champs "Pseudo" et "Mot de passe" ne sont pas vides
   if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
     $Pseudo = strip_tags($_POST['pseudo']);
-    $MotDePasse = strip_tags($_POST['mdp']);
+    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+    
     try {
       $stmt = $connection->prepare("SELECT * FROM compte WHERE nom = :nom AND mdp = :mdp");
       $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
