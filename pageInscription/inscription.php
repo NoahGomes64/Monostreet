@@ -17,7 +17,7 @@ if(isset($_POST['inscription'])){
   // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
     $adresseDispo = true;
-    $MotDePasseHash = password_hash(strip_tags($_POST['mdp']),PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
     $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
     $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
     $stmt->execute();
