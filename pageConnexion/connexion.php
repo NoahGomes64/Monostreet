@@ -29,19 +29,19 @@ if(isset($_POST['connexion'])){
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
           header ('location: ../index.php');
-          
+        }
       } else {
         echo "Mauvais identifiants fournis";
         
       }
         
       
-    } }
+    } 
     catch (PDOException $e) {
       echo $e->getMessage();
     }
   }
-}
+
 
 ?>
 <html style="font-size: 16px;" lang="fr"><head>
