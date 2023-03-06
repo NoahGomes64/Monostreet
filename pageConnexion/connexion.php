@@ -21,8 +21,6 @@ if(isset($_POST['connexion'])){
       $stmt = $connection->prepare("SELECT mdp FROM compte WHERE nom = :nom");
       $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
       $stmt->execute();
-      $a=$stmt->rowCount();
-      var_dump($a);
       if ($stmt->rowCount() > 0) {
         $hash=$stmt->fetch();
         if (password_verify($_POST['mdp'], $hash[0])) {
@@ -41,7 +39,7 @@ if(isset($_POST['connexion'])){
       echo $e->getMessage();
     }
   }
-
+}
 
 ?>
 <html style="font-size: 16px;" lang="fr"><head>
