@@ -33,7 +33,8 @@ if(isset($_POST['connexion'])){
       }
         
       
-    } catch (PDOException $e) {
+    } }
+    catch (PDOException $e) {
       echo $e->getMessage();
     }
   }
