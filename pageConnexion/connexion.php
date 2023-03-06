@@ -14,7 +14,7 @@ require '../connexionBD.php';
 if(isset($_POST['connexion'])){
   if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
     $Pseudo = strip_tags($_POST['pseudo']);
-    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+    
     var_dump($MotDePasse);
     try {
       $stmt = $connection->prepare("SELECT mdp FROM compte WHERE nom = :nom");
@@ -23,7 +23,7 @@ if(isset($_POST['connexion'])){
      
       if ($stmt->rowCount() > 0) {
         $hash=$stmt->fetch();
-        if (password_verify($MotDePasse, $hash[0])) {
+        if (password_verify($_POST['mdp'], $hash[0])) {
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
           header ('location: ../index.php');
