@@ -14,19 +14,18 @@ require '../connexionBD.php';
 if(isset($_POST['connexion'])){
   if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
     $Pseudo = strip_tags($_POST['pseudo']);
-    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+
     
 
     try {
-      $stmt = $connection->prepare("SELECT * FROM compte WHERE nom = :nom AND mdp = :mdp");
+      $stmt = $connection->prepare("SELECT mdp FROM compte WHERE nom = :nom");
       $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
-      $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
       $stmt->execute();
-      
+      $a=$stmt->rowCount();
+      var_dump($a);
       if ($stmt->rowCount() > 0) {
         $hash=$stmt->fetch();
-        var_dump($hash[2]);
-        if (password_verify($_POST['mdp'], $hash[2])) {
+        if (password_verify($_POST['mdp'], $hash[0])) {
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
           header ('location: ../index.php');
