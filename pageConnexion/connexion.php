@@ -28,8 +28,13 @@ if(isset($_POST['connexion'])){
           $_SESSION['mdp'] = $MotDePasse;
           header ('location: ../index.php');
         }
+        else {
+          echo "Mauvais mot de passe fourni";
+          
+        }
+
       } else {
-        echo "Mauvais identifiants fournis";
+        echo "Mauvais login fourni";
         
       }
         
