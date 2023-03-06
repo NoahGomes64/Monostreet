@@ -10,14 +10,14 @@ foreach ($lesRues as $nomDeRues) {
 
 <?php
         if(isset($_POST['codePartie'])){
-            echo "<script type='text/javascript'>document.location.replace('jeu.php?code=$_POST[codePartie]');</script>";
+            echo "<script type='text/javascript'>location.replace('http://monostreet.alwaysdata.net/jeu.php?code=$_POST[codePartie]');</script>";
         }
 
         if(isset($_POST['envoie'])){
             if(isset($_POST['laRuePriv'])){
                 $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
                 if (isset($_POST['nbJoueurPriv'])) {
-                    echo "<script type='text/javascript'>document.location.replace('../createGame.php');</script>";
+                    echo "<script type='text/javascript'>location.replace('http://monostreet.alwaysdata.net/createGame.php');</script>";
                 }
             }
         }
