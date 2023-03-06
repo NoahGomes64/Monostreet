@@ -30,6 +30,7 @@ if(isset($_POST['connexion'])){
           
       } else {
         echo "Mauvais identifiants fournis";
+        var_dump($stmt);
       }
         
       
