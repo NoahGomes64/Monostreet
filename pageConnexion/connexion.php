@@ -25,7 +25,7 @@ if(isset($_POST['connexion'])){
       
       if ($stmt->rowCount() > 0) {
         $hash=$stmt->fetch();
-        
+        var_dump($hash[2]);
         if (password_verify($_POST['mdp'], $hash[2])) {
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
