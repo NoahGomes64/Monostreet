@@ -40,6 +40,7 @@ if(isset($_POST['inscription'])){
   // vérification que les champs "Email", "Pseudo", "Mot de passe" et "Confirmation du mot de passe" ne sont pas vides
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
     $adresseDispo = true;
+    $MotDePasseHash = password_hash(strip_tags($_POST['mdp']),PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
     $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
     $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
     $stmt->execute();
@@ -69,12 +70,12 @@ if(isset($_POST['inscription'])){
         $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email) VALUES (:id, :nom, :mdp, :estPrivilegie, :email)");
         $stmt->bindParam(':id', $compteur, PDO::PARAM_INT);
         $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
-        $stmt->bindParam(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+        $stmt->bindParam(':mdp', $MotDePasseHash, PDO::PARAM_STR);
         $stmt->bindValue(':estPrivilegie', 0, PDO::PARAM_INT);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
         $stmt->execute();
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        $_SESSION['mdp'] = $_POST['mdp'];
+        $_SESSION['mdp'] = $MotDePasseHash;
         header ('location: ../index.php');
   }
 }
