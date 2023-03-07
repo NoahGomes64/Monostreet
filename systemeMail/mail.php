@@ -1,3 +1,8 @@
+
+
+
+<?php
+
 composer require league/oauth2-google
 
 use League\OAuth2\Client\Provider\Google;
@@ -7,13 +12,11 @@ $provider = new Google([
     'redirectUri'  => 'https://example.com/callback-url',
 ]);
 
-
-<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require '..PHPMailer/src/PHPMailer.php';
+require '..PHPMailer/src/SMTP.php';
 
 
 
