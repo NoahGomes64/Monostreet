@@ -147,10 +147,6 @@ $listeRues = creerPlateau("ADOUE                     ");
                 //ctx.fillText("Big smile!", 10, 90);
 
             }
-
-
-            
-
  
         </script>
     </body>

@@ -17,7 +17,7 @@ foreach ($lesRues as $nomDeRues) {
             if(isset($_POST['laRuePriv'])){
                 $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
                 if (isset($_POST['nbJoueurPriv'])) {
-                    echo "<script type='text/javascript'>location.replace('http://monostreet.alwaysdata.net/createGame.php');</script>";
+                    echo "<script type='text/javascript'>location.replace('../createGame.php');</script>";
                 }
             }
         }
@@ -84,7 +84,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-form-group u-form-number u-form-number-layout-number u-label-top u-form-group-2">
                         <label for="number-8339" class="u-label u-label-2">Nombre de joueurs</label>
                         <div class="u-input-row" data-value="2">
-                          <input value="2" min="2" max="4" step="1" type="number" placeholder="" id="number-8339" name="number" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-2">
+                          <input value="2" min="2" max="4" step="1" type="number" placeholder="" id="number-8339" name="nbJoueurPriv" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-2">
                         </div>
                       </div>
                       <div class="u-form-checkbox u-form-group u-label-top u-form-group-3">
@@ -94,13 +94,14 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <div class="u-align-left u-form-group u-form-submit u-label-top">
                       
                       </div>
-                      
+                      <button type="submit" name="envoie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Creer</button>
+                    </form>
                    
                   </div>
-                  <button type="submit" name="envoie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Creer</button>
+                  
                 </div>
               </div>
-              </form>
+              
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <h1 class="u-hover-feature u-text u-text-default u-text-3">REJOINDRE UNE PARTIE</h1>
