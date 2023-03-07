@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee
+class ComposerStaticInitc093c43bc8ca8c035dca2ccbc670ff63
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -34,8 +34,8 @@ class ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee
     public static $prefixDirsPsr4 = array (
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -43,8 +43,8 @@ class ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee
         ),
         'League\\OAuth2\\Client\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
-            1 => __DIR__ . '/..' . '/league/oauth2-google/src',
+            0 => __DIR__ . '/..' . '/league/oauth2-google/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-client/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -67,9 +67,9 @@ class ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticIniteef649ec42eb48fa581c9f3937fb43ee::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc093c43bc8ca8c035dca2ccbc670ff63::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc093c43bc8ca8c035dca2ccbc670ff63::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc093c43bc8ca8c035dca2ccbc670ff63::$classMap;
 
         }, null, ClassLoader::class);
     }

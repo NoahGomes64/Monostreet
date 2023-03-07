@@ -1,67 +1,38 @@
 <?php
-session_start();
-
-
-
-
-use League\OAuth2\Client\Provider\Google;
-$provider = new Google([
-    'clientId'     => '142969523582-6uugr4dv8qv8k66ktkq6i9e8hsduls4u.apps.googleusercontent.com',
-    'clientSecret' => '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',
-    'redirectUri'  => 'https://example.com/callback-url',
-]);
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-require '..PHPMailer/src/PHPMailer.php';
-require '..PHPMailer/src/SMTP.php';
+require 'src/PHPMailer.php';
+require 'src/SMTP.php';
+
+$mail = new PHPMailer(True);
+
+$mail->isSMTP(); // Paramétrer le Mailer pour utiliser SMTP 
+$mail->Host = 'smtp-monostreet.alwaysdata.net'; // Spécifier le serveur SMTP
+$mail->SMTPAuth = true; // Activer authentication SMTP
+$mail->Username = 'monostreet@alwaysdata.net'; // Votre adresse email d'envoi
+$mail->Password = 'monostreet64!!'; // Le mot de passe de cette adresse email
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Accepter SSL
+$mail->Port = 465;
+
+$mail->setFrom('from@example.com', 'Mailer'); // Personnaliser l'envoyeur
+$mail->addAddress('To1@example.net', 'Karim User'); // Ajouter le destinataire
+$mail->addAddress('To2@example.com'); 
+$mail->addReplyTo('info@example.com', 'Information'); // L'adresse de réponse
+$mail->addCC('cc@example.com');
+$mail->addBCC('bcc@example.com');
 
 
+$mail->isHTML(true); // Paramétrer le format des emails en HTML ou non
 
+$mail->Subject = 'Here is the subject';
+$mail->Body = 'This is the HTML message body';
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-
-//Import PHPMailer classes into the global namespace
-
-
-require_once 'vendor/autoload.php';
-
-$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->SMTPAuth = true;
-//to view proper logging details for success and error messages
-// $mail->SMTPDebug = 1;
-$mail->Host = 'smtp.gmail.com';  //gmail SMTP server
-$mail->Username = 'monostreetGame@gmail.com';   //email
-$mail->Password = 'sfhwixilawdwjryv';   //16 character obtained from app password created
-$mail->Port = 465;                    //SMTP port
-$mail->SMTPSecure = "ssl";
-
-
-//sender information
-$mail->setFrom('FROM_EMAIL_ADDRESS', 'FROM_NAME');
-
-//receiver email address and name
-$mail->addAddress('RECEPIENT_EMAIL_ADDRESS', 'RECEPIENT_NAME'); 
-
-// Add cc or bcc   
-// $mail->addCC('email@mail.com');  
-// $mail->addBCC('user@mail.com');  
- 
- 
-$mail->isHTML(true);
- 
-$mail->Subject = 'PHPMailer SMTP test';
-$mail->Body    = "<h4> PHPMailer the awesome Package </h4>
-<b>PHPMailer is working fine for sending mail</b>
-    <p> This is a tutorial to guide you on PHPMailer integration</p>";
-
-// Send mail   
-if (!$mail->send()) {
-    echo 'Email not sent an error was encountered: ' . $mail->ErrorInfo;
+if(!$mail->send()) {
+   echo 'Erreur, message non envoyé.';
+   echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo 'Message has been sent.';
+   echo 'Le message a bien été envoyé !';
 }
-
-$mail->smtpClose();
 ?>
