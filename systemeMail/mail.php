@@ -3,7 +3,7 @@
 
 <?php
 
-composer require league/oauth2-google
+
 
 use League\OAuth2\Client\Provider\Google;
 $provider = new Google([
