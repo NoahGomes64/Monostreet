@@ -9,7 +9,7 @@
  * */
 
 
-include("rechercheDeRue/main.php");
+include("rechercheDeRue/creationPlateau.php");
 
 session_start();
 
@@ -49,7 +49,7 @@ try {
     <body>
     <?php
     if ($bonCode && $row_cnt == 1) {
-        trouverParcours($_SESSION['rueDeDepart'],false);
+        creerPlateau($_SESSION['rueDeDepart']);
     }
     else {
         echo "partie non trouvé";
