@@ -9,8 +9,13 @@ class Pion {
     public function getPosition(){
         return $this->_position;
     }
+<<<<<<< HEAD
     public function setCouleur(Couleur $nvCouleur){
         $this->_couleur = $nvCouleur;
+=======
+    public function setCouleur(Couleur $_couleur){
+        $this->_couleur=$_couleur;
+>>>>>>> MS1
     }
     public function getCouleur(){
         return $this->_couleur;
