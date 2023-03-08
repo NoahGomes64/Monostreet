@@ -1,7 +1,7 @@
 <?php
 include("../rechercheDeRue/Rue.php");
 
-abstract class CasePlateau{
+ class CasePlateau{
     protected $_numeroCase;
     protected $_nomCase;
     
