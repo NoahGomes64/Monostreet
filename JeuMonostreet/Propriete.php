@@ -2,20 +2,15 @@
 include('Joueur.php');
 class Propriete {
     private $_nom;
+    private $_positionPlateau;
     private $_prixAPayer;
-    private $_prixAmelioration;
-    private $_niveauAmelioration;
-    private $_proprietaire;
-    private const AMELIORATION_MAX = 5;
+    
 
     //Constructeur
-    function __construct($nom, $prixAPayer, $prixAmelioration, $niveauAmelioration, $proprietaire)
+    function __construct($nom, $positionPlateau)
     {
         $this->_nom = $nom;
-        $this->_prixAPayer = $prixAPayer;
-        $this->_prixAmelioration = $prixAmelioration;
-        $this->_niveauAmelioration = $niveauAmelioration;
-        $this->_proprietaire = $proprietaire;
+        $this->_positionPlateau = $positionPlateau;
     }
 
     //Getter
