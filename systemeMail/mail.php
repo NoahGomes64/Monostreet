@@ -168,7 +168,6 @@ $mail->Port = 465;
 $mail->From='monostreet@alwaysdata.net'; // Personnaliser l'envoyeur
 
 
-$$mail->AltBody    = "corps du message au format texte"; //Body au format texte
  
 $mail->WordWrap   = 50; // nombre de caractere pour le retour a la ligne automatique
 $mail->MsgHTML($body);
