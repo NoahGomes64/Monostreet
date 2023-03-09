@@ -20,15 +20,14 @@ for ($i=0; $i < 4; $i++) {
 }
 
 $sql = "SELECT * FROM Partie";
-$result = mysqli_query($connection, $sql);
-$compteur = mysqli_num_rows($result);
+$result = $pdo->query($sql);
+$compteur = $result->rowCount();
 $compteur ++;
 
-$sql = "INSERT INTO Partie VALUES ('$compteur', '4', '400', 'bonjour', '4', '$code', '1', '1', 'oloron')";
-
-mysqli_query($connection, $sql);
+$sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array(':compteur' => $compteur, ':code' => $code));
 
 header("Location: jeu.php?code=$code");
-
 
 ?>
