@@ -9,6 +9,8 @@
  * */
 require 'connexionBD.php';
 //Verification de la onnexion a la bd
+
+/*
 function connexionBD(){
     $host = "mysql-monostreet.alwaysdata.net";
     $dbname = "monostreet_utilisateur";
@@ -20,11 +22,11 @@ function connexionBD(){
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
     } catch (PDOException $e) {
-        echo "Erreur de connexion à la base de données : " . $e->getMessage();
+        echo "Erreur de co " . $e->getMessage();
     }
 }
 $pdo = connexionBD();
-
+*/
 $asciiA = 65;
 $asciiZ = 90;
 $numAscii;
@@ -34,16 +36,19 @@ for ($i=0; $i < 4; $i++) {
     $numAscii = rand($asciiA, $asciiZ);
     $code = $code.chr($numAscii);
 }
+//On verifie si on est bien co a la bd
+if ($pdo != null && $pdo->isConnected()) {
+    $sql = "SELECT * FROM Partie";
+    $result = $pdo->query($sql);
+    $compteur = $result->rowCount();
+    $compteur ++;
 
-$sql = "SELECT * FROM Partie";
-$result = $pdo->query($sql);
-$compteur = $result->rowCount();
-$compteur ++;
+    $sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':compteur' => $compteur, ':code' => $code));
 
-$sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
-$stmt = $pdo->prepare($sql);
-$stmt->execute(array(':compteur' => $compteur, ':code' => $code));
-
-header("Location: jeu.php?code=$code");
-
+    header("Location: jeu.php?code=$code");
+} else {
+    echo "Erreur de connexion à la base de données.";
+}
 ?>
