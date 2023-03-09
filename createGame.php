@@ -18,11 +18,12 @@ for ($i=0; $i < 4; $i++) {
     $numAscii = rand($asciiA, $asciiZ);
     $code = $code.chr($numAscii);
 }
-
-if (!$connection->isConnected()) {
-  echo "Erreur de connexion à la base de données";
-  exit();
-}
+// isConnected() ne passe pas avec PDO
+if ($connection->getAttribute(PDO::ATTR_CONNECTION_STATUS) !== PDO::CONNECTION_OK) {
+    echo "Erreur de connexion à la base de données";
+    exit();
+  }
+  
 
 $sql = "SELECT * FROM Partie";
 $result = $connection->query($sql);
