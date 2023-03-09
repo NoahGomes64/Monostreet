@@ -3,14 +3,17 @@ include('Joueur.php');
 class Propriete {
     private $_nom;
     private $_positionPlateau;
-    private $_prixAPayer;
+    private $_prixAchat;
+    private Joueur $_proprietaire;
     
 
     //Constructeur
-    function __construct($nom, $positionPlateau)
+    function __construct($nom, $positionPlateau, $prixAchat)
     {
         $this->_nom = $nom;
         $this->_positionPlateau = $positionPlateau;
+        $this->_prixAchat = $prixAchat;
+        $this->_proprietaire = null;
     }
 
     //Getter
@@ -18,16 +21,8 @@ class Propriete {
         return $this->_nom;
     }
 
-    public function getPrixAPayer(){
-        return $this->_prixAPayer;
-    }
-
-    public function getPrixAmelioration(){
-        return $this->_prixAmelioration;
-    }
-
-    public function getNiveauAmelioration(){
-        return $this->_niveauAmelioration;
+    public function getPositionCarte(){
+        return $this->_positionPlateau;
     }
 
     public function getProprietaire(){
@@ -39,16 +34,8 @@ class Propriete {
         $this->_nom = $nvNom;
     }
 
-    public function setPrixAPayer($nvPrixAPayer){
-        $this->_prixAPayer = $nvPrixAPayer;
-    }
-
-    public function setPrixAmelioration($nvPrixAmelioration){
-        $this->_prixAmelioration = $nvPrixAmelioration;
-    }
-
-    public function setNiveauAmelioration($nvNiveauAmelioration){
-        $this->_niveauAmelioration = $nvNiveauAmelioration;
+    public function setPositionCarte($nvPosition){
+        $this->_positionCarte = $nvPosition;
     }
 
     public function setProprietaire($nvProprietaire){
@@ -57,14 +44,6 @@ class Propriete {
 
 
     //Méthodes
-    public function ameliorer(){
-        if ($this->_niveauAmelioration != self::AMELIORATION_MAX) {
-            if ($this->_proprietaire.debiter($this->_prixAmelioration)) {
-                $this->_niveauAmelioration ++;
-            }
-        }
-    }
-
     
 }
 ?>
