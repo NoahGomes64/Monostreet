@@ -10,6 +10,7 @@
 require 'connexionBD.php';
 //Verification de la onnexion a la bd
 
+/*
 function connexionBD(){
     $host = "mysql-monostreet.alwaysdata.net";
     $dbname = "monostreet_utilisateur";
@@ -25,7 +26,7 @@ function connexionBD(){
     }
 }
 $pdo = connexionBD();
-
+*/
 $asciiA = 65;
 $asciiZ = 90;
 $numAscii;
@@ -36,7 +37,7 @@ for ($i=0; $i < 4; $i++) {
     $code = $code.chr($numAscii);
 }
 //On verifie si on est bien co a la bd
-if ($pdo->isConnected()) {
+if ($pdo != null && $pdo->isConnected()) {
     $sql = "SELECT * FROM Partie";
     $result = $pdo->query($sql);
     $compteur = $result->rowCount();
