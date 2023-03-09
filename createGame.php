@@ -27,6 +27,11 @@ function connexionBD(){
 }
 $pdo = connexionBD();
 */
+// On verifie si la base de données est établie avec succès
+if (!$db->isConnected()) {
+    die("Erreur de connexion à la bd");
+}
+
 $asciiA = 65;
 $asciiZ = 90;
 $numAscii;
@@ -36,19 +41,14 @@ for ($i=0; $i < 4; $i++) {
     $numAscii = rand($asciiA, $asciiZ);
     $code = $code.chr($numAscii);
 }
-//On verifie si on est bien co a la bd
-if ($pdo != null && $pdo->isConnected()) {
-    $sql = "SELECT * FROM Partie";
-    $result = $pdo->query($sql);
-    $compteur = $result->rowCount();
-    $compteur ++;
+$sql = "SELECT * FROM Partie";
+$result = $db->query($sql);
+$compteur = $result->rowCount();
+$compteur ++;
 
-    $sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(array(':compteur' => $compteur, ':code' => $code));
+$sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
+$stmt = $db->prepare($sql);
+$stmt->execute(array(':compteur' => $compteur, ':code' => $code));
 
-    header("Location: jeu.php?code=$code");
-} else {
-    echo "Erreur de connexion à la base de données.";
-}
+header("Location: jeu.php?code=$code");
 ?>
