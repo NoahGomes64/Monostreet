@@ -16,7 +16,7 @@ $mail->Password = 'monostreet64!!'; // Le mot de passe de cette adresse email
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Accepter SSL
 $mail->Port = 465;
 
-$mail->setFrom('noah.gomes47@gmail.com', 'Mailer'); // Personnaliser l'envoyeur
+$mail->setFrom('monostreet.alwaysdata.net', 'Mailer'); // Personnaliser l'envoyeur
 $mail->addAddress('noah.gomes47@gmail.com', 'Karim User'); // Ajouter le destinataire
 
 $mail->addReplyTo('info@example.com', 'Information'); // L'adresse de réponse
