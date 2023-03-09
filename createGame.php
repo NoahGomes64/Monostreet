@@ -18,22 +18,16 @@ for ($i=0; $i < 4; $i++) {
     $numAscii = rand($asciiA, $asciiZ);
     $code = $code.chr($numAscii);
 }
-// isConnected() ne passe pas avec PDO
-
-
-
-
-
-
 $sql = "SELECT * FROM Partie";
-$result = $connection->query($sql);
+$result = $pdo->query($sql);
 $compteur = $result->rowCount();
 $compteur ++;
 
 $sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
-$stmt = $connection->prepare($sql);
-$stmt->execute(array(':compteur' => $compteur, ':code' => $code));
-
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':compteur', $compteur, PDO::PARAM_INT);
+$stmt->bindParam(':code', $code, PDO::PARAM_STR);
+$stmt->execute();
 header("Location: jeu.php?code=$code");
 
 ?>
