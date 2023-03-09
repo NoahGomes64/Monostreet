@@ -9,7 +9,7 @@
  * */
 require 'connexionBD.php';
 //Verification de la onnexion a la bd
-/*
+
 function connexionBD(){
     $host = "mysql-monostreet.alwaysdata.net";
     $dbname = "monostreet_utilisateur";
@@ -25,7 +25,7 @@ function connexionBD(){
     }
 }
 $pdo = connexionBD();
-*/
+
 $asciiA = 65;
 $asciiZ = 90;
 $numAscii;
