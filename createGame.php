@@ -8,6 +8,8 @@
  * 
  * */
 require 'connexionBD.php';
+//On initialose $pdo a connexion
+$pdo = $connection;
 
 $asciiA = 65;
 $asciiZ = 90;
