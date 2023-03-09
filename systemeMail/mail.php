@@ -17,7 +17,7 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Accepter SSL
 $mail->Port = 465;
 
 $mail->setFrom('from@example.com', 'Mailer'); // Personnaliser l'envoyeur
-$mail->addAddress('To1@example.net', 'Karim User'); // Ajouter le destinataire
+$mail->addAddress('noah.gomes47@gmail.com', 'Karim User'); // Ajouter le destinataire
 $mail->addAddress('To2@example.com'); 
 $mail->addReplyTo('info@example.com', 'Information'); // L'adresse de réponse
 $mail->addCC('cc@example.com');
