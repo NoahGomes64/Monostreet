@@ -173,7 +173,7 @@ $mail->WordWrap   = 50; // nombre de caractere pour le retour a la ligne automat
 $mail->MsgHTML($body);
                                       
 $mail->AddReplyTo("monostreet@alwaysdata.net","Monostreet");      //$mail->AddAttachment("./examples/images/phpmailer.gif");             // piéce jointe si besoin
-$mail->AddAddress("noah.gomes47@gmail.com");
+$mail->AddAddress("nonochiken472.gaming@gmail.com");
 $mail->IsHTML(true); // envoyer au format html, passer a false si en mode texte
 if(!$mail->Send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
