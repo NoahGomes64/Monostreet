@@ -19,9 +19,8 @@ $mail->Port = 465;
 $mail->setFrom('monostreet@alwaysdata.net', 'Mailer'); // Personnaliser l'envoyeur
 $mail->addAddress('noah.gomes47@gmail.com', 'Karim User'); // Ajouter le destinataire
 
-$mail->addReplyTo('info@example.com', 'Information'); // L'adresse de réponse
-$mail->addCC('cc@example.com');
-$mail->addBCC('bcc@example.com');
+
+
 
 
 $mail->isHTML(true); // Paramétrer le format des emails en HTML ou non
