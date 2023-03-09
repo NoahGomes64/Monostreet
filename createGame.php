@@ -19,7 +19,7 @@ for ($i=0; $i < 4; $i++) {
     $code = $code.chr($numAscii);
 }
 // isConnected() ne passe pas avec PDO
-if ($connection->getAttribute(PDO::ATTR_CONNECTION_STATUS) !== PDO::CONNECTION_OK) {
+if ($connection->getAttribute(PDO::ATTR_CONNECTION_STATUS) !== 2) {
     echo "Erreur de connexion à la base de données";
     exit();
   }
