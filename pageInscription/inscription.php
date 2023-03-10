@@ -29,7 +29,7 @@ if(isset($_POST['inscription'])){
 
     $pseudoDispo = true;
     $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
-    $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->bindParam(':nom', htmlentities($_POST['pseudo']), PDO::PARAM_STR);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
       $message='Pseudo déjà utilisé';
@@ -46,7 +46,7 @@ if(isset($_POST['inscription'])){
         $compteur ++;
         $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email) VALUES (:id, :nom, :mdp, :estPrivilegie, :email)");
         $stmt->bindParam(':id', $compteur, PDO::PARAM_INT);
-        $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+        $stmt->bindParam(':nom', hmtlentities($_POST['pseudo']), PDO::PARAM_STR);
         $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
         $stmt->bindValue(':estPrivilegie', 0, PDO::PARAM_INT);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
