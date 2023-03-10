@@ -96,6 +96,10 @@ class CaseRue extends Propriete
                 break;
         }
     }
+
+    public function calculerValeurVente(){
+        return ($this->_prixAchat*(4/5) + $this->_prixMaison*$this->_niveauAmelioration*(4/6));
+    }
 }
 
 ?>
