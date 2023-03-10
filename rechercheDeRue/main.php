@@ -229,9 +229,9 @@ function trouverParcours($laRue,$affiche){
     }
     
 
-    $listeDesRuesPourCoordonnees = listeDeRues1("http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE2/Monostreet/rechercheDeRue/Oloron80.csv");
+    $listeDesRuesPourCoordonnees = listeDeRues1("rechercheDeRue/Oloron80.csv");
 
-    $listeFinalePointToutes = listeDeRues2("http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE2/Monostreet/rechercheDeRue/Oloron80.csv");
+    $listeFinalePointToutes = listeDeRues2("rechercheDeRue/Oloron80.csv");
     // recherche des coordonnees de la rue donnée
     $rue = rechercheCoordonnees($laRue,$listeDesRuesPourCoordonnees);
     foreach ($listeFinalePointToutes as $rueElement) {

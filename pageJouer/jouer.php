@@ -6,23 +6,20 @@ foreach ($lesRues as $nomDeRues) {
     $listeParNom[] = $nomDeRues[1];
     }
 ?>
-
-
 <?php
-        if(isset($_POST['codePartie'])){
-            echo "<script type='text/javascript'>location.replace('http://monostreet.alwaysdata.net/jeu.php?code=$_POST[codePartie]');</script>";
-        }
+if(isset($_POST['codePartie'])){
+  header("Location: ../jeu.php?code=$_POST[codePartie]");
+}
 
-        if(isset($_POST['envoie'])){
-            if(isset($_POST['laRuePriv'])){
-                $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
-                if (isset($_POST['nbJoueurPriv'])) {
-                    echo "<script type='text/javascript'>location.replace('../createGame.php');</script>";
-                }
-            }
-        }
-    ?>
-
+if(isset($_POST['envoie'])){
+  if(isset($_POST['laRuePriv'])){
+    $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
+    if (isset($_POST['nbJoueurPriv'])) {
+      header("Location: ../createGame.php");
+    }
+  }
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,11 +69,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                         <div class="u-form-select-wrapper">
                           <select id="select-f858" name="laRuePriv" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-1">
                           <option value="">Choisissez une rue</option>
-                        <?php
+                            <?php
                             foreach ($listeParNom as $nomDeRue) {
-                                echo "<option value='$nomDeRue'>$nomDeRue</option>";
+                              echo "<option value='$nomDeRue'>$nomDeRue</option>";
                             }
-                        ?>
+                            ?>
                           </select>
                           <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
                         </div>
