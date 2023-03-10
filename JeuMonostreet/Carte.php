@@ -49,7 +49,7 @@ class CaseCarteCommunaute extends CasePlateau implements ICaseCarte{
         "La vente de votre stock vous rapporte F5 00"
         "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue."
         "Aller en prison. Rendez-vous directement à la prison. Ne franchissez pas par la case départ, ne touchez pas F20 00"
-        "Retournez à Belleville"
+        "Retournez à Belleville",
         "Recevez votre revenu annuel F 10 00",
         "C’est votre anniversaire. Chaque joueur doit vous donner F 1 00",
         "Les contributions vous remboursent la somme de F2 00",
