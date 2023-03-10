@@ -30,7 +30,7 @@ if(isset($_POST['enregistrer'])){
   $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 500000;
   $taille = filesize($_FILES['profil']['tmp_name']);
-  $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+  $extensions = array('.png', '.gif', '.jpg', '.jpeg','.PNG');
   $extension = strrchr($_FILES['profil']['name'], '.'); 
   //Début des vérifications de sécurité...
   if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
