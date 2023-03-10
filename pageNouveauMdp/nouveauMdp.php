@@ -18,18 +18,20 @@ $email = $stmt->fetch();
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['confirmer'])){
+
   $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
+    $MotDePasse = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
 
     
         
         $stmt = $connection->prepare("UPDATE compte SET mdp= :mdp WHERE id=$id[0]");
-        $stmt->bindParam(':mdp', $_POST['bonMdp'], PDO::PARAM_STR);
+        $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
         $stmt->execute();
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        $_SESSION['mdp'] = $_POST['bonMdp'];
+        $_SESSION['mdp'] = $MotDePasse;
         header ('location: ../index.php');
   }
 
