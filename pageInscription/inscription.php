@@ -203,7 +203,7 @@ if(isset($_POST['inscription'])){
         </body>
         </html>';
         mail($_POST['email'],$objetMail,$message);
-        header ('location: ../index.php');
+        //header ('location: ../index.php');
   }
 }
 }
