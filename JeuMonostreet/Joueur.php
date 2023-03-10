@@ -9,6 +9,14 @@ class Joueur {
     private bool $_estElimine;
     public const ARGENT_CASE_DEPART = 200;
 
+    //Constructeur
+    function __construct(){
+        $this->_monArgent = 1500;
+        $this->_listePropriete = [];
+        $this->_faitFaillite = false;
+        $this->_estLibre = true;
+        $this->_estElimine = false;
+    }
 
     //Getter
     public function getMonPion(){
@@ -97,7 +105,7 @@ class Joueur {
 
     public function vendre(Propriete $unePropriete){
         unset($this->_listePropriete[array_search($unePropriete, $this->_listePropriete)]);
-
+        $this->crediter($unePropriete->);
     }
 }
 ?>
