@@ -1,4 +1,5 @@
 <?php
+//echo "okkkkkkkkkkkkkkkkkk";
 /**
  * @file CreateGame.php 
  * @brief fichier de paramétrage de la partie 
@@ -7,7 +8,8 @@
  * date 
  * 
  * */
-require 'connexionBD.php';
+
+//require 'connexionBD.php';
 //On initialose $pdo a connexion
 $pdo = $connection;
 
@@ -31,5 +33,4 @@ $stmt->bindParam(':compteur', $compteur, PDO::PARAM_INT);
 $stmt->bindParam(':code', $code, PDO::PARAM_STR);
 $stmt->execute();
 header("Location: jeu.php?code=$code");
-
 ?>
