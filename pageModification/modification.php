@@ -74,6 +74,7 @@ $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
+    unlink($photo[0]);
 
     
         
