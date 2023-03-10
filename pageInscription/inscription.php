@@ -202,7 +202,6 @@ if(isset($_POST['inscription'])){
         </div>
         </body>
         </html>';
-        echo $_POST['email'];
         mail($_POST['email'],$objetMail,$message);
         //header ('location: ../index.php');
   }
