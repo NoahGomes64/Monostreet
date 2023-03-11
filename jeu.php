@@ -10,36 +10,29 @@
 
 
 include("rechercheDeRue/creationPlateau.php");
+require 'connexionBD.php';
 
 session_start();
 
 $leCode = $_GET['code'];
 
-try {
-    $pdo = new PDO("mysql:host=lakartxela;dbname=garricastres_bd", "garricastres_bd", "garricastres_bd");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if (strlen($leCode) == 4) {
+    $stmt = $pdo->prepare("SELECT * FROM Partie WHERE codePartie=:codePartie");
+    $stmt->bindValue(':codePartie', $leCode);
+    $stmt->execute();
     
-    if (strlen($leCode) == 4) {
-        $stmt = $pdo->prepare("SELECT * FROM Partie WHERE codePartie=:codePartie");
-        $stmt->bindValue(':codePartie', $leCode);
-        $stmt->execute();
-        
-        $row_cnt = $stmt->rowCount();
-        $bonCode = true;
-    } else {
-        echo "<h1>Desolé, tu n'as pas reussi a drop notre database</h1></br>";
-        $bonCode = false;
-    }
-} catch (PDOException $e) {
-    echo $e->getMessage();
+    $row_cnt = $stmt->rowCount();
+    $bonCode = true;
+} else {
+    echo "<h1>Desolé, tu n'as pas reussi a drop notre database</h1></br>";
+    $bonCode = false;
 }
+
 ?>    
 <!DOCTYPE html>
 <html>
     <style>
-        canvas {
-	        border: 1px solid black;
-        }
         body{
             display: grid;
             padding-left : 5em;
@@ -61,7 +54,12 @@ try {
     }
     ?>
 
-<canvas id="myCanvas" width="987" height="987"></canvas>
+    <canvas id="myCanvas" width="987" height="987"></canvas>
+    <style>
+        canvas {
+	        border: 1px solid black;
+        }
+    </style>
         <script>
             tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
                                     ['pink','pink','white','pink','white','white','purple','white','purple'],
