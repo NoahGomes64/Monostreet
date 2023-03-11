@@ -9,7 +9,7 @@ foreach ($lesRues as $nomDeRues) {
 ?>
 <?php
 if(isset($_POST['codePartie'])){
-  header("Location: ../jeu.php?code=$_POST[codePartie]");
+  header("Location: ../jeu.php?code=".$_POST['codePartie']);
 }
 
 if(isset($_POST['envoie'])){
