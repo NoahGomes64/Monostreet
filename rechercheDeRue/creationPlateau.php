@@ -17,7 +17,7 @@ function creerPlateau($laRue){
     return $toutesLesRues;
 }
 
-$listeRues = creerPlateau("ADOUE                     ");
+//$listeRues = creerPlateau("ADOUE                     ");
 
 
 ?>

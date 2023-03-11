@@ -52,7 +52,8 @@ try {
     <body>
     <?php
     if ($bonCode && $row_cnt == 1) {
-        $listeRues=creerPlateau($_SESSION['rueDeDepart']);
+        $laListeRues=creerPlateau($_SESSION['rueDeDepart']);
+        echo $laListeRues;
     }
     else {
         echo "partie non trouvé";
@@ -90,7 +91,7 @@ try {
                 }
 
                 //Liste des noms de rues
-                var x = "<?php echo $listeRues; ?>";
+                var x = "<?php echo $laListeRues; ?>";
                 let tabDeRues = [];
                 let mot = '';  
                 for (let index = 0; index < x.length; index++) {
