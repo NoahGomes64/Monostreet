@@ -116,7 +116,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     
                   </div>
                   
-                  <button type="submit" name="envoie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Rejoindre</button>
+                  <button type="submit" name="codePartie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Rejoindre</button>
                 </div>
               </div>
             </div>
