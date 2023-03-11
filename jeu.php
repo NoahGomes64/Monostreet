@@ -47,7 +47,6 @@ if (strlen($leCode) == 4) {
     <?php
     if ($bonCode && $row_cnt == 1) {
         $laListeRues=creerPlateau($_SESSION['rueDeDepart']);
-        echo $laListeRues;
     }
     else {
         echo "partie non trouvé";
