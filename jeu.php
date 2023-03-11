@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * @file jeu.php 
  * @brief le fichier du demarrage du deroulement
@@ -11,8 +12,6 @@
 
 include("rechercheDeRue/creationPlateau.php");
 require 'connexionBD.php';
-
-session_start();
 
 $leCode = $_GET['code'];
 

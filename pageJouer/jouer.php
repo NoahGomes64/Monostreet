@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../rechercheDeRue/main.php");
 $lesRues = listeDeRues1("../rechercheDeRue/Oloron80.csv");
 $listeParNom = [];
