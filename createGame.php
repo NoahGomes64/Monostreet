@@ -9,7 +9,7 @@
  * 
  * */
 
-//require 'connexionBD.php';
+require 'connexionBD.php';
 //On initialose $pdo a connexion
 $pdo = $connection;
 
