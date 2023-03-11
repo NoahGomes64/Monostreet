@@ -14,7 +14,6 @@ include("rechercheDeRue/creationPlateau.php");
 require 'connexionBD.php';
 
 $leCode = $_GET['code'];
-echo "$leCode";
 
 //On initialose $pdo a connexion
 $pdo = $connection;
