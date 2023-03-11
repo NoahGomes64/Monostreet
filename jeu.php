@@ -15,6 +15,8 @@ require 'connexionBD.php';
 
 $leCode = $_GET['code'];
 
+//On initialose $pdo a connexion
+$pdo = $connection;
 
 if (strlen($leCode) == 4) {
     $stmt = $pdo->prepare("SELECT * FROM Partie WHERE codePartie=:codePartie");
