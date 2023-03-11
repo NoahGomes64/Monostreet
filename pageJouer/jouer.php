@@ -8,7 +8,7 @@ foreach ($lesRues as $nomDeRues) {
     }
 ?>
 <?php
-if(isset($_POST['codePartie'])){
+if(isset($_POST['envoieCodePartie'])){
   header("Location: ../jeu.php?code=".$_POST['codePartie']);
 }
 
@@ -107,7 +107,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     <form method="POST" action="" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;">
                       <div class="u-form-email u-form-group u-label-top">
                         <label for="email-709f" class="u-label u-label-4">Code de la partie</label>
-                        <input type="text" placeholder="Entrez un code" id="email-709f" name="email" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
+                        <input type="text" placeholder="Entrez un code" id="email-709f" name="codePartie" class="u-border-1 u-border-white u-input u-input-rectangle u-radius-50 u-white u-input-3" required="">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit u-label-top">
                         
@@ -116,7 +116,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                     
                   </div>
                   
-                  <button type="submit" name="codePartie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Rejoindre</button>
+                  <button type="submit" name="envoieCodePartie" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Rejoindre</button>
                 </div>
               </div>
             </div>
