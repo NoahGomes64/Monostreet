@@ -1,4 +1,22 @@
 
+<?php
+session_start();
+
+// On verifie si user est defini et si l'utilisatuer a le role admin
+//Si ce n'est pas le cas redirection vers connexion.php?
+if (!isset($_SESSION['id']) || $_SESSION['estPrivilegie'] !== 1) {
+    header("Location: connexion.php");
+    exit();
+}
+
+
+// Récupération du nom de l'utilisateur connecté
+$stmt = $pdo->prepare("SELECT nom FROM compte WHERE id = ?");
+$stmt->execute([$_SESSION['id']]);
+$user = $stmt->fetch();
+$nom = $user['nom'];
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
