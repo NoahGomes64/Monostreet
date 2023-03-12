@@ -40,7 +40,7 @@ if(isset($_POST['connexion'])){
 
               
                 //header ('location: index.php');
-                    header ('location: ../adminstrateur.php');
+                    header ('location: ../administrateur.php');
                     
             }
             else {

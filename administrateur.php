@@ -1,5 +1,6 @@
 
 <?php
+
 session_start();
 
 // On verifie si user est defini et si l'utilisatuer a le role admin
