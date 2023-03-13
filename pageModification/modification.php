@@ -30,7 +30,7 @@ if(isset($_POST['enregistrer'])){
   $fichier = basename($_FILES['profil']['name']);
   $taille_maxi = 500000;
   $taille = filesize($_FILES['profil']['tmp_name']);
-  $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+  $extensions = array('.png', '.gif', '.jpg', '.jpeg','.PNG');
   $extension = strrchr($_FILES['profil']['name'], '.'); 
   //Début des vérifications de sécurité...
   if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
@@ -69,11 +69,12 @@ if(isset($_POST['enregistrer'])){
         $stmt = $connection->prepare("SELECT photo FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
-$photo = $stmt->fetch();
+$photoNouvelle = $stmt->fetch();
 $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
+    unlink($photo[0]);
 
     
         

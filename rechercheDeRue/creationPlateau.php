@@ -1,7 +1,6 @@
 <?php
 include("main.php");
 
-
 function creerPlateau($laRue){
     $listeRues = trouverParcours($laRue,false);
     $listeDesNomsDeRues = [];
@@ -17,18 +16,12 @@ function creerPlateau($laRue){
     return $toutesLesRues;
 }
 
-$listeRues = creerPlateau("ADOUE                     ");
+//$listeRues = creerPlateau("ADOUE                     ");
 
 
 ?>
 <!DOCTYPE html>
 <html>
-    <style>
-        canvas {
-	        border: 1px solid black;
-        }
-    </style>
-    <canvas id="myCanvas" width="987" height="987"></canvas>
         <script>
             tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
                                     ['pink','pink','white','pink','white','white','purple','white','purple'],

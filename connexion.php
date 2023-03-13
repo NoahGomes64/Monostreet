@@ -39,8 +39,8 @@ if(isset($_POST['connexion'])){
                  $CONNEXION=true;
 
               
-                header ('location: index.php');
-         
+                //header ('location: index.php');
+                    header ('location: ../administrateur.php');
                     
             }
             else {
