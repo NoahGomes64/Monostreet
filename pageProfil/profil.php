@@ -24,6 +24,7 @@ $stmt = $connection->prepare("SELECT estPrivilegie FROM compte WHERE nom=:nom");
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $privilege = $stmt->fetch();
+var_dump($privilege);
 
 ?>
 
@@ -99,7 +100,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       <a href="../pageModification/modification.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">modifier le profil</a>
                       <?php
                 if($privilege==0){
-                  var_dump($privilege);
+                  
                   echo "<a href='../pageHistorique/historique.php' class='u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2'>historique des parties<br>
                   </a>";
                 }
