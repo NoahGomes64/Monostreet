@@ -50,8 +50,7 @@ if (strlen($leCode) == 4) {
         $stmt->bindValue(':codePartie', $leCode);
         $stmt->execute();
         $ligne = $stmt->fetch();
-        echo $ligne['ville'];
-        $laListeRues=creerPlateau($stmt);
+        $laListeRues=creerPlateau($ligne['ville']);
     }
     else {
         echo "partie non trouvé";
