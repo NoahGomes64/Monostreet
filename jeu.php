@@ -46,7 +46,10 @@ if (strlen($leCode) == 4) {
     <body>
     <?php
     if ($bonCode && $row_cnt == 1) {
-        $laListeRues=creerPlateau($_SESSION['rueDeDepart']);
+        $stmt = $pdo->prepare("SELECT ville FROM Partie WHERE codePartie=:codePartie");
+        $stmt->bindValue(':codePartie', $leCode);
+        $stmt->execute();
+        $laListeRues=creerPlateau($stmt);
     }
     else {
         echo "partie non trouvé";
