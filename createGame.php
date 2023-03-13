@@ -1,5 +1,5 @@
 <?php
-//echo "okkkkkkkkkkkkkkkkkk";
+session_start();
 /**
  * @file CreateGame.php 
  * @brief fichier de paramétrage de la partie 
@@ -27,7 +27,7 @@ $result = $pdo->query($sql);
 $compteur = $result->rowCount();
 $compteur ++;
 
-$sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', 'oloron')";
+$sql = "INSERT INTO Partie VALUES (:compteur, '4', '400', 'bonjour', '4', :code, '1', '1', '$_SESSION[rueDeDepart]')";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':compteur', $compteur, PDO::PARAM_INT);
 $stmt->bindParam(':code', $code, PDO::PARAM_STR);

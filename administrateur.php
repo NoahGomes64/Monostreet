@@ -1,9 +1,17 @@
 <?php
 // On verifie que l'utilisateur est connecté en tant qu'administrateur
 session_start();
+<<<<<<< HEAD
 if (!isset($_SESSION['user_id']) || $_SESSION['estPrivilegie'] != 1) {
     //Redirection vers connexion
     header("Location: connexion.php");
+=======
+
+// On verifie si user est defini et si l'utilisatuer a le role admin
+//Si ce n'est pas le cas redirection vers connexion.php?
+if (!isset($_SESSION['id']) || $_SESSION['estPrivilegie'] !== 1) {
+    header("Location: ../pageConnexion/connexion.php");
+>>>>>>> 1415dbc37e8e043255833822424eaefbfd81ae82
     exit();
 }
 

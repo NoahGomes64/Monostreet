@@ -12,12 +12,49 @@ session_start();
 //Donc on vire et on ajoute
 //require '../connexionBD.php';
 
+<<<<<<< HEAD
 // Si l'utilisateur est deja connecter il ne pourra plus aller se connecter vers cette page on resolvera ;)
 /*
 if (isset($_SESSION['user_id'])) {
     //Redirection vers la page de bienvenue
     header("Location: ../index.php");
     exit();
+=======
+if(isset($_POST['connexion'])){
+  if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
+    $Pseudo = strip_tags($_POST['pseudo']);
+
+    
+
+    try {
+      $stmt = $connection->prepare("SELECT mdp FROM compte WHERE nom = :nom");
+      $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
+      $stmt->execute();
+      if ($stmt->rowCount() > 0) {
+        $hash=$stmt->fetch();
+        if (password_verify($_POST['mdp'], $hash[0])) {
+          $_SESSION['pseudo'] = $Pseudo;
+          $_SESSION['mdp'] = $MotDePasse;
+          header ('location: ../index.php');
+            //header ('location: ../administrateur.php');
+        }
+        else {
+          echo "Mauvais mot de passe fourni";
+          
+        }
+
+      } else {
+        echo "Mauvais login fourni";
+        
+      }
+        
+      
+    } 
+    catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+>>>>>>> 1415dbc37e8e043255833822424eaefbfd81ae82
 }
 */
 //Mais on inclu le fichier de config au lieu de connexion bd
