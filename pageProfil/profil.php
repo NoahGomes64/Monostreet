@@ -20,6 +20,11 @@ $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $photo = $stmt->fetch();
 
+$stmt = $connection->prepare("SELECT estPrivilegie FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+$stmt->execute();
+$privilege = $stmt->fetch();
+
 ?>
 
 
@@ -92,7 +97,16 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                   <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
                     <div class="u-container-layout u-container-layout-4">
                       <a href="../pageModification/modification.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">modifier le profil</a>
-                      <a href="../pageHistorique/historique.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">historique des parties</a>
+                      <?php
+                if($privilege==0){
+                  echo "<a href='../pageHistorique/historique.php' class='u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2'>historique des parties<br>
+                  </a>";
+                }
+                else{
+                  echo "<a href='../administrateur.php' class='u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2'>administration<br>
+                  </a>";
+                }
+            ?>
                     </div>
                   </div>
                 </div>
