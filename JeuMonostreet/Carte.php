@@ -36,29 +36,38 @@ class CaseCarteChance extends CasePlateau implements ICaseCarte{
 }
 class CaseCarteCommunaute extends CasePlateau implements ICaseCarte{
     private carteCommunaute $listeCarte=[];
+    function __construct($nom, $positionPlateau) {
+        parent::__construct($nom, $positionPlateau);
+        $this->initialiserListe();
+    }
     public function initialiserListe(){
-        
-        for ($i=0; $i < 16; $i++) { 
-            # code...
-        }
-
-        $newCarte = new carteCommunaute("Placez-vous sur la case départ",100, $leJoueur = new Joueur());
         $list=[
-        "Erreur de la banque en votre faveur. Recevez F20 00"
-        "Payez la note du médecin F5 00"
-        "La vente de votre stock vous rapporte F5 00"
-        "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue."
-        "Aller en prison. Rendez-vous directement à la prison. Ne franchissez pas par la case départ, ne touchez pas F20 00"
-        "Retournez à Belleville",
-        "Recevez votre revenu annuel F 10 00",
-        "C’est votre anniversaire. Chaque joueur doit vous donner F 1 00",
-        "Les contributions vous remboursent la somme de F2 00",
-        "Recevez votre intérêt sur l’emprunt à 7% F2 50",
-        "Payez votre Police d’Assurance F5 00",
-        "Payez une amende de F 1 00 ou bien tirez une carte « CHANCE »",
-        "Rendez-vous à la gare la plus proche. Si vous passez par la case départ, recevez F20 00",
-        "Vous avez gagné le deuxième Prix de Beauté. Recevez F1 00",
-        "Vous héritez F10 00"]
+            "Placez-vous sur la case départ",
+            "Erreur de la banque en votre faveur. Recevez F200",
+            "Payez la note du médecin F5 00",
+            "La vente de votre stock vous rapporte F5 00",
+            "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.",
+            "Aller en prison. Rendez-vous directement à la prison. Ne franchissez pas par la case départ, ne touchez pas F20 00",
+            "Retournez à Belleville",
+            "Recevez votre revenu annuel F 10 00",
+            "C’est votre anniversaire. Chaque joueur doit vous donner F 1 00",
+            "Les contributions vous remboursent la somme de F2 00",
+            "Recevez votre intérêt sur l’emprunt à 7% F2 50",
+            "Payez votre Police d’Assurance F5 00",
+            "Payez une amende de F 1 00 ou bien tirez une carte « CHANCE »",
+            "Rendez-vous à la gare la plus proche. Si vous passez par la case départ, recevez F20 00",
+            "Vous avez gagné le deuxième Prix de Beauté. Recevez F1 00",
+            "Vous héritez F10 00"]
+        for ($i=0; $i <= 16; $i++) {    
+            $laSomme = null;
+            if (preg_match('/\d+/', $list[$i], $matches)) {
+            $laSomme = $matches[0];
+            }
+            $newCarte = new carteCommunaute($list[$i],100, $leJoueur = new Joueur());
+            $listeCarte[$i]= $newCarte;
+
+        
+        
     }
     public function videListe(){
 

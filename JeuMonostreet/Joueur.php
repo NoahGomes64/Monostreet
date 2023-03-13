@@ -103,9 +103,9 @@ class Joueur {
         }
     }
 
-    public function vendre(Propriete $unePropriete){
+    /*public function vendre(Propriete $unePropriete){
         unset($this->_listePropriete[array_search($unePropriete, $this->_listePropriete)]);
         $this->crediter($unePropriete->);
-    }
+    }*/
 }
 ?>
