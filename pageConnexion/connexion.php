@@ -26,8 +26,8 @@ if(isset($_POST['connexion'])){
         if (password_verify($_POST['mdp'], $hash[0])) {
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
-          //header ('location: ../index.php');
-            header ('location: ../administrateur.php');
+          header ('location: ../index.php');
+            //header ('location: ../administrateur.php');
         }
         else {
           echo "Mauvais mot de passe fourni";
