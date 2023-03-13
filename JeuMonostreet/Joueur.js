@@ -1,4 +1,7 @@
+import {Pion} from './Pion.js'
+
 export default class Joueur {
+    //Constructeur
     constructor() {
         this.monPion = null;
         this.monArgent = 1500;
@@ -9,52 +12,52 @@ export default class Joueur {
     }
 
     // Getter
-    getMonPion() {
+    get MonPion() {
       return this.monPion;
     }
 
-    getMonArgent(){
+    get MonArgent(){
         return this.monArgent;
     }
 
-    getListePropriete(){
+    get ListePropriete(){
         return this.listePropriete;
     }
 
-    getFaitFaillite(){
+    get FaitFaillite(){
         return this.faitFaillite;
     }
 
-    getEstLibre(){
+    get EstLibre(){
         return this.estLibre;
     }
 
-    getEstElimine(){
+    get EstElimine(){
         return this.estElimine;
     }
   
     // Setter
-    setMonPion(nvPion) {
+    set MonPion(nvPion) {
         this.monPion = nvPion;
     }
   
-    setMonArgent(nvArgent){
+    set MonArgent(nvArgent){
         this.monArgent = nvArgent;
     }
   
-    setListePropriete(nvListePropriete){
+    set ListePropriete(nvListePropriete){
         this.listePropriete = nvListePropriete;
     }
   
-    setFaitFaillite(nvFaitFaillite){
+    set FaitFaillite(nvFaitFaillite){
         this.faitFaillite = nvFaitFaillite;
     }
   
-    setEstLibre(nvEstLibre){
+    set EstLibre(nvEstLibre){
         this.estLibre = nvEstLibre;
     }
   
-    setEstElimine(nvEstElimine){
+    set EstElimine(nvEstElimine){
         this.estElimine = nvEstElimine;
     }
 
@@ -66,4 +69,60 @@ export default class Joueur {
     crediter(valeurACrediter){
         this.monArgent += valeurACrediter;
     }
+
+    payer(unJoueur, valeurAPayer){
+        if (this.monArgent - valeurAPayer < 0) {
+            return false;
+        }
+        else {
+            this.debiter(valeurAPayer);
+            unJoueur.crediter(valeurAPayer);
+            return true;
+        }
+    }
+
+    seDeplacer(numeroCase){
+        if (this.monPion.position > numeroCase) {
+            this.crediter(200);
+        }
+        this.monPion.allerA(numeroCase);
+    }
+
+    acheter(unePropriete){
+        if (this.monArgent - unePropriete.prixAchat < 0) {
+            return false;
+        }
+        else {
+            this.debiter(unePropriete.prixAchat);
+            this.listePropriete.push(unePropriete);
+            unePropriete.setProprietaire(this);
+            return true;
+        }
+    }
+
+    acheterMaison(uneRue){
+        if (this.monArgent - uneRue.prixMaison < 0) {
+            return false;
+        }
+        else {
+            this.debiter(uneRue.prixMaison);
+            uneRue.ameliorer();
+            return true;
+        }
+    }
+
+    vendre(unePropriete){
+        for (let compteur = 0; compteur < this.listePropriete.length; compteur++) {
+            if (this.listePropriete[compteur] == unePropriete) {
+                this.listePropriete.splice(compteur);
+            }
+            else {
+                compteur ++;
+            }
+        }
+        this.crediter(unePropriete.calculerValeurVente());
+    }
+
 }
+
+export {Joueur}
