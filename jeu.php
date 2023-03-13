@@ -49,7 +49,7 @@ if (strlen($leCode) == 4) {
         $stmt = $pdo->prepare("SELECT ville FROM Partie WHERE codePartie=:codePartie");
         $stmt->bindValue(':codePartie', $leCode);
         $stmt->execute();
-        echo $stmt;
+        echo $stmt->fetch();
         $laListeRues=creerPlateau($stmt);
     }
     else {
