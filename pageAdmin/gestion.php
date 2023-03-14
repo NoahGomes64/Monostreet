@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['estPrvilegie'] != 1) {
 */
 
 // Récupérer la liste de tous les utilisateurs
-require_once('connexionBD.php');
+require_once('../connexionBD.php');
 
 $stmt = $connection->prepare("SELECT * FROM compte");
 $stmt->execute();
