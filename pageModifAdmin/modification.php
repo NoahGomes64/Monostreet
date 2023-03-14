@@ -11,7 +11,7 @@ session_start();
 require '../connexionBD.php';
 
 
-
+$id=$_GET['id'];
 $stmt = $connection->prepare("SELECT nom,email FROM compte WHERE id=:id");
 $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_STR);
 $stmt->execute();
@@ -55,7 +55,7 @@ if(isset($_POST['enregistrer'])){
             $image="upload/";
             $image .= $fichier;
 
-            $id=$_GET['id'];
+
 
     
         
@@ -76,7 +76,7 @@ $id=$_GET['id'];
         $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=:id");
         $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
 
         //$_SESSION['mdp'] = $_POST['mdp'];
@@ -97,14 +97,14 @@ $ok = true;
   
   }
 if(($_FILES['profil']['name'])==""){
-  $id=$_GET['id'];
+
 
   
       
       $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=:id");
       $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
       $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-      $stmt->bindParam(':id',$_GET['id'], PDO::PARAM_STR);
+      $stmt->bindParam(':id',$id, PDO::PARAM_STR);
       $stmt->execute();
 
       //$_SESSION['mdp'] = $_POST['mdp'];
