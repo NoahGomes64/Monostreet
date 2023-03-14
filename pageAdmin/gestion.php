@@ -91,12 +91,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <td class="u-border-2 u-border-palette-3-base u-table-cell"><a href="modifier_utilisateur.php?id=<?php echo $user["id"]; ?>">Modifier</a>
                 <a href="supprimer_utilisateur.php?id=<?php echo $user["id"]; ?>">Supprimer</a></td>
               </tr>
-              <tr style="height: 25px;">
-                <td class="u-border-2 u-border-palette-3-base u-table-cell"></td>
-                <td class="u-border-2 u-border-palette-3-base u-table-cell"></td>
-                <td class="u-border-2 u-border-palette-3-base u-table-cell"></td>
-                <td class="u-border-2 u-border-palette-3-base u-table-cell"></td>
-              </tr>
+              
 
              
        
