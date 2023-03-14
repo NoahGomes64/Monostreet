@@ -4,10 +4,7 @@ session_start();
 
 
 require_once "connexionBD.php";
-$stmt=$connection->prepare("SELECT nom FROM compte WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
-$user = $stmt->fetch();
-$nom = $user['nom'];
+
 
 ?>
 
@@ -18,7 +15,7 @@ $nom = $user['nom'];
     <title>Page Administrateur</title>
 </head>
 <body>
-<h1>Bienvenue Administrateur : <?php echo $nom; ?></h1>
+<h1>Bienvenue Administrateur : <?php echo $_SESSION['pseudo']; ?></h1>
 <p>Vous êtes connecté en tant qu'administrateur. Vous avez accès à certaines fonctionnalités réservées aux administrateurs.</p>
 <p>
     <a href="gestion_sauvegarde.php">Gestion des sauvegardes</a> |
