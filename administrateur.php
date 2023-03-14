@@ -1,11 +1,7 @@
 <?php
 // On verifie que l'utilisateur est connecté en tant qu'administrateur
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['estPrivilegie'] != 1) {
-    //Redirection vers connexion
-    header("Location: ../pageConnexion/connexion.php");
-    exit();
-}
+
 
 require_once "config.php";
 $stmt = $pdo->prepare("SELECT nom FROM compte WHERE id = ?");
