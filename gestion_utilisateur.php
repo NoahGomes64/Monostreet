@@ -42,9 +42,9 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
     <?php foreach ($stmt as $user):
         var_dump($user); ?>
         <tr>
-            <td><?php echo $user[0]; ?></td>
-            <td><?php echo $user[1]; ?></td>
-            <td><?php echo $user[3]; ?></td>
+            <td><?php echo $user["id"]; ?></td>
+            <td><?php echo $user["nom"]; ?></td>
+            <td><?php echo $user["estPrivilegie"]; ?></td>
             <td>
                 <a href="modifier_utilisateur.php?id=<?php echo $user[0]; ?>">Modifier</a>
                 <a href="supprimer_utilisateur.php?id=<?php echo $user[0]; ?>">Supprimer</a>
