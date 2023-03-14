@@ -25,7 +25,7 @@ if(isset($_POST['confirmer'])){
     $id=$stmt->fetch();
  
     $MotDePasseConfirmation = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
-    var_dump($MotDePasse);
+  var_dump($_POST['bonMdp']);
     var_dump($MotDePasseConfirmation);
     if ($MotDePasse==$MotDePasseConfirmation){
 
