@@ -9,5 +9,15 @@
 <body>
   WSH
   <script type='module' src='main.js'></script>
+  <a href="javascript:ouvre_popup('popup.html')">Ouverture d'un popup</a>
+<script type="text/javascript">
+var userPreference;
+
+if (confirm("Do you want to save changes?") == true) {
+    userPreference = "Data saved successfully!";
+} else {
+    userPreference = "Save Cancelled!";
+}
+</script>
 </body>
 </html>
