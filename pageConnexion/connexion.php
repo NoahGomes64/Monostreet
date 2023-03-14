@@ -21,11 +21,16 @@ if(isset($_POST['connexion'])){
       $stmt = $connection->prepare("SELECT mdp FROM compte WHERE nom = :nom");
       $stmt->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
       $stmt->execute();
+      $requete=$connection->prepare("SELECT id FROM compte WHERE nom = :nom");
+      $requete->bindParam(':nom', $Pseudo, PDO::PARAM_STR);
+      $requete->execute();
+      $id=$requete->fetch();
       if ($stmt->rowCount() > 0) {
         $hash=$stmt->fetch();
         if (password_verify($_POST['mdp'], $hash[0])) {
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
+          $_SESSION['id'] =  $id[0];
           header ('location: ../index.php');
             //header ('location: ../administrateur.php');
         }

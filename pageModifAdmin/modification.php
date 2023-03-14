@@ -68,7 +68,7 @@ if(isset($_POST['enregistrer'])){
 $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
 $stmt->execute();
 $photoNouvelle = $stmt->fetch();
-$id=$_GET['id'];
+
     unlink($photo[0]);
 
     
