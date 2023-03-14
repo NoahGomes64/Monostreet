@@ -41,12 +41,12 @@ var_dump($users);
     <?php foreach ($users as $user):
         var_dump($user); ?>
         <tr>
-            <td><?php echo $user['nom']; ?></td>
-            <td><?php echo $user['email']; ?></td>
-            <td><?php echo $user['estPrivilegie']; ?></td>
+            <td><?php echo $user[0]; ?></td>
+            <td><?php echo $user[1]; ?></td>
+            <td><?php echo $user[3]; ?></td>
             <td>
-                <a href="modifier_utilisateur.php?id=<?php echo $user['id']; ?>">Modifier</a>
-                <a href="supprimer_utilisateur.php?id=<?php echo $user['id']; ?>">Supprimer</a>
+                <a href="modifier_utilisateur.php?id=<?php echo $user[0]; ?>">Modifier</a>
+                <a href="supprimer_utilisateur.php?id=<?php echo $user[0]; ?>">Supprimer</a>
             </td>
         </tr>
     <?php endforeach; ?>
