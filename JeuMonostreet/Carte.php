@@ -12,23 +12,23 @@ class CaseCarteChance extends CasePlateau implements ICaseCarte{
         $this->initialiserListe();
     }
     public function initialiserListe(){
-    
-    "Rendez-vous à la Rue de la Paix"
-    "Avancer jusqu’à la case départ"
-    "Rendez-vous à l’Avenue Henri-Martin. Si vous passez par la case départ, recevez F20 00"
-    "Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez F20 00"
-    "Vous êtes imposé pour les réparations de voirie à raison de F4 000 par maison et F11 50 par hôtel."
-    "Avancez jusqu’à la Gare de Lyon. Si vous passez par la case départ, recevez F20 00"
-    "Vous avez gagné le prix de mots croisés. Recevez F10 00"
-    "La banque vous verse un dividende de F5 00"
-    "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue."
-    "Reculez de trois cases"
-    "Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ, ne touchez pas F20 00"
-    "Faites des réparations dans toutes vos maisons. Versez pour chaque maison F2 500. Versez pour chaque hôtel F10 00"
-    "Amende pour excès de vitesse F1 50"
-    "Payez pour frais de scolarité F15 00"
-    "Amende pour ivresse F2 00"
-    "Votre immeuble et votre prêt rapportent. Vous devez toucher F15 00"
+        $list=[
+    "Rendez-vous à la Rue de la Paix",
+    "Avancer jusqu’à la case départ",
+    "Rendez-vous à l’Avenue Henri-Martin. Si vous passez par la case départ, recevez F20 00",
+    "Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez F20 00",
+    "Vous êtes imposé pour les réparations de voirie à raison de F4 000 par maison et F11 50 par hôtel.",
+    "Avancez jusqu’à la Gare de Lyon. Si vous passez par la case départ, recevez F20 00",
+    "Vous avez gagné le prix de mots croisés. Recevez F10 00",
+    "La banque vous verse un dividende de F5 00",
+    "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.",
+    "Reculez de trois cases",
+    "Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ, ne touchez pas F20 00",
+    "Faites des réparations dans toutes vos maisons. Versez pour chaque maison F2 500. Versez pour chaque hôtel F10 00",
+    "Amende pour excès de vitesse F1 50",
+    "Payez pour frais de scolarité F15 00",
+    "Amende pour ivresse F2 00",
+    "Votre immeuble et votre prêt rapportent. Vous devez toucher F15 00"]
     }
     public function videListe(){
 
