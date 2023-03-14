@@ -23,7 +23,9 @@ if(isset($_POST['confirmer'])){
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
-    $MotDePasse = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
+    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+    $MotDePasseConfirmation = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
+    if ($MotDePasse==$MotDePasseConfirmation){
 
     
         
@@ -33,6 +35,10 @@ if(isset($_POST['confirmer'])){
         $_SESSION['pseudo'] = $_POST['pseudo'];
         $_SESSION['mdp'] = $MotDePasse;
         header ('location: ../index.php');
+    }
+    else{
+      echo "Les mots de passe ne correspondent pas";
+    }
   }
 
 
