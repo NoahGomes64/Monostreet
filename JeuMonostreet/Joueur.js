@@ -1,4 +1,5 @@
 import {Pion} from './Pion.js'
+import {CasePropriete} from './CasePropriete.js'
 
 export default class Joueur {
     //Constructeur
@@ -88,14 +89,21 @@ export default class Joueur {
         this.monPion.allerA(numeroCase);
     }
 
+    avancer(nbCase){
+        if (this.monPion.position + nbCase >= 40) {
+            this.crediter(200);
+        }
+        this.monPion.avancer(nbCase);
+    }
+
     acheter(unePropriete){
-        if (this.monArgent - unePropriete.prixAchat < 0) {
+        if (this.monArgent - unePropriete.valeurAchat < 0) {
             return false;
         }
         else {
-            this.debiter(unePropriete.prixAchat);
+            this.debiter(unePropriete.valeurAchat);
             this.listePropriete.push(unePropriete);
-            unePropriete.setProprietaire(this);
+            unePropriete.proprietaire = this;
             return true;
         }
     }
