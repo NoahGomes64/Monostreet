@@ -38,7 +38,8 @@ var_dump($users);
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($users as $user): ?>
+    <?php foreach ($users as $user):
+        var_dump($user); ?>
         <tr>
             <td><?php echo $user['nom']; ?></td>
             <td><?php echo $user['email']; ?></td>
