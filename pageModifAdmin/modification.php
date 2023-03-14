@@ -73,9 +73,10 @@ $id=$_GET['id'];
 
     
         
-        $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=$id");
+        $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=:id");
         $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_STR);
         $stmt->execute();
 
         //$_SESSION['mdp'] = $_POST['mdp'];
