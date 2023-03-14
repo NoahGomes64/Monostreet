@@ -11,7 +11,7 @@ session_start();
 require '../connexionBD.php';
 
 
-$id=$_GET['id'];
+
 $stmt = $connection->prepare("SELECT nom,email FROM compte WHERE id=:id");
 $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_STR);
 $stmt->execute();
@@ -21,7 +21,7 @@ $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_STR);
 $stmt->execute();
 $photo = $stmt->fetch();
 $ok=false;
-
+$id=$_GET['id'];
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
 
