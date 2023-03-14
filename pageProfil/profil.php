@@ -26,11 +26,6 @@ $stmt->execute();
 $privilege = $stmt->fetch();
 
 
-$stmt = $connection->prepare("SELECT estPrivilegie FROM compte WHERE id=:id");
-$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-$stmt->execute();
-$privilege = $stmt->fetch();
-
 
 ?>
 
