@@ -16,6 +16,7 @@ $stmt->execute();
 
 
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
+$_SESSION['estPrivilegie']=1;
 
 
 
