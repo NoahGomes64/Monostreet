@@ -1,3 +1,28 @@
+<?php
+// On verifie si l'utilisateur est administrateur
+session_start();
+/*
+if (!isset($_SESSION['user_id']) || $_SESSION['estPrvilegie'] != 1) {
+    header("Location: index.php");
+    exit();
+}
+*/
+
+// Récupérer la liste de tous les utilisateurs
+require_once('connexionBD.php');
+
+$stmt = $connection->prepare("SELECT * FROM compte");
+$stmt->execute();
+
+
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
