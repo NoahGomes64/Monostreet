@@ -40,7 +40,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
     </thead>
     <tbody>
     <?php foreach ($stmt as $user):
-        var_dump($user); ?>
+         ?>
         <tr>
             <td><?php echo $user["nom"]; ?></td>
             <td><?php echo $user["email"]; ?></td>
