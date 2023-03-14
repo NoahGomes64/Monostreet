@@ -41,7 +41,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-7434">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-hover-feature u-text u-text-default u-title u-text-1">administration</h1>
-        <h2 class="u-text u-text-default u-text-2">BIENVENUE  <?php echo $_SESSION['pseudo']; ?></h2>
+        <h2 class="u-text u-text-default u-text-2">BIENVENUE :  <?php echo $_SESSION['pseudo']; ?></h2>
         <h3 class="u-align-center u-text u-text-default u-text-white u-text-3">Vous êtes connecté en tant qu'administrateur. Vous avez accès à certaines fonctionnalités réservées aux administrateurs</h3>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
