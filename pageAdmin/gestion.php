@@ -23,6 +23,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 
 
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,7 +77,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               </tr>
             </thead>
             <tbody class="u-table-body">
-            <?php foreach ($stmt as $user):
+              <?php foreach ($stmt as $user):
          ?>
               <tr style="height: 44px;">
                 <td class="u-border-2 u-border-palette-3-base u-table-cell"><?php echo $user["nom"]; ?></td>
@@ -91,11 +92,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <td class="u-border-2 u-border-palette-3-base u-table-cell"><a href="modifier_utilisateur.php?id=<?php echo $user["id"]; ?>">Modifier</a>
                 <a href="supprimer_utilisateur.php?id=<?php echo $user["id"]; ?>">Supprimer</a></td>
               </tr>
-              
-
-             
-       
-    <?php endforeach; ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -108,7 +105,6 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
 background-color: #000000 !important
 }</style>
-    
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-98d6"><div class="u-clearfix u-sheet u-sheet-1">
       <p class="u-small-text u-text u-text-variant u-text-1">MONOSTREET 2023 TOUS DROITS RESERVES</p>
