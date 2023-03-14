@@ -16,6 +16,7 @@ $stmt->execute();
 
 
 $users = $stmt->fetch();
+var_dump($users);
 
 ?>
 
