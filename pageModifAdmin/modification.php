@@ -102,6 +102,7 @@ if(($_FILES['profil']['name'])==""){
       
       $stmt = $connection->prepare("UPDATE compte SET nom= :nom ,email= :email WHERE id=:id");
       $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
+      var_dump($_POST['pseudo']);
       $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
       $stmt->bindParam(':id',$_GET['id'], PDO::PARAM_STR);
       $stmt->execute();
@@ -113,7 +114,7 @@ if(($_FILES['profil']['name'])==""){
 
       if($ok==true)
       {
-        header ('location: ../pageAdmin/gestion.php');
+        //header ('location: ../pageAdmin/gestion.php');
       }
   }
 
