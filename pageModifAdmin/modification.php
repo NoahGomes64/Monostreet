@@ -115,7 +115,7 @@ if(($_FILES['profil']['name'])==""){
 
       if($ok==true)
       {
-        //header ('location: ../pageAdmin/gestion.php');
+        header ('location: ../pageAdmin/gestion.php');
       }
   }
 
