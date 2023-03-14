@@ -35,6 +35,11 @@ export default class Pion {
     allerEnPrison(){
         this.position = 10;
     }
+
+    afficher(){
+        ctx.fillStyle = this.couleur;
+        ctx.fillRect(0, 0, 10, 10);
+    }
 }
 
 export{Pion}
