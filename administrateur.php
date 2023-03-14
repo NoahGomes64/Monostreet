@@ -4,7 +4,7 @@ session_start();
 
 
 require_once "connexionBD.php";
-$stmt->prepare("SELECT nom FROM compte WHERE id = ?");
+$stmt=$connection->prepare("SELECT nom FROM compte WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
 $nom = $user['nom'];
