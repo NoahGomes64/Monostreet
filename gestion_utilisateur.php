@@ -15,8 +15,9 @@ $stmt = $connection->prepare("SELECT * FROM compte");
 $stmt->execute();
 
 
-$users = $stmt->fetch();
-var_dump($users);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+
 
 ?>
 
@@ -38,7 +39,7 @@ var_dump($users);
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($users as $user):
+    <?php foreach ($stmt as $user):
         var_dump($user); ?>
         <tr>
             <td><?php echo $user[0]; ?></td>
