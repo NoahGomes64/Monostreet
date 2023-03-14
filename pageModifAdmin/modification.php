@@ -105,6 +105,7 @@ if(($_FILES['profil']['name'])==""){
       $stmt->bindParam(':nom', $_POST['pseudo'], PDO::PARAM_STR);
       $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
       $stmt->bindParam(':id',$id, PDO::PARAM_STR);
+      var_dump($stmt);
       $stmt->execute();
 
       //$_SESSION['mdp'] = $_POST['mdp'];
@@ -114,7 +115,7 @@ if(($_FILES['profil']['name'])==""){
 
       if($ok==true)
       {
-        header ('location: ../pageAdmin/gestion.php');
+        //header ('location: ../pageAdmin/gestion.php');
       }
   }
 
