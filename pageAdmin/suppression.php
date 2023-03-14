@@ -16,5 +16,5 @@
 
 
 
-    header('Location: pageAdmin/gestion.php');
+    header('Location: gestion.php');
 ?>
