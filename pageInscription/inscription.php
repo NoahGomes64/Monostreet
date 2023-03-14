@@ -18,9 +18,9 @@ if(isset($_POST['inscription'])){
   if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['mdpConfirm'])) {
     $adresseDispo = true;
     $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
-    $MotDePasseConfirm = password_hash(strip_tags($_POST['mdpConfirm']),PASSWORD_DEFAULT);
 
-    if($MotDePasse==$MotDePasseConfirm){
+
+    if(password_verify($_POST['mdpConfirm'], $MotDePasse)){
 
     $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
     $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);

@@ -23,11 +23,9 @@ if(isset($_POST['confirmer'])){
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
- 
-    $MotDePasseConfirmation = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
-  var_dump($_POST['bonMdp']);
-    var_dump($MotDePasseConfirmation);
-    if ($MotDePasse==$MotDePasseConfirmation){
+    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+
+    if (password_verify($_POST['bonMdp'], $MotDePasse)){
 
     
         
