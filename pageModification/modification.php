@@ -64,8 +64,8 @@ if(isset($_POST['enregistrer'])){
 
         $stmt->execute();
 
-        $stmt = $connection->prepare("SELECT photo FROM compte WHERE nom=:nom");
-$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+        $stmt = $connection->prepare("SELECT photo FROM compte WHERE id=$id");
+
 $stmt->execute();
 $photoNouvelle = $stmt->fetch();
 $id=$_SESSION['id'];
