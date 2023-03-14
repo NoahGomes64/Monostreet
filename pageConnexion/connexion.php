@@ -9,17 +9,8 @@ session_start();
  * 
  * */
 
-//Donc on vire et on ajoute
-//require '../connexionBD.php';
+require '../connexionBD.php';
 
-<<<<<<< HEAD
-// Si l'utilisateur est deja connecter il ne pourra plus aller se connecter vers cette page on resolvera ;)
-/*
-if (isset($_SESSION['user_id'])) {
-    //Redirection vers la page de bienvenue
-    header("Location: ../index.php");
-    exit();
-=======
 if(isset($_POST['connexion'])){
   if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
     $Pseudo = strip_tags($_POST['pseudo']);
@@ -54,56 +45,10 @@ if(isset($_POST['connexion'])){
       echo $e->getMessage();
     }
   }
->>>>>>> 1415dbc37e8e043255833822424eaefbfd81ae82
 }
-*/
-//Mais on inclu le fichier de config au lieu de connexion bd
-require_once "config.php";
 
-// On initialise des variables de message d'erreur et de succès
-$message = "";
-$success = "";
-
-//Traitement du form
-if (isset($_POST['login'])) {
-    // On reccupere des données du form
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-
-    // Validation des données
-    if (empty($email) || empty($password)) {
-        $message = "Veuillez remplir tous les champs.";
-    } else {
-        // On verifie si l'utilisateur existe dans la base de données
-        $stmt = $pdo->prepare("SELECT * FROM compte WHERE email = ?");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($password, $user['mdp'])) {
-            // On verifie maintenant si l'utilisateur est administrateur
-            if ($user['estPrivilegie'] == 1) {
-                // On creer la session et on redicrection l'admin vers la page d'administration
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['last_activity'] = time();
-                $_SESSION['estPrivilegie'] = 1;
-                //Redirection ;)
-                header("Location: ../administrateur.php");
-                exit();
-            } elseif ($user['estPrivilegie'] == 0) {
-                // Création de la session et redirection vers la page d'accueil
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['last_activity'] = time();
-                $_SESSION['estPrivilegie'] = 0;
-                //Vers fonctionnalite dedide aux utilisateur cad page d'accueil
-                header("Location: ../index.php");
-                exit();
-            }
-        } else {
-            $message = "Adresse e-mail ou mot de passe incorrect.";
-        }
-    }
-}
 ?>
+
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -142,44 +87,29 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-864e">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">CONNEXION</h1>
-          <!----Affichage des message d'erreur (pas neccessairement important)--->
-
-          <?php if (!empty($message)) : ?>
-              <p><?php echo $message; ?></p>
-          <?php endif; ?>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-19-lg u-size-19-xl u-size-23-md u-size-23-sm u-size-23-xs u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">
                   <h2 class="u-text u-text-2">PAS DE COMPTE ?</h2>
-
-                    <!---Balise a ok impl-->
                   <a href="../pageInscription/inscription.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">inscription</a>
-
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-size-37-md u-size-37-sm u-size-37-xs u-size-41-lg u-size-41-xl u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <div class="u-expanded-width u-form u-form-1">
-
-                      <!-Formulaire-->
-                      <!--Pas besoin de rajouter une action a cause des session action="connexion.php"  -->
-                    <form style="padding: 10px;" method="post">
-                        <!--Email-->
+                    <form action="connexion.php"  style="padding: 10px;" method="post">
                       <div class="u-form-group u-form-name">
-                        <label for="email" class="u-label u-label-1">ADRESSE EMAIL</label>
-                          <input type="email" placeholder="Saisir votre email" id="email" name="email" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="required">
+                        <label for="name-1eed" class="u-label u-label-1">LOGIN</label>
+                        <input type="text" placeholder="Saisir votre login" id="login" name="pseudo" class="u-input u-input-rectangle u-radius-46 u-white u-input-1" required="required">
                       </div>
-                      </div>
-                        <!--mot de passe--->
                       <div class="u-form-group">
-                        <!--<label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label> ??---->
-                          <label for="password" class="u-label u-label-2">MOT DE PASSE</label>
-                          <input type="password" placeholder="Saisir votre mot de passe" id="password" name="password" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required>
+                        <label for="email-1eed" class="u-label u-label-2">MOT DE PASSE</label>
+                        <input type="password" placeholder="Saisir votre mot de passe" id="password" name="mdp" class="u-input u-input-rectangle u-radius-46 u-white u-input-2" required="required">
                       </div>
                      <br>
-                      <button type="submit" name="login" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">SE CONNECTER</button> <!--Pourquoi repeter connexion 2 fois--->
+                      <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
                     </form>
                   </div>
                   
