@@ -97,7 +97,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             </tbody>
           </table>
         </div>
-        <a href="../administrateur.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">RETOUR PAGE ADMINISTRATION</a>
+        <a href="../pageGestion/gestion.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">RETOUR PAGE ADMINISTRATION</a>
       </div>
       
       
