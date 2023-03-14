@@ -16,7 +16,7 @@ $stmt->execute();
 
 
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
-$_SESSION['estPrivilegie']=1;
+
 
 
 
@@ -90,7 +90,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 else{
                   echo "Administrateur";
                 }  ?></td>
-                <td class="u-border-2 u-border-palette-3-base u-table-cell"><a href="modifier_utilisateur.php?id=<?php echo $user["id"]; ?>">Modifier</a>
+                <td class="u-border-2 u-border-palette-3-base u-table-cell"><a href="../pageModifAdmin/modification.php?id=<?php echo $user["id"]; ?>">Modifier</a>
                 <a href="supprimer_utilisateur.php?id=<?php echo $user["id"]; ?>">Supprimer</a></td>
               </tr>
               <?php endforeach; ?>
