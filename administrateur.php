@@ -3,7 +3,7 @@
 session_start();
 
 
-require_once "config.php";
+require_once "connexionBD.php";
 $stmt = $pdo->prepare("SELECT nom FROM compte WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
