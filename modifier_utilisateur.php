@@ -1,14 +1,10 @@
 <?php
 session_start();
 
-// Vérification si l'utilisateur est connecté et a le rôle d'administrateur
-if (!isset($_SESSION['user_id']) || $_SESSION['estPrivilegie'] != 1) {
-    header("Location: index.php");
-    exit();
-}
+
 
 // Inclure le fichier de configuration de la base de données
-require_once "config.php";
+require_once "connexionBD.php";
 
 // Initialiser les variables d'erreur et de succès
 $error = "";
@@ -44,7 +40,7 @@ if (isset($_GET['id'])) {
             $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
 
             // Préparer la requête SQL pour mettre à jour les informations de l'utilisateur
-            $sql = "UPDATE compte SET nom=?, email=?, mdp=?, role=? WHERE id=?";
+            $stmt = $connection->prepare( "UPDATE compte SET nom=?, email=?, mdp=?, role=? WHERE id=?");
 
             // Préparer la requête et l'exécuter
             $stmt = $pdo->prepare($sql);
@@ -57,7 +53,7 @@ if (isset($_GET['id'])) {
     } else {
         // Récupérer les informations de l'utilisateur à partir de la base de données
         $sql = "SELECT * FROM compte WHERE id=?";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $connection->prepare($sql);
         $stmt->execute([$id]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
