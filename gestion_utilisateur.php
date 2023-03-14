@@ -9,17 +9,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['estPrvilegie'] != 1) {
 */
 
 // Récupérer la liste de tous les utilisateurs
-require_once('config.php');
+require_once('connexionBD.php');
 
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-$sql = "SELECT * FROM compte";
-$result = mysqli_query($conn, $sql);
-$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
-mysqli_free_result($result);
-mysqli_close($conn);
+$stmt = $connection->prepare("SELECT * FROM compte");
+$stmt->execute();
+
+
+$users = $stmt->fetch();
+
 ?>
 
 <!DOCTYPE html>
