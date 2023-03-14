@@ -1,6 +1,6 @@
-import {Case} from './Case.js'
+import {CasePropriete} from './CasePropriete.js'
 
-export default class CaseGare extends Case {
+export default class CaseGare extends CasePropriete {
     //Constructor
     constructor(numeroCase, nomCase) {
         super(numeroCase, nomCase, 200);
@@ -42,6 +42,10 @@ export default class CaseGare extends Case {
 
     calculerValeur(){
         return this.prixAchat*(7/10);
+    }
+
+    executer(joueur){
+        this.afficher(joueur);
     }
 
 }

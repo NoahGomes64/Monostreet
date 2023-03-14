@@ -1,9 +1,8 @@
 export default class Case {
     //Constructor
-    constructor(numeroCase, nomCase, valeurAchat) {
+    constructor(numeroCase, nomCase) {
         this.numeroCase = numeroCase;
         this.nomCase = nomCase;
-        this.valeurAchat = valeurAchat;
     }
 
     //Getter

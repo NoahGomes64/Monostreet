@@ -8,38 +8,26 @@ export default class Partie {
     }
 
     //Getter
-    get NiveauAmelioration(){
-        return this.niveauAmelioration;
+    get NumeroTour(){
+        return this.numeroTour;
     }
 
-    get ValeurRevenue(){
-        return this.valeurRevenue;
-    }
-
-    get ValeurPropriete(){
-        return this.valeurPropriete;
+    get ListeDesJoueurs(){
+        return this.listeDesJoueurs;
     }
 
     //Setter
-    set NiveauAmelioration(nvNiveauAmelioration){
-        return this.niveauAmelioration = nvNiveauAmelioration;
+    set NumeroTour(nvNumeroTour){
+        return this.numeroTour = nvNumeroTour;
     }
 
-    set ValeurRevenue(nvValeurRevenue){
-        return this.valeurRevenue = nvValeurRevenue;
-    }
-
-    set ValeurPropriete(nvValeurPropriete){
-        return this.valeurPropriete = nvValeurPropriete;
+    set ListeDesJoueurs(nvListeJoueurs){
+        return this.listeDesJoueurs = nvListeJoueurs;
     }
 
     //Méthodes
-    mettreAJourRevenue(nbGare){
-        this.valeurRevenue *= nbGare;
-    }
-
-    calculerValeur(){
-        return this.prixAchat*(7/10);
+    tourSuivant(){
+        this.numeroTour ++;
     }
 
 }
