@@ -23,7 +23,7 @@ if(isset($_POST['confirmer'])){
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
-    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+ 
     $MotDePasseConfirmation = password_hash(strip_tags($_POST['bonMdp']),PASSWORD_DEFAULT);
     var_dump($MotDePasse);
     var_dump($MotDePasseConfirmation);
