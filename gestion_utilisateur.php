@@ -44,10 +44,16 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
         <tr>
             <td><?php echo $user["nom"]; ?></td>
             <td><?php echo $user["email"]; ?></td>
-            <td><?php echo $user["estPrivilegie"]; ?></td>
+            <td><?php if($user["estPrivilegie"]==0){
+                  
+                  echo "Utilisateur";
+                }
+                else{
+                  echo "Administrateur";
+                }  ?></td>
             <td>
-                <a href="modifier_utilisateur.php?id=<?php echo $user[0]; ?>">Modifier</a>
-                <a href="supprimer_utilisateur.php?id=<?php echo $user[0]; ?>">Supprimer</a>
+                <a href="modifier_utilisateur.php?id=<?php echo $user["id"]; ?>">Modifier</a>
+                <a href="supprimer_utilisateur.php?id=<?php echo $user["id"]; ?>">Supprimer</a>
             </td>
         </tr>
     <?php endforeach; ?>
