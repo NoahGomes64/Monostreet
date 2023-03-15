@@ -125,7 +125,7 @@ if (strlen($leCode) == 4) {
                 
                 var compteur = 0;
                 for (let index1 = 0; index1 < tabDeRuesSansEspace.length; index1++) {
-                    for (let index2 = 0; index2 < tabDesCouleursCases[index1].length; index2++) {
+                    for (let index2 = 0; index2 < 9; index2++) {
                         switch (index1) {
                             case 0:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
