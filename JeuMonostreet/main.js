@@ -8,6 +8,9 @@ import { CasePropriete } from './CasePropriete.js';
 import { CaseNonAchetable } from './CaseNonAchetable.js';
 import { CaseCarteChance } from './CaseCarteChance.js';
 
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
 var btnJouer = document.getElementById('btnJouer');
 btnJouer.addEventListener("click", jouer);
 
