@@ -18,6 +18,10 @@ class Pion {
     public function avancer(){
 
     }
+
+    public function seDeplacer($numeroCase){
+        $this->setPosition($numeroCase);
+    }
     public function allerEnPrison(){
 
     }

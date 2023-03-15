@@ -7,7 +7,7 @@ export default class CaseRue extends CasePropriete {
         this.couleur = couleur;
         this.prixMaison = numeroCase*(3/5);
         this.niveauAmelioration = 0;
-        this.valeurPropriete = prixAchat;
+        this.valeurPropriete = this.valeurAchat;
     }
 
     //Getter

@@ -8,7 +8,6 @@ import { CasePropriete } from './CasePropriete.js';
 import { CaseNonAchetable } from './CaseNonAchetable.js';
 import { CaseCarteChance } from './CaseCarteChance.js';
 
-console.log("okkkkkkkkkkkkkkkkkkkk");
 function jeuMonostreet(nbJoueur, listeDesRues){
     //INITIALISATION
     // Dé
@@ -16,16 +15,16 @@ function jeuMonostreet(nbJoueur, listeDesRues){
     const de2 = new De();
 
     //Creation du Plateau
-    var plateau = [new CaseNonAchetable(0,"Depart"), new CasePropriete(1, listeDesRues[0], 200), new CaseCarteChance(2, "chance"), new CasePropriete(3, "case3", 200),
-  new CaseNonAchetable(4, "Rien"), new CaseGare(5, "gare de lyon", 200), new CasePropriete(6, "Case6", 200), new CaseCarteChance(7,"Chance"),
-  new CasePropriete(8, "Case8", 200), new CasePropriete(9, "Case9", 200), new CaseNonAchetable(10, "Prison"), new CaseNonAchetable(11, "Prison"),
-  new CasePropriete(12, "Case8", 200), new CasePropriete(13, "Case9", 200), new CaseNonAchetable(14, "Prison"), new CaseNonAchetable(15, "Prison"),
-  new CasePropriete(16, "Case8", 200), new CasePropriete(17, "Case9", 200), new CaseNonAchetable(18, "Prison"), new CaseNonAchetable(19, "Prison"),
-  new CasePropriete(20, "Case8", 200), new CasePropriete(21, "Case9", 200), new CaseNonAchetable(22, "Prison"), new CaseNonAchetable(23, "Prison"),
-  new CasePropriete(24, "Case8", 200), new CasePropriete(25, "Case9", 200), new CaseNonAchetable(26, "Prison"), new CaseNonAchetable(27, "Prison"),
-  new CasePropriete(28, "Case8", 200), new CasePropriete(29, "Case9", 200), new CaseNonAchetable(30, "Prison"), new CaseNonAchetable(31, "Prison"),
-  new CasePropriete(32, "Case8", 200), new CasePropriete(33, "Case9", 200), new CaseNonAchetable(34, "Prison"), new CaseNonAchetable(35, "Prison"),
-  new CasePropriete(36, "Case8", 200), new CasePropriete(37, "Case9", 200), new CaseNonAchetable(38, "Prison"), new CaseNonAchetable(39, "Prison")];
+    var plateau = [new CaseNonAchetable(0,"Depart"), new CaseRue(1, listeDesRues[0], "marron"), new CaseCarteChance(2, "chance"), new CaseRue(3, listeDesRues[1], "marron"),
+  new CaseNonAchetable(4, "Rien"), new CaseGare(5, "gare de lyon", 200), new CaseRue(6, listeDesRues[2], "bleu clair"), new CaseCarteChance(7,"Chance"),
+  new CaseRue(8, listeDesRues[3], "bleu clair"), new CaseRue(9, listeDesRues[4], "bleu clair"), new CaseNonAchetable(10, "Prison"), new CaseRue(11, listeDesRues[5], "rose"),
+  new CaseCarteChance(12,"Chance"), new CaseRue(13, listeDesRues[6], "rose"), new CaseRue(14, listeDesRues[7], "rose"), new CaseGare(15, "gare de montparnasse", 200),
+  new CaseRue(16, listeDesRues[8], "orange"), new CaseCarteChance(17,"Chance"), new CaseRue(18, listeDesRues[9], "orange"), new CaseRue(19, listeDesRues[10], "orange"),
+  new CaseNonAchetable(20, "Parc Gratuit"), new CaseRue(21, listeDesRues[11], "rouge"), new CaseCarteChance(22,"Chance"), new CaseRue(23, listeDesRues[12], "rouge"),
+  new CaseRue(24, listeDesRues[13], "rouge"), new CaseGare(25, "gare de Bordeaux Sainte Jean", 200), new CaseRue(26, listeDesRues[14], "jaune"), new CaseRue(27, listeDesRues[15], "jaune"),
+  new CaseNonAchetable(28, "Rien"), new CaseRue(29, listeDesRues[16], "jaune"), new CaseNonAchetable(30, "Aller en prison"), new CaseRue(31, listeDesRues[17], "vert"),
+  new CaseRue(32, listeDesRues[18], "vert"), new CaseCarteChance(33, "chance"), new CaseRue(34, listeDesRues[19], "vert"), new CaseGare(35, "gare de Marseille", 200),
+  new CaseCarteChance(36, "chance"), new CaseRue(37, listeDesRues[20], "bleu fonce"), new CaseNonAchetable(38, "Rien"), new CaseRue(39, listeDesRues[21], "bleu fonce")];
 
     // faire joueurs
     const joueur1 = new Joueur();
@@ -48,7 +47,7 @@ function jeuMonostreet(nbJoueur, listeDesRues){
         liste4Joueurs[index].monPion = new Pion(listeCouleurs[index]);
         listeDesJoueurs.push(liste4Joueurs[index]);
     }
-    console.log(joueur1.monArgent);
+    console.log(joueur1.nom);
 
     // La Partie
     const laPartie = new Partie(listeDesJoueurs);
@@ -85,12 +84,11 @@ function jeuMonostreet(nbJoueur, listeDesRues){
 
             joueur.avancer(de1.Valeur + de2.valeur);
             joueur.monPion.afficher();
-            console.log(joueur.monArgent);
+            console.log(joueur.monPion.position);
             plateau[joueur.monPion.position].executer(joueur);
-            sleep(2000);
+            joueur.monPion.afficher();
           }
         });
-
         
         //Seconde condition de sortie
         if (laPartie.numeroTour == 3) {
@@ -117,4 +115,8 @@ function sleep(milliseconds) {
 }
 
 
-jeuMonostreet(2,["ok","ok","ok"]);
+jeuMonostreet(2,["rue1","rue2","rue3", "rue4",
+"rue5", "rue6", "rue7", "rue8", "rue9",
+"rue10", "rue11", "rue12", "rue13", "rue14",
+"rue15", "rue16", "rue17", "rue18", "rue19",
+"rue20", "rue21", "rue22"]);

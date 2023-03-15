@@ -3,7 +3,7 @@ export default class Propriete {
     constructor(nom, positionPlateau, prixAchat) {
         this.nom = nom;
         this.positionPlateau = positionPlateau;
-        this.prixAchat = valeurAchat;
+        this.prixAchat = prixAchat;
         this.proprietaire = null;
     }
 

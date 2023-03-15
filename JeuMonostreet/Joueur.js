@@ -3,7 +3,8 @@ import {CasePropriete} from './CasePropriete.js'
 
 export default class Joueur {
     //Constructeur
-    constructor() {
+    constructor(nom) {
+        this.nom = nom;
         this.monPion = null;
         this.monArgent = 1500;
         this.listePropriete = [];
@@ -13,6 +14,10 @@ export default class Joueur {
     }
 
     // Getter
+    get Nom(){
+        return thid.nom;
+    }
+
     get MonPion() {
       return this.monPion;
     }
@@ -38,6 +43,10 @@ export default class Joueur {
     }
   
     // Setter
+    set Nom(nvNom){
+        this.nom = nvNom;
+    }
+    
     set MonPion(nvPion) {
         this.monPion = nvPion;
     }

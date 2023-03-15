@@ -29,7 +29,6 @@ export default class Partie {
     tourSuivant(){
         this.numeroTour ++;
     }
-
 }
 
 export {Partie}
