@@ -167,6 +167,7 @@ function afficherPlateau(ctx) {
       //Liste des noms de rues
       "<?php include('jeu.php');?>"
       var x = "<?php echo $laListeRues; ?>";
+      console.log(x);
       let tabDeRues = [];
       let mot = '';  
       for (let index = 0; index < x.length; index++) {
@@ -251,7 +252,7 @@ function afficherPlateau(ctx) {
 }
 
 function afficherPlateauEtPion(ctx) {
-  //ctx.clearRect(0, 0, 1000, 1000);
+  ctx.clearRect(0, 0, 1000, 1000);
   afficherPlateau(ctx);
   listeDesJoueurs.forEach(joueur => {
     joueur.monPion.afficher(ctx);
