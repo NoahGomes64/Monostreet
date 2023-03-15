@@ -82,7 +82,7 @@ const laPartie = new Partie(listeDesJoueurs);
 
 
 
-afficherPlateauEtPion(ctx);
+afficherPlateau(ctx);
 
 var compteurTourJoueur = 0;
 function lancerTour(){
@@ -97,7 +97,7 @@ function lancerTour(){
   //Avancer
   console.log(joueur);
   joueur.avancer(de1.Valeur + de2.valeur);
-  afficherPlateauEtPion(ctx);
+  afficherPlateau(ctx);
   console.log(joueur.monPion.position);
   plateau[joueur.monPion.position].executer(joueur);
 
@@ -238,6 +238,10 @@ function afficherPlateau(ctx) {
           }
       }
 
+      listeDesJoueurs.forEach(joueur => {
+        joueur.monPion.afficher(ctx);
+      });
+
       //ctx.font = "30px Verdana";
       // Create gradient
       //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
@@ -254,7 +258,7 @@ function afficherPlateauEtPion(ctx) {
   ctx.clearRect(0, 0, 1000, 1000);
   afficherPlateau(ctx);
   listeDesJoueurs.forEach(joueur => {
-    joueur.monPion.afficher(ctx)
+    joueur.monPion.afficher(ctx);
   });
 }
 
