@@ -94,7 +94,7 @@ function lancerTour(){
   //Avancer
   console.log(joueur);
   joueur.avancer(de1.Valeur + de2.valeur);
-  joueur.monPion.afficher();
+  joueur.monPion.afficher(ctx);
   console.log(joueur.monPion.position);
   plateau[joueur.monPion.position].executer(joueur);
 
@@ -177,7 +177,7 @@ function jeuMonostreet(nbJoueur, listeDesRues){
     //PARTIE
     //affichage des pions
     listeDesJoueurs.forEach(joueur => {
-      joueur.monPion.afficher();
+      joueur.monPion.afficher(ctx);
     });
 
     while (true) {
@@ -205,10 +205,10 @@ function jeuMonostreet(nbJoueur, listeDesRues){
             //console.log("de 2 = ", de2.valeur);
 
             joueur.avancer(de1.Valeur + de2.valeur);
-            joueur.monPion.afficher();
+            joueur.monPion.afficher(ctx);
             console.log(joueur.monPion.position);
             plateau[joueur.monPion.position].executer(joueur);
-            joueur.monPion.afficher();
+            joueur.monPion.afficher(ctx);
           }
         });
         
