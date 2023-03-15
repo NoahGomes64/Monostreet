@@ -180,8 +180,6 @@ if (strlen($leCode) == 4) {
                 //ctx.fillStyle = gradient;
                 //ctx.fillText("Big smile!", 10, 90);
 
-                export {ctx}
-
             }
  
         </script>
