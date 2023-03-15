@@ -94,6 +94,7 @@ function lancerTour(){
 
   //Avancer
   console.log(joueur);
+  joueur.monPion.effacer(ctx);
   joueur.avancer(de1.Valeur + de2.valeur);
   joueur.monPion.afficher(ctx);
   console.log(joueur.monPion.position);
