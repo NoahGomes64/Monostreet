@@ -124,7 +124,7 @@ if (strlen($leCode) == 4) {
                 ctx.font = "30px Arial";
                 
                 var compteur = 0;
-                for (let index1 = 0; index1 < tabDeRues.length; index1++) {
+                for (let index1 = 0; index1 < tabDeRuesSansEspace.length; index1++) {
                     for (let index2 = 0; index2 < tabDesCouleursCases[index1].length; index2++) {
                         switch (index1) {
                             case 0:
