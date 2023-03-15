@@ -20,7 +20,7 @@ function creerPlateau($laRue){
 
 
 ?>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
         <script>
             tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
@@ -51,7 +51,7 @@ function creerPlateau($laRue){
                 }
 
                 //Liste des noms de rues
-                var x = "<?php echo $listeRues; ?>";
+                var x = "?php echo $listeRues; ?>";
                 let tabDeRues = [];
                 let mot = '';  
                 for (let index = 0; index < x.length; index++) {
@@ -148,4 +148,4 @@ function creerPlateau($laRue){
 	</head>
 	<body>
 	</body>
-</html>
+</html>-->
