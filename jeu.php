@@ -80,10 +80,10 @@ if (strlen($leCode) == 4) {
     <p id="gagnant"></p>
 
         <script>
-            tabDesCouleursCases = [['pink','pink','white','pink','white','white','purple','white','purple'],
+            tabDesCouleursCases = [['pink','white','pink','pink','white','orange','white','orange','orange'],
                                     ["rgb(0,32,255)",'white',"rgb(0,32,255)",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
-                                    ['red','white','red','red','white','yellow','white','yellow','yellow'],
-                                    ['green','white','green','green','white',"rgb(223,175,44)",'white',"rgb(223,175,44)","rgb(223,175,44)"]];            
+                                    ['red','white','red','red','white','yellow','yellow','white','yellow'],
+                                    ['green','green','white','green','white',"white",'blue',"white","blue"]];            
             
                 window.onload = function() {
                 var canvas = document.getElementById('myCanvas');
