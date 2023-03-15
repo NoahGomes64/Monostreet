@@ -69,6 +69,16 @@ if (strlen($leCode) == 4) {
 	        border: 1px solid black;
         }
     </style>
+
+    <button id="btnJouer">Jouer</button>
+
+    <script type="module" src="JeuMonostreet/main.js"></script>
+
+
+    <button id="lancerDes"></button>
+
+    <p id="gagnant"></p>
+
         <script>
             tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
                                     ['pink','pink','white','pink','white','white','purple','white','purple'],
@@ -184,14 +194,5 @@ if (strlen($leCode) == 4) {
  
         </script>
 
-        <button id="btnJouer">Jouer</button>
-
-        <script type="module" src="JeuMonostreet/main.js"></script>
-        <script type="module" src="JeuMonostreet/Pion.js"></script>
-
-
-        <button id="lancerDes"></button>
-
-        <p id="gagnant"></p>
     </body>
 </html>
