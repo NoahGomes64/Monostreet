@@ -137,7 +137,7 @@ function jeuMono(){
 
 
 function afficherPlateau() {
-  tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
+  const tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
                           ['pink','pink','white','pink','white','white','purple','white','purple'],
                           ["rgb(0,32,255)",'white',"rgb(0,32,255)",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
                           ['green','white','green','green','white',"rgb(223,175,44)",'white',"rgb(223,175,44)","rgb(223,175,44)"]];            
