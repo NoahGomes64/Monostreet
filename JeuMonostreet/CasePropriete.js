@@ -5,6 +5,7 @@ export default class CasePropriete extends Case{
     constructor(numeroCase, nomCase, valeurAchat) {
         super(numeroCase, nomCase, valeurAchat);
         this.valeurAchat = valeurAchat;
+        this.proprietaire = null;
     }
 
     //Getter
@@ -24,12 +25,18 @@ export default class CasePropriete extends Case{
 
     afficher(joueur) {
         //var txt;
-        if (confirm(joueur.nom +",\nVoulez vous acheter :\n" + this.nomCase + ", " + this.valeurAchat)) {
-          //txt = "You buy it!";
-            joueur.acheter(this);
-        } else {
-          //txt = "You don't buy it!";
+        if (this.proprietaire == null) {
+            if (confirm(joueur.nom +",\nVoulez vous acheter :\n" + this.nomCase + ", " + this.valeurAchat)) {
+                //txt = "You buy it!";
+                joueur.acheter(this);
+            } else {
+                //txt = "You don't buy it!";
+            }
         }
+        else {
+            joueur.payer(this.proprietaire, this.valeurAchat)
+        }
+        
         //document.getElementById("demo").innerHTML = txt;*/
     }
 
