@@ -114,18 +114,18 @@ if (strlen($leCode) == 4) {
                 tabDeRuesSansEspace = [];
                 let mot2 = "";
                 var unCompteur = 0;
-                console.log(tabDeRues);
+                //console.log(tabDeRues);
                 for (let index = 0; index < tabDeRues.length; index++) {
                     tabDeRuesSansEspace.push(tabDeRues[index].trim());
                 }
-                console.log(tabDeRuesSansEspace);
+                //console.log(tabDeRuesSansEspace);
 
                 //affichage des cases colorées
                 ctx.font = "30px Arial";
                 
                 var compteur = 0;
                 for (let index1 = 0; index1 < tabDeRues.length; index1++) {
-                    for (let index2 = 0; index2 < tabDesCouleursCases[index1].length; index2++) {
+                    for (let index2 = 0; index2 < tabDesCouleursCases[index1].lenght; index2++) {
                         switch (index1) {
                             case 0:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
