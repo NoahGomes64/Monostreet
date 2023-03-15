@@ -187,6 +187,7 @@ if (strlen($leCode) == 4) {
         <button id="btnJouer">Jouer</button>
 
         <script type="module" src="JeuMonostreet/main.js"></script>
+        <script type="module" src="JeuMonostreet/Pion.js"></script>
 
 
         <button id="lancerDes"></button>

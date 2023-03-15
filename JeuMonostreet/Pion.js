@@ -36,7 +36,7 @@ export default class Pion {
         this.position = 10;
     }
 
-    afficher(ctx){
+    afficher(){
         ctx.fillStyle = this.couleur;
         if (this.position >= 0 && this.position <= 10) {
             ctx.fillRect(this.position*100, 0, 100, 100);
