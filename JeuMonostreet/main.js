@@ -11,6 +11,8 @@ import { CaseCarteChance } from './CaseCarteChance.js';
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
+afficherPlateau();
+
 var btnJouer = document.getElementById('btnJouer');
 btnJouer.addEventListener("click", jouer);
 
@@ -103,7 +105,15 @@ function lancerTour(){
   if (compteurTourJoueur == nbJoueur - 1) {
     compteurTourJoueur = 0;
     if (laPartie.numeroTour == 2) {
-      document.getElementById("gagnant").innerHTML = joueur.nom + " a gagné!";
+      if (listeDesJoueurs[0].monArgent > listeDesJoueurs[1].monArgent) {
+        document.getElementById("gagnant").innerHTML = listeDesJoueurs[0].nom + " a gagné!";
+      }
+      else if (listeDesJoueurs[1].monArgent > listeDesJoueurs[0].monArgent) {
+        document.getElementById("gagnant").innerHTML = listeDesJoueurs[1].nom + " a gagné!";
+      }
+      else {
+        document.getElementById("gagnant").innerHTML = "égalité";
+      }
       btnlancerDes.style.opacity = 0;
     }
     laPartie.tourSuivant();
