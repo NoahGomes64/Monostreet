@@ -136,7 +136,7 @@ function jeuMono(){
 
 
 
-function afficherPlateau() {
+function afficherPlateau(ctx) {
   const tabDesCouleursCases = [['red','white','red','red','white','yellow','white','yellow','yellow'],
                           ['pink','pink','white','pink','white','white','purple','white','purple'],
                           ["rgb(0,32,255)",'white',"rgb(0,32,255)",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
@@ -252,7 +252,7 @@ function afficherPlateau() {
 
 function afficherPlateauEtPion(ctx) {
   ctx.clearRect(0, 0, 1000, 1000);
-  afficherPlateau();
+  afficherPlateau(ctx);
   listeDesJoueurs.forEach(joueur => {
     joueur.monPion.afficher(ctx)
   });
