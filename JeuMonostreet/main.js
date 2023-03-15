@@ -102,7 +102,7 @@ function lancerTour(){
   //fin de tour
   if (compteurTourJoueur == nbJoueur - 1) {
     compteurTourJoueur = 0;
-    if (laPartie.numeroTour == 2) {
+    if (laPartie.numeroTour == 4) {
       if (listeDesJoueurs[0].monArgent > listeDesJoueurs[1].monArgent) {
         document.getElementById("gagnant").innerHTML = listeDesJoueurs[0].nom + " a gagné!";
       }
