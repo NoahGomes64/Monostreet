@@ -170,12 +170,6 @@ if (strlen($leCode) == 4) {
                     }
                 }
 
-                var prison = new Image();
-                prison.src = "prison.jpg";
-                ctx.drawImage(prison, 0, 0); 
-
-                
-
                 //ctx.font = "30px Verdana";
                 // Create gradient
                 //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
