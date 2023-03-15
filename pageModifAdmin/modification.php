@@ -131,6 +131,7 @@ if(($_FILES['profil']['name'])==""){
     <meta name="description" content="">
     <title>MONOSTREET | Modification</title>
     <link rel="shortcut icon" href="images/logo.PNG" />
+    <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">
     

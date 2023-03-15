@@ -33,6 +33,7 @@ if (strlen($leCode) == 4) {
 ?>    
 <!DOCTYPE html>
 <html>
+
     <style>
         body{
             display: grid;
@@ -54,7 +55,7 @@ if (strlen($leCode) == 4) {
     }
     else {
         echo "partie non trouvé";
-        echo "<a href='playGame.php?'><button>Chercher une autre partie</button></a>";
+        echo "<a href='pageJouer/jouer.php'><button>Chercher une autre partie</button></a>";
     }
     ?>
 
@@ -190,7 +191,8 @@ if (strlen($leCode) == 4) {
     
     </body>
 	<head>
-		<title>Monostreet</title>
+		<title>MONOSTREET | Jeu</title>
+        <link rel="shortcut icon" href="images/logo.PNG" />
 	</head>
 	<body>
 	</body>
