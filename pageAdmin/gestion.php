@@ -32,6 +32,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
     <meta name="keywords" content="modification du profil">
     <meta name="description" content="">
     <title>MONOSTREET | Administration</title>
+    <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
