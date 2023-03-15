@@ -179,7 +179,7 @@ function afficherPlateau() {
       }   
       
       //Suppression des espaces des rues
-      tabDeRuesSansEspace = [];
+      var tabDeRuesSansEspace = [];
       let mot2 = "";
       var unCompteur = 0;
       //console.log(tabDeRues);
