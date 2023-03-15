@@ -82,7 +82,7 @@ const laPartie = new Partie(listeDesJoueurs);
 
 
 
-afficherPlateauEtPion();
+afficherPlateauEtPion(ctx);
 
 var compteurTourJoueur = 0;
 function lancerTour(){
