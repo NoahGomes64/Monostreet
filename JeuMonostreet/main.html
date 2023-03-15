@@ -9,15 +9,22 @@
 <body>
   WSH
   <canvas id="myCanvas" width="1100" height="1100"></canvas>
-    <style>
-        canvas {
-	        border: 1px solid black;
-        }
-    </style>
+  <style>
+    canvas {
+	    border: 1px solid black;
+    }
+  </style>
+
+  <button onclick="alert('hello')">Hello HTML</button>
+  <button onclick="hello()">Hello Function</button>
+  <button id="btnCallFunction">hello event</button>
+
+  <script type="module" src="main.js"></script>
+
   <script>
     var canvas = document.getElementById('myCanvas');
     var ctx = canvas.getContext('2d');
   </script>
-  <script type='module' src='main.js'></script>
+  
 </body>
 </html>
