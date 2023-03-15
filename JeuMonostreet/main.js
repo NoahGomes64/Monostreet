@@ -68,7 +68,7 @@ const listeCouleurs = [couleur1, couleur2];
 const listeDesJoueurs = [];
 for (let index = 0; index < nbJoueur; index++) {
   liste4Joueurs[index].nom = listePseudo[index];
-  liste4Joueurs[index].monPion = new Pion(listeCouleurs[index]);
+  liste4Joueurs[index].monPion = new Pion(listeCouleurs[index], ctx);
   listeDesJoueurs.push(liste4Joueurs[index]);
 }
 //console.log(joueur1.nom);
@@ -80,7 +80,9 @@ const laPartie = new Partie(listeDesJoueurs);
 
 
 
-
+listeDesJoueurs.forEach(joueur => {
+  joueur.monPion.afficher();
+});
 
 var compteurTourJoueur = 0;
 function lancerTour(){
@@ -94,9 +96,7 @@ function lancerTour(){
 
   //Avancer
   console.log(joueur);
-  joueur.monPion.effacer(ctx);
   joueur.avancer(de1.Valeur + de2.valeur);
-  joueur.monPion.afficher(ctx);
   console.log(joueur.monPion.position);
   plateau[joueur.monPion.position].executer(joueur);
 

@@ -1,8 +1,9 @@
 export default class Pion {
     //Constructeur
-    constructor(couleur) {
+    constructor(couleur, ctx) {
         this.position = 0;
         this.couleur = couleur;
+        this.ctx = ctx;
     }
 
     //Getter
@@ -25,7 +26,9 @@ export default class Pion {
 
     //Methodes
     avancer(nbCase){
+        this.effacer();
         this.position = (this.position + nbCase)%40;
+        this.afficher();
     }
 
     allerA(numCase){
@@ -36,36 +39,36 @@ export default class Pion {
         this.position = 10;
     }
 
-    afficher(ctx){
-        ctx.fillStyle = this.couleur;
+    afficher(){
+        this.ctx.fillStyle = this.couleur;
         if (this.position >= 0 && this.position <= 10) {
-            ctx.fillRect(930 - ((this.position)*76), 920, 20, 20);
+            this.ctx.fillRect(930 - ((this.position)*76), 920, 20, 20);
         }
         else if (this.position > 10 && this.position <= 20) {
-            ctx.fillRect(25, 920 - ((this.position-10)*75), 20, 20);
+            this.ctx.fillRect(25, 920 - ((this.position-10)*75), 20, 20);
         }
         else if (this.position > 20 && this.position <= 30){
-            ctx.fillRect(125+(this.position-20)*76, 30, 20, 20);
+            this.ctx.fillRect(125+(this.position-20)*76, 30, 20, 20);
         }
         else if(this.position > 30 && this.position <= 39) {
-            ctx.fillRect(920, 110+(this.position-30)*76, 20, 20);
+            this.ctx.fillRect(920, 110+(this.position-30)*76, 20, 20);
         }
         
     }
 
-    effacer(ctx){
-        ctx.fillStyle = "rgb(249,228,183)";
+    effacer(){
+        this.ctx.fillStyle = "rgb(249,228,183)";
         if (this.position >= 0 && this.position <= 10) {
-            ctx.fillRect(930 - ((this.position)*76), 920, 20, 20);
+            this.ctx.fillRect(930 - ((this.position)*76), 920, 20, 20);
         }
         else if (this.position > 10 && this.position <= 20) {
-            ctx.fillRect(25, 920 - ((this.position-10)*75), 20, 20);
+            this.ctx.fillRect(25, 920 - ((this.position-10)*75), 20, 20);
         }
         else if (this.position > 20 && this.position <= 30){
-            ctx.fillRect(125+(this.position-20)*76, 30, 20, 20);
+            this.ctx.fillRect(125+(this.position-20)*76, 30, 20, 20);
         }
         else if(this.position > 30 && this.position <= 39) {
-            ctx.fillRect(920, 110+(this.position-30)*76, 20, 20);
+            this.ctx.fillRect(920, 110+(this.position-30)*76, 20, 20);
         }
     }
 }
