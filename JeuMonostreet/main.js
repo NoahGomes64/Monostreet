@@ -82,7 +82,7 @@ const laPartie = new Partie(listeDesJoueurs);
 
 
 
-
+afficherPlateauEtPion();
 
 var compteurTourJoueur = 0;
 function lancerTour(){
@@ -97,7 +97,7 @@ function lancerTour(){
   //Avancer
   console.log(joueur);
   joueur.avancer(de1.Valeur + de2.valeur);
-  joueur.monPion.afficher(ctx);
+  afficherPlateauEtPion(ctx);
   console.log(joueur.monPion.position);
   plateau[joueur.monPion.position].executer(joueur);
 
@@ -136,7 +136,13 @@ function jeuMono(){
 
 
 
-
+function afficherPlateauEtPion(ctx) {
+  ctx.clearRect(0, 0, 1000, 1000);
+  afficherPlateau();
+  listeDesJoueurs.forEach(joueur => {
+    joueur.monPion.afficher(ctx)
+  });
+}
 
 
 
