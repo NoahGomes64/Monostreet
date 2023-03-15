@@ -1,4 +1,3 @@
-import {ctx} from '../jeu.php'
 export default class Pion {
     //Constructeur
     constructor(couleur) {
