@@ -137,7 +137,7 @@ if (strlen($leCode) == 4) {
                 for (let index1 = 0; index1 < tabDeRuesSansEspace.length; index1++) {
                     for (let index2 = 0; index2 < 9; index2++) {
                         switch (index1) {
-                            case 0:
+                            case 2:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
                                 ctx.fillRect(152 + (index2 *76), 101, 75, 50);
                                 if (tabDesCouleursCases[index1][index2] != 'white') {
@@ -147,7 +147,7 @@ if (strlen($leCode) == 4) {
                                 }
                                 break;
                         
-                            case 1:
+                            case 3:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
                                 ctx.fillRect(836, 152 + (index2 *76), 50, 75);
                                 if (tabDesCouleursCases[index1][index2] != 'white') {
@@ -157,7 +157,7 @@ if (strlen($leCode) == 4) {
                                 }
                                 break;
 
-                            case 2:
+                            case 0:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
                                 ctx.fillRect(760 - (index2 *76), 836, 75, 50);
                                 if (tabDesCouleursCases[index1][index2] != 'white') {
@@ -167,7 +167,7 @@ if (strlen($leCode) == 4) {
                                 }
                                 break;
                             
-                            case 3:
+                            case 1:
                                 ctx.fillStyle = tabDesCouleursCases[index1][index2];
                                 ctx.fillRect(101, 760 - (index2 *76), 50, 75);
                                 if (tabDesCouleursCases[index1][index2] != 'white') {
