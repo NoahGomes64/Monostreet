@@ -24,7 +24,7 @@ export default class CasePropriete extends Case{
 
     afficher(joueur) {
         //var txt;
-        if (confirm(this.nomCase + ", " + this.valeurAchat)) {
+        if (confirm("Voulez vous acheter :\n" + this.nomCase + ", " + this.valeurAchat)) {
           //txt = "You buy it!";
             joueur.acheter(this);
         } else {

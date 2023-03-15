@@ -32,6 +32,7 @@ export default class CarteChance {
             joueur.debiter(this.argent);
         }
         joueur.seDeplacer(this.deplacement);
+        console.log("vous gagnez " + this.argent + " et deplacé de " + this.deplacement);
     }
 
 }
