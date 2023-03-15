@@ -80,8 +80,8 @@ if (strlen($leCode) == 4) {
     <p id="gagnant"></p>
 
         <script>
-            tabDesCouleursCases = [['pink','white','pink','pink','white','orange','white','orange','orange'],
-                                    ["brown",'white',"brown",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
+            tabDesCouleursCases = [["brown",'white',"brown",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
+                                    ['pink','white','pink','pink','white','orange','white','orange','orange'],
                                     ['red','white','red','red','white','yellow','yellow','white','yellow'],
                                     ['green','green','white','green','white',"white",'blue',"white","blue"]];            
             
