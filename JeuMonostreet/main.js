@@ -8,6 +8,15 @@ import { CasePropriete } from './CasePropriete.js';
 import { CaseNonAchetable } from './CaseNonAchetable.js';
 import { CaseCarteChance } from './CaseCarteChance.js';
 
+
+var btnCallFunction = document.getElementById('btnCallFunction');
+btnCallFunction.addEventListener("click", hello);
+
+function hello(){
+  alert('hello fonction');
+}
+
+
 function jeuMonostreet(nbJoueur, listeDesRues){
     //INITIALISATION
     // Dé
@@ -114,6 +123,7 @@ function sleep(milliseconds) {
   } while (currentDate - date < milliseconds);
 }
 
+export {jeuMonostreet}
 
 jeuMonostreet(2,["rue1","rue2","rue3", "rue4",
 "rue5", "rue6", "rue7", "rue8", "rue9",
