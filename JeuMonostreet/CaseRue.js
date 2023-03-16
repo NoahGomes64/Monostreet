@@ -50,7 +50,7 @@ export default class CaseRue extends CasePropriete {
     }
 
     executer(joueur){
-        this.afficher(joueur);
+        return this.afficher(joueur);
     }
 
 }
