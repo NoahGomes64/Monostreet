@@ -3,7 +3,7 @@
 $host = "mysql-monostreet.alwaysdata.net";
 $dbname = "monostreet_utilisateur";
 $username = "298407_guillaume";
-$password = "monostreet64!!";
+$password = "monostreet_team64!!";
 
 try {
   $connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
