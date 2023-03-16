@@ -77,12 +77,10 @@ if (strlen($leCode) == 4) {
         <canvas id="myCanvas" width="987" height="987"></canvas>
 
         <div id="affichageReste">
-            <button id="btnJouer">Jouer</button>
-
             <script type="module" src="JeuMonostreet/main.js"></script>
 
 
-            <button id="lancerDes"></button>
+            <button id="lancerDes"></button></br>
 
             <p id="argentJ1"></p>
             <p id="argentJ2"></p>
