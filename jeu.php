@@ -67,7 +67,7 @@ if (strlen($leCode) == 4) {
     <style>
         body{
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 70% 30%;
         }
 
         canvas {
