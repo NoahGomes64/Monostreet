@@ -12,7 +12,7 @@ export default class CaseNonAchetable extends Case{
 
     //Méthodes
     executer(){
-        return "rien";
+        return this.nomCase;
     }
 }
 

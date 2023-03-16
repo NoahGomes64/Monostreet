@@ -36,6 +36,7 @@ export default class CasePropriete extends Case{
         else {
             joueur.payer(this.proprietaire, this.valeurAchat)
         }
+        return this.nomCase;
         
         //document.getElementById("demo").innerHTML = txt;*/
     }
