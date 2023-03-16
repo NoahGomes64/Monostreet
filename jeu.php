@@ -80,7 +80,7 @@ if (strlen($leCode) == 4) {
             <script type="module" src="JeuMonostreet/main.js"></script>
 
 
-            <button id="lancerDes"></button></br>
+            <button id="lancerDes">Lancer les dés !</button></br>
 
             <p id="argentJ1"></p>
             <p id="argentJ2"></p>

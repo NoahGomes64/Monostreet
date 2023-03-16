@@ -11,15 +11,6 @@ import { CaseCarteChance } from './CaseCarteChance.js';
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-function hello(){
-  alert('hello fonction');
-}
-
-function jouer() {
-  document.getElementById("lancerDes").innerHTML = "Lancer les dés !";
-  btnJouer.style.opacity = 0;
-}
-
 var btnlancerDes = document.getElementById('lancerDes');
 btnlancerDes.addEventListener("click",lancerTour)
 
