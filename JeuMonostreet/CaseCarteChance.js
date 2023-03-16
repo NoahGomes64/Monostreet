@@ -51,7 +51,7 @@ export default class CaseCarteChance extends CaseNonAchetable{
         var min=0; 
         var max=13;  
         var carte = Math.floor(Math.random() * (max + 1 - min)) + min;
-        this.listeDesCartes[carte].jouerCarte(joueur);
+        return this.listeDesCartes[carte].jouerCarte(joueur);
     }
 
 }
