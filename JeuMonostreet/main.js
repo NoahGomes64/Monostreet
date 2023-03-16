@@ -97,6 +97,7 @@ function lancerTour(){
 
   //Avancer
   console.log(joueur);
+  document.getElementById("deplacement").innerHTML = "Vous avez fait " + (de1.Valeur + de2.valeur);
   joueur.avancer(de1.Valeur + de2.valeur);
   console.log(joueur.monPion.position);
   document.getElementById("jouerCarte").innerHTML = plateau[joueur.monPion.position].executer(joueur);
