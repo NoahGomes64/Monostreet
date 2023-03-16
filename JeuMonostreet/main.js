@@ -83,12 +83,13 @@ const laPartie = new Partie(listeDesJoueurs);
 listeDesJoueurs.forEach(joueur => {
   joueur.monPion.afficher();
 });
+document.getElementById("argentJ1").innerHTML = "Joueur1 : "+listeDesJoueurs[0].monArgent+"€";
+document.getElementById("argentJ2").innerHTML = "Joueur2 : "+listeDesJoueurs[1].monArgent+"€";;
+  
 
 var compteurTourJoueur = 0;
 function lancerTour(){
   //joueur
-  document.getElementById("argentJ1").innerHTML = "Joueur1 : "+listeDesJoueurs[0].monArgent+"€";
-  document.getElementById("argentJ2").innerHTML = "Joueur2 : "+listeDesJoueurs[1].monArgent+"€";;
   document.getElementById("jouerCarte").innerHTML = "";
   var joueur = listeDesJoueurs[compteurTourJoueur];
   //Tirer De
@@ -104,6 +105,9 @@ function lancerTour(){
   console.log(joueur.monPion.position);
   document.getElementById("jouerCarte").innerHTML = plateau[joueur.monPion.position].executer(joueur);
 
+  //afficher argent
+  document.getElementById("argentJ1").innerHTML = "Joueur1 : "+listeDesJoueurs[0].monArgent+"€";
+  document.getElementById("argentJ2").innerHTML = "Joueur2 : "+listeDesJoueurs[1].monArgent+"€";
   //fin de tour
   if (compteurTourJoueur == nbJoueur - 1) {
     compteurTourJoueur = 0;
