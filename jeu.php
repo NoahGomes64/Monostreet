@@ -85,12 +85,12 @@ if (strlen($leCode) == 4) {
             <div id="joueur1">
             <p id="argentJ1"></p>
             <p id="proprieteJ1"></p>
-            </div></br></br>
+            </div></br>
 
             <div id="joueur2">
             <p id="argentJ2"></p>
             <p id="proprieteJ2"></p>
-            </div></br>
+            </div></br></br>
 
             <p id="deplacement"></p>
                 
