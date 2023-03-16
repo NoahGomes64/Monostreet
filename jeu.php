@@ -77,6 +77,8 @@ if (strlen($leCode) == 4) {
 
     <button id="lancerDes"></button>
 
+    <p id="jouerCarte"></p>
+
     <p id="gagnant"></p>
 
         <script>

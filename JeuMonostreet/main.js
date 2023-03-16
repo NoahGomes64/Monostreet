@@ -87,6 +87,7 @@ listeDesJoueurs.forEach(joueur => {
 var compteurTourJoueur = 0;
 function lancerTour(){
   //joueur
+  document.getElementById("jouerCarte").innerHTML = "";
   var joueur = listeDesJoueurs[compteurTourJoueur];
   //Tirer De
   de1.valeur = null;
@@ -98,7 +99,7 @@ function lancerTour(){
   console.log(joueur);
   joueur.avancer(de1.Valeur + de2.valeur);
   console.log(joueur.monPion.position);
-  plateau[joueur.monPion.position].executer(joueur);
+  document.getElementById("jouerCarte").innerHTML = plateau[joueur.monPion.position].executer(joueur);
 
   //fin de tour
   if (compteurTourJoueur == nbJoueur - 1) {
