@@ -38,11 +38,22 @@ if (strlen($leCode) == 4) {
         body{
             display: grid;
             padding-left : 5em;
-            grid-template-columns: 26% 74%;
+            grid-template-columns: 70% 30%;
         }
-    div{
-        padding-top : 12em;
-    }
+
+        div{
+            padding-top : 12em;
+        }
+
+        canvas {
+	        border: 1px solid black;
+            margin: 50px;
+        }
+
+        button{
+            height: 50px;
+            width: 200px;
+        }
     </style>
     <head>
 		<title>MONOSTREET | Jeu</title>
@@ -64,22 +75,6 @@ if (strlen($leCode) == 4) {
     ?>
 
     <canvas id="myCanvas" width="987" height="987"></canvas></br>
-    <style>
-        body{
-            display: grid;
-            grid-template-columns: 70% 30%;
-        }
-
-        canvas {
-	        border: 1px solid black;
-            margin: 50px;
-        }
-
-        button{
-            height: 50px;
-            width: 200px;
-        }
-    </style>
 
     <div id="affichageReste">
     <button id="btnJouer">Jouer</button>
