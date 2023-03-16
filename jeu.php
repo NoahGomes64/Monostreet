@@ -38,7 +38,7 @@ if (strlen($leCode) == 4) {
         body{
             display: grid;
             padding-left : 5em;
-            grid-template-columns: 70% 30%;
+            grid-template-columns: 75% 25%;
         }
 
         div{
