@@ -32,7 +32,7 @@ export default class CarteChance {
             joueur.debiter(this.argent);
         }
         joueur.seDeplacer(this.deplacement);
-        txt = "vous gagnez " + this.argent.toString() + " et deplacé de " + this.deplacementtoString();
+        txt = "vous gagnez " + this.argent.toString() + " et deplacé de " + this.deplacement.toString();
         return txt;
     }
 
