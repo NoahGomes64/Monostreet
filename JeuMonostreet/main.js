@@ -96,7 +96,8 @@ function lancerTour(){
   //afficher argent
   document.getElementById("argentJ1").innerHTML = "Joueur1 : "+listeDesJoueurs[0].monArgent+"€";
   document.getElementById("argentJ2").innerHTML = "Joueur2 : "+listeDesJoueurs[1].monArgent+"€";
-  //fin de tour
+  afficherProprieteJ1();
+  afficherProprieteJ2();//fin de tour
   if (compteurTourJoueur == nbJoueur - 1) {
     compteurTourJoueur = 0;
     if (laPartie.numeroTour == 4) {
@@ -127,14 +128,23 @@ function jeuMono(){
 "rue20", "rue21", "rue22"]);
 }
 
-function afficherPropriete() {
+function afficherProprieteJ1() {
   var txt = "";
-  listeDesJoueurs.forEach(joueur => {
-    array.forEach(element => {
-      name
-    });
+  joueur1.listePropriete.forEach(prop => {
+    txt += prop.nomCase + ", ";
   });
+  document.getElementById("proprieteJ1").innerHTML = txt;
 }
+
+function afficherProprieteJ2() {
+  var txt = "";
+  joueur2.listePropriete.forEach(prop => {
+    txt += prop.nomCase + ", ";
+  });
+  document.getElementById("proprieteJ2").innerHTML = txt;
+}
+
+
 
 
 
