@@ -44,7 +44,7 @@ export default class CaseCarteChance extends CaseNonAchetable{
 
     //Méthodes
     executer(joueur){
-        this.tirerCarte(joueur);
+        return this.tirerCarte(joueur);
     }
     
     tirerCarte(joueur){
