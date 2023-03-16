@@ -63,7 +63,7 @@ if (strlen($leCode) == 4) {
     }
     ?>
 
-    <canvas id="myCanvas" width="987" height="987"></canvas>
+    <canvas id="myCanvas" width="987" height="987"></canvas></br>
     <style>
         canvas {
 	        border: 1px solid black;
