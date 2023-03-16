@@ -42,7 +42,7 @@ if (strlen($leCode) == 4) {
         }
 
         div{
-            padding-top : 12em;
+            padding-top : 5em;
         }
 
         canvas {
