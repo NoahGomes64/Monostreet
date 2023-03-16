@@ -45,7 +45,7 @@ export default class CaseGare extends CasePropriete {
     }
 
     executer(joueur){
-        this.afficher(joueur);
+        return this.afficher(joueur);
     }
 
 }

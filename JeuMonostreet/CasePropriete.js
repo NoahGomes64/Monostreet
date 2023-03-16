@@ -20,7 +20,7 @@ export default class CasePropriete extends Case{
 
     //Méthodes
     executer(joueur){
-        this.afficher(joueur);
+        return this.afficher(joueur);
     }
 
     afficher(joueur) {
