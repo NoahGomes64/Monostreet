@@ -127,6 +127,14 @@ function jeuMono(){
 "rue20", "rue21", "rue22"]);
 }
 
+function afficherPropriete() {
+  var txt = "";
+  listeDesJoueurs.forEach(joueur => {
+    array.forEach(element => {
+      name
+    });
+  });
+}
 
 
 
