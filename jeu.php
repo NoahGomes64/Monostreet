@@ -67,11 +67,12 @@ if (strlen($leCode) == 4) {
     <style>
         canvas {
 	        border: 1px solid black;
+            padding: 50px;
         }
 
         button{
             height: 50px;
-            width: 20px;
+            width: 200px;
         }
     </style>
 
