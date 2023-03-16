@@ -65,6 +65,11 @@ if (strlen($leCode) == 4) {
 
     <canvas id="myCanvas" width="987" height="987"></canvas></br>
     <style>
+        body{
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
         canvas {
 	        border: 1px solid black;
             margin: 50px;
@@ -76,6 +81,7 @@ if (strlen($leCode) == 4) {
         }
     </style>
 
+    <div id="affichageReste">
     <button id="btnJouer">Jouer</button>
 
     <script type="module" src="JeuMonostreet/main.js"></script>
@@ -189,23 +195,23 @@ if (strlen($leCode) == 4) {
                                     compteur += 1;
                                 }
                                 break;
+                            }
                         }
                     }
+
+                    //ctx.font = "30px Verdana";
+                    // Create gradient
+                    //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+                    //gradient.addColorStop("0"," magenta");
+                    //gradient.addColorStop("0.5", "blue");
+                    //gradient.addColorStop("1.0", "red");
+                    // Fill with gradient
+                    //ctx.fillStyle = gradient;
+                    //ctx.fillText("Big smile!", 10, 90);
+
                 }
-
-                //ctx.font = "30px Verdana";
-                // Create gradient
-                //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
-                //gradient.addColorStop("0"," magenta");
-                //gradient.addColorStop("0.5", "blue");
-                //gradient.addColorStop("1.0", "red");
-                // Fill with gradient
-                //ctx.fillStyle = gradient;
-                //ctx.fillText("Big smile!", 10, 90);
-
-            }
  
-        </script>
-
+            </script>
+        </div>
     </body>
 </html>

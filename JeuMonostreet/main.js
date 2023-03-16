@@ -57,8 +57,8 @@ const joueur3 = new Joueur();
 const joueur4 = new Joueur();
 const liste4Joueurs = [joueur1, joueur2, joueur3, joueur4];
 
-var nom1 = "Test1";
-var nom2 = "Test2";
+var nom1 = "Joueur1";
+var nom2 = "Joueur2";
 const listePseudo = [nom1, nom2];
 
 var couleur1 = "yellow";
