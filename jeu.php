@@ -60,153 +60,153 @@ if (strlen($leCode) == 4) {
         <link rel="shortcut icon" href="images/logo.PNG" />
 	</head>
     <body>
-    <?php
-    if ($bonCode && $row_cnt == 1) {
-        $stmt = $pdo->prepare("SELECT * FROM Partie WHERE codePartie=:codePartie");
-        $stmt->bindValue(':codePartie', $leCode);
-        $stmt->execute();
-        $ligne = $stmt->fetch();
-        $laListeRues=creerPlateau($ligne['ville']);
-    }
-    else {
-        echo "partie non trouvé";
-        echo "<a href='pageJouer/jouer.php'><button>Chercher une autre partie</button></a>";
-    }
-    ?>
+        <?php
+        if ($bonCode && $row_cnt == 1) {
+            $stmt = $pdo->prepare("SELECT * FROM Partie WHERE codePartie=:codePartie");
+            $stmt->bindValue(':codePartie', $leCode);
+            $stmt->execute();
+            $ligne = $stmt->fetch();
+            $laListeRues=creerPlateau($ligne['ville']);
+        }
+        else {
+            echo "partie non trouvé";
+            echo "<a href='pageJouer/jouer.php'><button>Chercher une autre partie</button></a>";
+        }
+        ?>
 
-    <canvas id="myCanvas" width="987" height="987"></canvas></br>
+        <canvas id="myCanvas" width="987" height="987"></canvas>
 
-    <div id="affichageReste">
-    <button id="btnJouer">Jouer</button>
+        <div id="affichageReste">
+            <button id="btnJouer">Jouer</button>
 
-    <script type="module" src="JeuMonostreet/main.js"></script>
+            <script type="module" src="JeuMonostreet/main.js"></script>
 
 
-    <button id="lancerDes"></button>
+            <button id="lancerDes"></button>
 
-    <p id="argentJ1"></p>
-    <p id="argentJ2"></p>
+            <p id="argentJ1"></p>
+            <p id="argentJ2"></p>
 
-    <p id="deplacement"></p>
-    
-    <p id="jouerCarte"></p>
-
-    <p id="gagnant"></p>
-
-        <script>
-            tabDesCouleursCases = [["brown",'white',"brown",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
-                                    ['pink','white','pink','pink','white','orange','white','orange','orange'],
-                                    ['red','white','red','red','white','yellow','yellow','white','yellow'],
-                                    ['green','green','white','green','white',"white",'blue',"white","blue"]];            
-            
-                window.onload = function() {
-                var canvas = document.getElementById('myCanvas');
-                var ctx = canvas.getContext('2d');
+            <p id="deplacement"></p>
                 
-                //plateau général
-                ctx.fillStyle = "black";
-                ctx.fillRect(0, 0, 987, 987);
+            <p id="jouerCarte"></p>
 
-                ctx.fillStyle = "rgb(249,228,183)";
-                ctx.fillRect(1, 1, 150, 150);
-                ctx.fillRect(1, 836, 150, 150);
-                ctx.fillRect(836, 1, 150, 150);
-                ctx.fillRect(836, 836, 150, 150);
+            <p id="gagnant"></p>
 
-                //affichage des cases
-                for (let index = 0; index < 9; index++) {
-                    ctx.fillRect(152 + (index *76), 1, 75, 150);
-                    ctx.fillRect(152 + (index *76), 836, 75, 150);
-                    ctx.fillRect(836, 152 + (index *76), 150, 75);
-                    ctx.fillRect(1, 152 + (index *76), 150, 75);
-                }
-
-                //Liste des noms de rues
-                var x = "<?php echo $laListeRues; ?>";
-                let tabDeRues = [];
-                let mot = '';  
-                for (let index = 0; index < x.length; index++) {
-                    if (x[index] == "," || index == x.lenght-1) {
-                        tabDeRues.push(mot);
-                        mot = '';
-                    } else {
-                        mot += x[index];
-                    }
-                }   
-                
-                //Suppression des espaces des rues
-                tabDeRuesSansEspace = [];
-                let mot2 = "";
-                var unCompteur = 0;
-                //console.log(tabDeRues);
-                for (let index = 0; index < tabDeRues.length; index++) {
-                    tabDeRuesSansEspace.push(tabDeRues[index].trim());
-                }
-                //console.log(tabDeRuesSansEspace);
-
-                //affichage des cases colorées
-                ctx.font = "30px Arial";
-                
-                var compteur = 0;
-                for (let index1 = 0; index1 < tabDeRuesSansEspace.length; index1++) {
-                    for (let index2 = 0; index2 < 9; index2++) {
-                        switch (index1) {
-                            case 2:
-                                ctx.fillStyle = tabDesCouleursCases[index1][index2];
-                                ctx.fillRect(152 + (index2 *76), 101, 75, 50);
-                                if (tabDesCouleursCases[index1][index2] != 'white') {
-                                    ctx.fillStyle = 'black';
-                                    ctx.fillText(tabDeRuesSansEspace[compteur], 152 + (index2 *76), 101, 75);
-                                    compteur += 1;
-                                }
-                                break;
+                <script>
+                    tabDesCouleursCases = [["brown",'white',"brown",'white','white',"rgb(173,216,230)",'white',"rgb(173,216,230)","rgb(173,216,230)"],
+                                            ['pink','white','pink','pink','white','orange','white','orange','orange'],
+                                            ['red','white','red','red','white','yellow','yellow','white','yellow'],
+                                            ['green','green','white','green','white',"white",'blue',"white","blue"]];            
+                    
+                        window.onload = function() {
+                        var canvas = document.getElementById('myCanvas');
+                        var ctx = canvas.getContext('2d');
                         
-                            case 3:
-                                ctx.fillStyle = tabDesCouleursCases[index1][index2];
-                                ctx.fillRect(836, 152 + (index2 *76), 50, 75);
-                                if (tabDesCouleursCases[index1][index2] != 'white') {
-                                    ctx.fillStyle = 'black';
-                                    ctx.fillText(tabDeRuesSansEspace[compteur], 886, 227 + (index2 *76), 100);
-                                    compteur += 1;
-                                }
-                                break;
+                        //plateau général
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(0, 0, 987, 987);
 
-                            case 0:
-                                ctx.fillStyle = tabDesCouleursCases[index1][index2];
-                                ctx.fillRect(760 - (index2 *76), 836, 75, 50);
-                                if (tabDesCouleursCases[index1][index2] != 'white') {
-                                    ctx.fillStyle = 'black';
-                                    ctx.fillText(tabDeRuesSansEspace[compteur], 760 - (index2 *76), 907, 75);
-                                    compteur += 1;
-                                }
-                                break;
-                            
-                            case 1:
-                                ctx.fillStyle = tabDesCouleursCases[index1][index2];
-                                ctx.fillRect(101, 760 - (index2 *76), 50, 75);
-                                if (tabDesCouleursCases[index1][index2] != 'white') {
-                                    ctx.fillStyle = 'black';
-                                    ctx.fillText(tabDeRuesSansEspace[compteur], 1, 835 - (index2 *76), 100);
-                                    compteur += 1;
-                                }
-                                break;
-                            }
+                        ctx.fillStyle = "rgb(249,228,183)";
+                        ctx.fillRect(1, 1, 150, 150);
+                        ctx.fillRect(1, 836, 150, 150);
+                        ctx.fillRect(836, 1, 150, 150);
+                        ctx.fillRect(836, 836, 150, 150);
+
+                        //affichage des cases
+                        for (let index = 0; index < 9; index++) {
+                            ctx.fillRect(152 + (index *76), 1, 75, 150);
+                            ctx.fillRect(152 + (index *76), 836, 75, 150);
+                            ctx.fillRect(836, 152 + (index *76), 150, 75);
+                            ctx.fillRect(1, 152 + (index *76), 150, 75);
                         }
-                    }
 
-                    //ctx.font = "30px Verdana";
-                    // Create gradient
-                    //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
-                    //gradient.addColorStop("0"," magenta");
-                    //gradient.addColorStop("0.5", "blue");
-                    //gradient.addColorStop("1.0", "red");
-                    // Fill with gradient
-                    //ctx.fillStyle = gradient;
-                    //ctx.fillText("Big smile!", 10, 90);
+                        //Liste des noms de rues
+                        var x = "<?php echo $laListeRues; ?>";
+                        let tabDeRues = [];
+                        let mot = '';  
+                        for (let index = 0; index < x.length; index++) {
+                            if (x[index] == "," || index == x.lenght-1) {
+                                tabDeRues.push(mot);
+                                mot = '';
+                            } else {
+                                mot += x[index];
+                            }
+                        }   
+                        
+                        //Suppression des espaces des rues
+                        tabDeRuesSansEspace = [];
+                        let mot2 = "";
+                        var unCompteur = 0;
+                        //console.log(tabDeRues);
+                        for (let index = 0; index < tabDeRues.length; index++) {
+                            tabDeRuesSansEspace.push(tabDeRues[index].trim());
+                        }
+                        //console.log(tabDeRuesSansEspace);
 
-                }
- 
-            </script>
+                        //affichage des cases colorées
+                        ctx.font = "30px Arial";
+                        
+                        var compteur = 0;
+                        for (let index1 = 0; index1 < tabDeRuesSansEspace.length; index1++) {
+                            for (let index2 = 0; index2 < 9; index2++) {
+                                switch (index1) {
+                                    case 2:
+                                        ctx.fillStyle = tabDesCouleursCases[index1][index2];
+                                        ctx.fillRect(152 + (index2 *76), 101, 75, 50);
+                                        if (tabDesCouleursCases[index1][index2] != 'white') {
+                                            ctx.fillStyle = 'black';
+                                            ctx.fillText(tabDeRuesSansEspace[compteur], 152 + (index2 *76), 101, 75);
+                                            compteur += 1;
+                                        }
+                                        break;
+                                
+                                    case 3:
+                                        ctx.fillStyle = tabDesCouleursCases[index1][index2];
+                                        ctx.fillRect(836, 152 + (index2 *76), 50, 75);
+                                        if (tabDesCouleursCases[index1][index2] != 'white') {
+                                            ctx.fillStyle = 'black';
+                                            ctx.fillText(tabDeRuesSansEspace[compteur], 886, 227 + (index2 *76), 100);
+                                            compteur += 1;
+                                        }
+                                        break;
+
+                                    case 0:
+                                        ctx.fillStyle = tabDesCouleursCases[index1][index2];
+                                        ctx.fillRect(760 - (index2 *76), 836, 75, 50);
+                                        if (tabDesCouleursCases[index1][index2] != 'white') {
+                                            ctx.fillStyle = 'black';
+                                            ctx.fillText(tabDeRuesSansEspace[compteur], 760 - (index2 *76), 907, 75);
+                                            compteur += 1;
+                                        }
+                                        break;
+                                    
+                                    case 1:
+                                        ctx.fillStyle = tabDesCouleursCases[index1][index2];
+                                        ctx.fillRect(101, 760 - (index2 *76), 50, 75);
+                                        if (tabDesCouleursCases[index1][index2] != 'white') {
+                                            ctx.fillStyle = 'black';
+                                            ctx.fillText(tabDeRuesSansEspace[compteur], 1, 835 - (index2 *76), 100);
+                                            compteur += 1;
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+
+                            //ctx.font = "30px Verdana";
+                            // Create gradient
+                            //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+                            //gradient.addColorStop("0"," magenta");
+                            //gradient.addColorStop("0.5", "blue");
+                            //gradient.addColorStop("1.0", "red");
+                            // Fill with gradient
+                            //ctx.fillStyle = gradient;
+                            //ctx.fillText("Big smile!", 10, 90);
+
+                        }
+        
+                </script>
         </div>
     </body>
 </html>
