@@ -179,7 +179,7 @@ if(isset($_POST['inscription'])){
         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://monostreet.alwaysdata.net"
         style="height:49px; v-text-anchor:middle; width:265px" arcsize="50%" stroke="f" fillcolor="#8928c6">
         <w:anchorlock></w:anchorlock>
-        <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer l\'adresse mail</center>
+        <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer votre adresse mail</center>
         </v:roundrect></a>
         <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://monostreet.alwaysdata.net" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Confirmer l adresse mail</a></span><!--<![endif]--></td>
         </tr>
