@@ -175,8 +175,8 @@ if(isset($_POST['inscription'])){
         <td align="center" style="padding:0;Margin:0;padding-top:40px;padding-bottom:40px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#5D541D">Bienvenue dans la famille Monostreet !</h3><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px"><br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px">Pour terminer votre inscription, veuillez confirmer votre adresse e-mail. Cela garantit que nous avons le bon e-mail pour pouvoir vous contacter et assurer que vous n êtes pas un robot.</p></td>
         </tr>
         <tr>
-        <td align="center" style="padding:0;Margin:0"><!--[if mso]><a href="https://viewstripo.email" target="_blank" hidden>
-        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://viewstripo.email"
+        <td align="center" style="padding:0;Margin:0"><!--[if mso]><a href="https://monostreet.alwaysdata.net" target="_blank" hidden>
+        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://monostreet.alwaysdata.net"
         style="height:49px; v-text-anchor:middle; width:265px" arcsize="50%" stroke="f" fillcolor="#8928c6">
         <w:anchorlock></w:anchorlock>
         <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer ladresse mail</center>
