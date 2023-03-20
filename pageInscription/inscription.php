@@ -207,7 +207,10 @@ if(isset($_POST['inscription'])){
         </div>
         </body>
         </html>';
-        mail($_POST['email'],$objetMail,$message);
+        
+        $entete  = 'MIME-Version: 1.0' . "\r\n";
+        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        mail($_POST['email'],$objetMail,$message,$entete);
         header ('location: ../index.php');
   }
 }
