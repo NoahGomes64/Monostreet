@@ -49,13 +49,12 @@ if(isset($_POST['inscription'])){
 
         $compteur = $max['max_id'];
         $compteur ++;
-        $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email, validationInscription) VALUES (:id, :nom, :mdp, :estPrivilegie, :email, :validationInscription)");
+        $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email) VALUES (:id, :nom, :mdp, :estPrivilegie, :email)");
         $stmt->bindParam(':id', $compteur, PDO::PARAM_INT);
         $stmt->bindParam(':nom', $pseudo, PDO::PARAM_STR);
         $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
         $stmt->bindValue(':estPrivilegie', 0, PDO::PARAM_INT);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':validationInscription', 0, PDO::PARAM_STR);
         $stmt->execute();
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['mdp'] = $MotDePasse;
