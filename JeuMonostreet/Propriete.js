@@ -5,6 +5,7 @@ export default class Propriete {
         this.positionPlateau = positionPlateau;
         this.prixAchat = prixAchat;
         this.proprietaire = null;
+
     }
 
     //Getter
@@ -16,6 +17,7 @@ export default class Propriete {
         this.nomCase;
     }
 
+
     //Setter
     set NumeroCase(nvNumeroCase){
         this.numeroCase = nvNumeroCase;
@@ -24,6 +26,7 @@ export default class Propriete {
     set NomCase(nvNomCase){
         this.nvNomCase = nvNomCase;
     }
+
 
     //Méthodes
 

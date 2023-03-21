@@ -212,6 +212,7 @@ if(isset($_POST['inscription'])){
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         mail($_POST['email'],$objetMail,$message,$entete);
         header ('location: ../index.php');
+        $validationInscription=0;
   }
 }
 else {
