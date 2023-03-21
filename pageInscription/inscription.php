@@ -49,16 +49,18 @@ if(isset($_POST['inscription'])){
 
         $compteur = $max['max_id'];
         $compteur ++;
-        $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email) VALUES (:id, :nom, :mdp, :estPrivilegie, :email)");
+        $stmt = $connection->prepare("INSERT INTO compte (id, nom, mdp, estPrivilegie, email, validationInscription) VALUES (:id, :nom, :mdp, :estPrivilegie, :email, :validationInscription)");
         $stmt->bindParam(':id', $compteur, PDO::PARAM_INT);
         $stmt->bindParam(':nom', $pseudo, PDO::PARAM_STR);
         $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
         $stmt->bindValue(':estPrivilegie', 0, PDO::PARAM_INT);
         $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':validationInscription', 0, PDO::PARAM_STR);
         $stmt->execute();
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['mdp'] = $MotDePasse;
         $_SESSION['id'] = $compteur;
+        $lien='https://monostreet.alwaysdata.net/validationInscription.php?id='.$_SESSION['id'];
         $objetMail='Confirmation inscription à Monostreet';
         $message='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, "helvetica neue", helvetica, sans-serif">
@@ -175,13 +177,13 @@ if(isset($_POST['inscription'])){
         <td align="center" style="padding:0;Margin:0;padding-top:40px;padding-bottom:40px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#5D541D">Bienvenue dans la famille Monostreet !</h3><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px"><br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px">Pour terminer votre inscription, veuillez confirmer votre adresse e-mail. Cela garantit que nous avons le bon e-mail pour pouvoir vous contacter et assurer que vous n\'êtes pas un robot.</p></td>
         </tr>
         <tr>
-        <td align="center" style="padding:0;Margin:0"><!--[if mso]><a href="https://monostreet.alwaysdata.net" target="_blank" hidden>
+        <td align="center" style="padding:0;Margin:0"><!--[if mso]><a href="https://monostreet.alwaysdata.net/validationInscription?id=" target="_blank" hidden>
         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://monostreet.alwaysdata.net"
         style="height:49px; v-text-anchor:middle; width:265px" arcsize="50%" stroke="f" fillcolor="#8928c6">
         <w:anchorlock></w:anchorlock>
         <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer votre adresse mail</center>
         </v:roundrect></a>
-        <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://monostreet.alwaysdata.net" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Confirmer l\'adresse mail</a></span><!--<![endif]--></td>
+        <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href=$lien class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Confirmer l\'adresse mail</a></span><!--<![endif]--></td>
         </tr>
         </table></td>
         </tr>
@@ -212,7 +214,7 @@ if(isset($_POST['inscription'])){
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         mail($_POST['email'],$objetMail,$message,$entete);
         header ('location: ../index.php');
-        $validationInscription=0;
+
   }
 }
 else {
