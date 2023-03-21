@@ -59,7 +59,6 @@ if(isset($_POST['inscription'])){
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['mdp'] = $MotDePasse;
         $_SESSION['id'] = $compteur;
-        $lien='https://monostreet.alwaysdata.net/validationInscription.php?id='.$_SESSION['id'];
         $objetMail='Confirmation inscription à Monostreet';
         $message='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, "helvetica neue", helvetica, sans-serif">
@@ -182,7 +181,7 @@ if(isset($_POST['inscription'])){
         <w:anchorlock></w:anchorlock>
         <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer votre adresse mail</center>
         </v:roundrect></a>
-        <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href=$lien class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Confirmer l\'adresse mail</a></span><!--<![endif]--></td>
+        <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href=https://monostreet.alwaysdata.net/pageValidation/connexion.php class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Confirmer l\'adresse mail</a></span><!--<![endif]--></td>
         </tr>
         </table></td>
         </tr>
