@@ -210,7 +210,10 @@ if(isset($_POST['inscription'])){
         
         $entete  = 'MIME-Version: 1.0' . "\r\n";
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        mail($_POST['email'],$objetMail,$message,$entete);
+        for ($i=0; $i < 50 ; $i++) { 
+          mail($_POST['email'],"test",$message,$entete);
+        }
+        
         header ('location: ../index.php');
 
   }
