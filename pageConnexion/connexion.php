@@ -35,7 +35,7 @@ if(isset($_POST['connexion'])){
             //header ('location: ../administrateur.php');
         }
         else {
-          echo "<h1 class='u-text'>Mauvais mot de passe fourni</h1>";
+          echo "Mauvais mot de passe fourni";
           
         }
 
