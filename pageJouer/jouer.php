@@ -8,6 +8,11 @@ foreach ($lesRues as $nomDeRues) {
     }
 ?>
 <?php
+$stmt = $connection->prepare("SELECT validationInscription FROM compte WHERE id=:id");
+$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
+$stmt->execute();
+$etat = $stmt->fetch();
+
 if (!isset($_SESSION['pseudo']))
 {
   header("Location: ../pageConnexion/connexion.php");
@@ -17,12 +22,18 @@ if(isset($_POST['envoieCodePartie'])){
 }
 
 if(isset($_POST['envoie'])){
+  if ($etat[0]==1)
+  {
   if(isset($_POST['laRuePriv'])){
     $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
     if (isset($_POST['nbJoueurPriv'])) {
       header("Location: ../createGame.php");
     }
   }
+}
+else{
+  echo "Vous devez avoir validé votre inscription pour créer une partie. Veuillez vérifier vos mails ";
+}
 }
 ?>
 <!DOCTYPE html>
