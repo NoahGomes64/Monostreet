@@ -62,7 +62,7 @@ if(isset($_POST['connexion'])){
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>MONOSTREET | Connexion</title>
+    <title>MONOSTREET | Validation</title>
     <link rel="shortcut icon" href="images/logo.PNG" />
     <link rel="stylesheet" href="../nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-2.css" media="screen">
@@ -95,13 +95,13 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-864e">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">CONNEXION</h1>
+        <h2 class="u-text">Veuillez vous reconnecter pour valider votre inscription à MONOSTREET ! </h2>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-19-lg u-size-19-xl u-size-23-md u-size-23-sm u-size-23-xs u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">
-                  <h2 class="u-text u-text-2">PAS DE COMPTE ?</h2>
-                  <a href="../pageInscription/inscription.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">inscription</a>
+                  
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-size-37-md u-size-37-sm u-size-37-xs u-size-41-lg u-size-41-xl u-layout-cell-2">
