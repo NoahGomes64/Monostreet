@@ -40,7 +40,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               <col width="25%">
               <col width="25%">
             </colgroup>
-            <thead class="u-table-header">
+            <thead class="u-align-center u-custom-font u-font-roboto u-table-header u-table-header-1">
               <tr style="height: 53px;">
                 <th class="u-border-2 u-border-palette-3-base u-table-cell">CODE DE LA PARTIE</th>
                 <th class="u-border-2 u-border-palette-3-base u-table-cell">ETAT</th>
