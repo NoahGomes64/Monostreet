@@ -42,10 +42,10 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             </colgroup>
             <thead class="u-table-header">
               <tr style="height: 53px;">
-                <th class="u-border-2 u-border-palette-3-base u-table-cell"></th>
-                <th class="u-border-2 u-border-palette-3-base u-table-cell"></th>
-                <th class="u-border-2 u-border-palette-3-base u-table-cell"></th>
-                <th class="u-border-2 u-border-palette-3-base u-table-cell"></th>
+                <th class="u-border-2 u-border-palette-3-base u-table-cell">CODE DE LA PARTIE</th>
+                <th class="u-border-2 u-border-palette-3-base u-table-cell">ETAT</th>
+                <th class="u-border-2 u-border-palette-3-base u-table-cell">PORTEFEUILLE</th>
+                <th class="u-border-2 u-border-palette-3-base u-table-cell">NOM DU GAGNANT</th>
               </tr>
             </thead>
             <tbody class="u-table-body">
