@@ -8,7 +8,7 @@ foreach ($lesRues as $nomDeRues) {
     }
 ?>
 <?php
-if (isset($_SESSION['pseudo']))
+if (!isset($_SESSION['pseudo']))
 {
   header("Location: ../pageConnexion/connexion.php");
 }
