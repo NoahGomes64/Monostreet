@@ -8,6 +8,10 @@ foreach ($lesRues as $nomDeRues) {
     }
 ?>
 <?php
+if (isset($_SESSION))
+{
+  header("Location: ../pageConnexion/connexion.php");
+}
 if(isset($_POST['envoieCodePartie'])){
   header("Location: ../jeu.php?code=".$_POST['codePartie']);
 }
