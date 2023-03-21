@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require '../connexionBD.php';
 include("../rechercheDeRue/main.php");
 $lesRues = listeDeRues1("../rechercheDeRue/Oloron80.csv");
 $listeParNom = [];
