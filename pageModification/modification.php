@@ -119,7 +119,9 @@ if(isset($_POST['enregistrer'])){
       $stmt->execute();
       $photoNouvelle = $stmt->fetch();
       $id=$_SESSION['id'];
+      if ($photo[0]!="images/default.png"){
           unlink($photo[0]);
+      }
       
           
               
