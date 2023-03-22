@@ -35,7 +35,8 @@ if(isset($_POST['enregistrer'])){
     $stmt->execute();
     
     if ($stmt->rowCount() > 0) {
-      if ($stmt[1]==$_SESSION['pseudo']){
+      $result=$stmt->fetch();
+      if ($result[1]==$_SESSION['pseudo']){
         $pseudoDispo=true;
       }
       else {
@@ -52,7 +53,8 @@ if(isset($_POST['enregistrer'])){
 
     
     if ($stmt->rowCount() > 0) {
-      if ($stmt[4]==$email[0]){
+      $result=$stmt->fetch();
+      if ($result[4]==$email[0]){
         $adresseDispo=true;
       }
       else{
