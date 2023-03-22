@@ -321,6 +321,9 @@ if(isset($_POST['enregistrer'])){
               }
               else{
                 mail($_POST['email'],$objetMail,$message,$entete);
+                $stmt = $connection->prepare("UPDATE compte SET validationInscription= :validationInscription WHERE id=$id");
+                $stmt->bindParam(':validationInscription', 0, PDO::PARAM_STR);
+                $stmt->execute();
                 header ('location: ../index.php');
               }
             }
