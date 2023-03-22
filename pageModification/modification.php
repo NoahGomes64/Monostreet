@@ -68,7 +68,7 @@ if(isset($_POST['enregistrer'])){
     }
     if ( $changementEmail==false && $changementPseudo==false && ($_FILES['profil']['name'])==""){
 
-      header ('location: ../index.php');
+
       
     }
     else{
