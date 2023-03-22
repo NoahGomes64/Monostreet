@@ -60,8 +60,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">
-                  <h3>Vous pouvez seulement rejoindre une partie si vous n'êtes pas authentifié </h3>
-                  
+                  <h1>Vous pouvez seulement rejoindre une partie si vous n'êtes pas authentifié </h1>                  
                 </div>
               </div>
               
