@@ -61,9 +61,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <div class="u-container-layout u-container-layout-1">
-                  <h3 class="u-hover-feature u-text u-text-default u-text-3">Vous pouvez seulement rejoindre une partie sans être authentifié !</h3>             
+                               
                   </div>
-                  
+                  <h3 class="u-hover-feature u-text u-text-default u-text-3">Vous pouvez seulement rejoindre une partie sans être authentifié !</h3>
                  
                 </div>
               </div>
