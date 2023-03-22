@@ -11,10 +11,6 @@ session_start();
 
 require '../connexionBD.php';
 
-$stmt = $connection->prepare("SELECT validationInscription FROM compte WHERE id=:id");
-$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-$stmt->execute();
-$etat = $stmt->fetch();
 
 if(isset($_POST['connexion'])){
   if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
@@ -36,6 +32,11 @@ if(isset($_POST['connexion'])){
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
           $_SESSION['id'] =  $id[0];
+          $stmt = $connection->prepare("SELECT validationInscription FROM compte WHERE id=:id");
+          $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
+          $stmt->execute();
+          $etat = $stmt->fetch();
+
           if(isset($_SESSION['rueDeDepart']) && $etat[0]==1)
           {
             header("Location: ../createGame.php");
