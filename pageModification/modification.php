@@ -67,9 +67,14 @@ if(isset($_POST['enregistrer'])){
       
     }
     if ( $changementEmail=false && $changementPseudo=false && ($_FILES['profil']['name'])==""){
+      $stop=true;
       header ('location: ../index.php');
+      
     }
-    if ($pseudoDispo && $adresseDispo) {
+    else{
+      $stop=false;
+    }
+    if ($pseudoDispo && $adresseDispo && $stop==false) {
   if(($_FILES['profil']['name'])!=""){
     
   $dossier = 'upload/';
