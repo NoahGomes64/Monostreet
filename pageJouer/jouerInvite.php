@@ -64,7 +64,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                   <h3 class="u-hover-feature u-text u-text-default u-text-3">Vous pouvez seulement rejoindre une partie sans être authentifié !</h3>             
                   </div>
                   
-                  <a href="../pageConnexion/connexion.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">Connexion ?</a>
+                 
                 </div>
               </div>
               
