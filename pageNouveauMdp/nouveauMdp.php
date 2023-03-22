@@ -40,7 +40,7 @@ if(isset($_POST['confirmer'])){
         header ('location: ../index.php');
     }
     else{
-      echo "Les mots de passe ne correspondent pas";
+      echo "Les nouveaux mots de passe ne correspondent pas";
     }
     
   }
