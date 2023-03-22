@@ -19,11 +19,14 @@ $email = $stmt->fetch();
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['confirmer'])){
 
-  $stmt = $connection->prepare("SELECT id FROM compte WHERE nom=:nom");
+  $stmt = $connection->prepare("SELECT id,mdp FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
     $stmt->execute();
     $id=$stmt->fetch();
+    $AncienMotDePasse=$_POST['ancienMdp'];
     $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+
+    if (password_verify($AncienMotDePasse, $id[1])){
 
     if (password_verify($_POST['bonMdp'], $MotDePasse)){
 
@@ -39,6 +42,10 @@ if(isset($_POST['confirmer'])){
     else{
       echo "Les mots de passe ne correspondent pas";
     }
+    else{
+      echo "L'ancien mot de passe est incorrect. Veuillez vérifier que vous avez saisi le bon";
+    }
+  }
   }
 
 
