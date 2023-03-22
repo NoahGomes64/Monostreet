@@ -24,7 +24,26 @@ $ok=false;
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
-
+  $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
+    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+      $message='Adresse email déjà utilisée';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+      $adresseDispo = false;
+    }
+    $pseudo=$_POST['pseudo'];
+    $pseudo=htmlentities($pseudo);
+    $pseudoDispo = true;
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $pseudo, PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+      $message='Pseudo déjà utilisé';
+      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+      $pseudoDispo = false;
+    }
+    if ($pseudoDispo && $adresseDispo) {
   if(($_FILES['profil']['name'])!=""){
     
   $dossier = 'upload/';
@@ -116,6 +135,7 @@ if(($_FILES['profil']['name'])==""){
         header ('location: ../index.php');
       }
   }
+}
 
 
 
