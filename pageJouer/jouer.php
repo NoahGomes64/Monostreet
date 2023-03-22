@@ -24,6 +24,7 @@ if(isset($_POST['envoieCodePartie'])){
 if(isset($_POST['envoie'])){
   if (!isset($_SESSION['pseudo']))
 {
+  $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
   header("Location: ../pageConnexion/connexion.php");
 }
 else{
