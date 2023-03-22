@@ -42,9 +42,10 @@ if(isset($_POST['confirmer'])){
     else{
       echo "Les mots de passe ne correspondent pas";
     }
-    else{
-      echo "L'ancien mot de passe est incorrect. Veuillez vérifier que vous avez saisi le bon";
-    }
+    
+  }
+  else{
+    echo "L'ancien mot de passe est incorrect. Veuillez vérifier que vous avez saisi le bon";
   }
   }
 
