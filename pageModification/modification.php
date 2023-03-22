@@ -314,9 +314,13 @@ if(($_FILES['profil']['name'])==""){
         
         $entete  = 'MIME-Version: 1.0' . "\r\n";
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-       
-        mail($_POST['email'],$objetMail,$message,$entete);
-        
+        if ($result[4]!=$email[0]){
+          mail($_POST['email'],$objetMail,$message,$entete);
+          header ('location: ../index.php');
+        }
+        else{
+          header ('location: ../index.php');
+        }
       }
   }
 }
