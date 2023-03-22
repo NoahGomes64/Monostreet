@@ -314,12 +314,12 @@ if(isset($_POST['enregistrer'])){
               
               $entete  = 'MIME-Version: 1.0' . "\r\n";
               $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-              if ($result[4]!=$email[0]){
-                mail($_POST['email'],$objetMail,$message,$entete);
+              if ($result[4]==$email[0]){
+               
                 header ('location: ../index.php');
               }
               else{
-               
+                mail($_POST['email'],$objetMail,$message,$entete);
               }
             }
         }
