@@ -31,7 +31,13 @@ if(isset($_POST['connexion'])){
           $_SESSION['pseudo'] = $Pseudo;
           $_SESSION['mdp'] = $MotDePasse;
           $_SESSION['id'] =  $id[0];
+          if(isset($_SESSION['rueDeDepart']))
+          {
+            header("Location: ../createGame.php");
+          }
+          else{
           header ('location: ../index.php');
+          }
             //header ('location: ../administrateur.php');
         }
         else {
