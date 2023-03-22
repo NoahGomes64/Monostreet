@@ -59,12 +59,14 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+              <div class="u-container-layout u-valign-top u-container-layout-2">
                 <div class="u-container-layout u-container-layout-1">
                                    
                 </div>
                 <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-2">
                   <h3 class="u-hover-feature u-text u-text-default u-text-3">Vous pouvez seulement rejoindre une partie sans être authentifié !</h3>
                   <a href="../pageConnexion/connexion.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">Connexion ?</a>
+                </div>
                 </div>
               </div>
               
