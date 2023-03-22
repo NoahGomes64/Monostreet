@@ -17,8 +17,9 @@ $etat = $stmt->fetch();
 
 if (!isset($_SESSION['pseudo']))
 {
-  header("Location: ../pageConnexion/connexion.php");
+  header("Location: jouerInvite.php");
 }
+
 if(isset($_POST['envoieCodePartie'])){
   header("Location: ../jeu.php?code=".$_POST['codePartie']);
 }
