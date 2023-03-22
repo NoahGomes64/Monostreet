@@ -26,24 +26,41 @@ $ok=false;
 if(isset($_POST['enregistrer'])){
   $pseudoDispo=true;
   $adresseDispo=true;
-  $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
-    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) {
-      $message='Adresse email déjà utilisée';
-      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-      $adresseDispo = false;
-    }
+ 
     $pseudo=$_POST['pseudo'];
     $pseudo=htmlentities($pseudo);
 
     $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $pseudo, PDO::PARAM_STR);
     $stmt->execute();
+    
     if ($stmt->rowCount() > 0) {
-      $message='Pseudo déjà utilisé';
-      echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-      $pseudoDispo = false;
+      if ($stmt[1]==$_SESSION['pseudo']){
+        $pseudoDispo=true;
+      }
+      else {
+        $message='Pseudo déjà utilisé';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        $pseudoDispo = false;
+      }
+    }
+    
+    
+    $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
+    $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+    $stmt->execute();
+
+    
+    if ($stmt->rowCount() > 0) {
+      if ($stmt[4]==$email[0]){
+        $adresseDispo=true;
+      }
+      else{
+        $message='Adresse email déjà utilisée';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        $adresseDispo = false;
+      }
+      
     }
     if ($pseudoDispo && $adresseDispo) {
   if(($_FILES['profil']['name'])!=""){
