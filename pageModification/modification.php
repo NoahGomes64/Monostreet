@@ -316,10 +316,10 @@ if(isset($_POST['enregistrer'])){
               $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
               if ($result[4]!=$email[0]){
                 mail($_POST['email'],$objetMail,$message,$entete);
-                
+                header ('location: ../index.php');
               }
               else{
-                header ('location: ../index.php');
+               
               }
             }
         }
