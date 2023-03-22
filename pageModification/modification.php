@@ -24,6 +24,8 @@ $ok=false;
 
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['enregistrer'])){
+  $pseudoDispo=true;
+  $adresseDispo=true;
   $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
     $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
     $stmt->execute();
@@ -34,7 +36,7 @@ if(isset($_POST['enregistrer'])){
     }
     $pseudo=$_POST['pseudo'];
     $pseudo=htmlentities($pseudo);
-    $pseudoDispo = true;
+
     $stmt = $connection->prepare("SELECT * FROM compte WHERE nom=:nom");
     $stmt->bindParam(':nom', $pseudo, PDO::PARAM_STR);
     $stmt->execute();
