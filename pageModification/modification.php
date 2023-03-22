@@ -26,6 +26,8 @@ $ok=false;
 if(isset($_POST['enregistrer'])){
   $pseudoDispo=true;
   $adresseDispo=true;
+  $changementPseudo=true;
+  $changementEmail=true;
  
     $pseudo=$_POST['pseudo'];
     $pseudo=htmlentities($pseudo);
