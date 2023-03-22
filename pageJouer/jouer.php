@@ -15,16 +15,18 @@ $stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
 $stmt->execute();
 $etat = $stmt->fetch();
 
-if (!isset($_SESSION['pseudo']))
-{
-  header("Location: jouerInvite.php");
-}
+
 
 if(isset($_POST['envoieCodePartie'])){
   header("Location: ../jeu.php?code=".$_POST['codePartie']);
 }
 
 if(isset($_POST['envoie'])){
+  if (!isset($_SESSION['pseudo']))
+{
+  header("Location: ../pageConnexion/connexion.php");
+}
+else{
   if ($etat[0]==1)
   {
   if(isset($_POST['laRuePriv'])){
@@ -36,6 +38,7 @@ if(isset($_POST['envoie'])){
 }
 else{
   echo "Vous devez avoir validé votre inscription pour créer une partie. Veuillez vérifier vos mails ";
+}
 }
 }
 ?>
