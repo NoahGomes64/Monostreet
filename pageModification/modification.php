@@ -321,6 +321,7 @@ if(isset($_POST['enregistrer'])){
               }
               else{
                 mail($_POST['email'],$objetMail,$message,$entete);
+                header ('location: ../index.php');
               }
             }
         }
