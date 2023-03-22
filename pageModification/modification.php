@@ -316,7 +316,7 @@ if(($_FILES['profil']['name'])==""){
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
        
         mail($_POST['email'],$objetMail,$message,$entete);
-        header ('location: ../index.php');
+        
       }
   }
 }
