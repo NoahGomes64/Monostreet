@@ -258,7 +258,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
           <form  method="POST" action="nouveauMdp.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
           <div class="u-form-group u-form-name">
               <label for="name-c594" class="u-label u-label-1">Adresse mail de votre compte</label>
-              <input type="email" placeholder="Saisir votre ancien mot de passe" id="name-c594" name="mail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+              <input type="email" placeholder="Saisir l'adresse mail de votre compte" id="name-c594" name="mail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
             </div>
             <div class="u-form-group u-form-name">
               <label for="name-c594" class="u-label u-label-1">Nouveau mot de passe</label>
