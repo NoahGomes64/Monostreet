@@ -191,7 +191,9 @@ if(isset($_POST['confirmer'])){
               
               $entete  = 'MIME-Version: 1.0' . "\r\n";
               $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-              mail($id[2],$objetMail,$message,$entete);
+              mail($_POST['mail'],$objetMail,$message,$entete);
+              $stmt = $connection->prepare("UPDATE compte SET actionEnCours=0 WHERE id=$result[0]");
+              $stmt->execute();
 
         header ('location: ../index.php');
       }
