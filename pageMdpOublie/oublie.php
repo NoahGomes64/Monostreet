@@ -8,7 +8,13 @@
  * 
  * */
 session_start();
+require '../connexionBD.php';
 if(isset($_POST['confirmer'])){
+  
+        $stmt = $connection->prepare("UPDATE compte SET actionEnCours=1 WHERE email=:email");
+        $stmt->bindParam(':email', $_POST['mail'], PDO::PARAM_STR);
+        $stmt->execute();
+
         $objetMail='Réinitialisation du mot de passe';
               $message='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
               <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, "helvetica neue", helvetica, sans-serif">
