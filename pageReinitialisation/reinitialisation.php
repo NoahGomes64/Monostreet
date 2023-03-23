@@ -8,8 +8,36 @@
  * 
  * */
 session_start();
+require '../connexionBD.php';
+
+
+$stmt = $connection->prepare("SELECT email FROM compte WHERE nom=:nom");
+$stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+$stmt->execute();
+$email = $stmt->fetch();
+
+// si le bouton "Enregistré" est cliqué
 if(isset($_POST['confirmer'])){
-        $objetMail='Réinitialisation du mot de passe';
+
+  $stmt = $connection->prepare("SELECT id,mdp,email FROM compte WHERE nom=:nom");
+    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    $id=$stmt->fetch();
+    $AncienMotDePasse=$_POST['ancienMdp'];
+    $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+
+    if (password_verify($AncienMotDePasse, $id[1])){
+
+    if (password_verify($_POST['bonMdp'], $MotDePasse)){
+
+    
+        
+        $stmt = $connection->prepare("UPDATE compte SET mdp= :mdp WHERE id=$id[0]");
+        $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
+        $stmt->execute();
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['mdp'] = $MotDePasse;
+        $objetMail='Confirmation changement mot de passe';
               $message='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
               <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, "helvetica neue", helvetica, sans-serif">
               <head>
@@ -119,7 +147,7 @@ if(isset($_POST['confirmer'])){
               <td align="center" valign="top" style="padding:0;Margin:0;width:470px">
               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
               <tr>
-              <td align="center" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:38px;font-style:normal;font-weight:bold;color:#5d541d">Demande de réinitialisation du mot de passe de votre compte</h1></td>
+              <td align="center" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:38px;font-style:normal;font-weight:bold;color:#5d541d">Confirmation du changement du mot de passe de votre compte</h1></td>
               </tr>
               <tr>
               <td align="center" style="padding:0;Margin:0;padding-top:40px;padding-bottom:40px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#5D541D"></h3><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px"><br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px">Si vous n\'êtes pas à l\'origine de ce changement veuillez contacter au plus vite un administrateur.</p></td>
@@ -131,7 +159,7 @@ if(isset($_POST['confirmer'])){
               <w:anchorlock></w:anchorlock>
               <center style="color:#ffffff; font-family:Poppins, sans-serif; font-size:16px; font-weight:400; line-height:16px; mso-text-raise:1px">Confirmer votre adresse mail</center>
               </v:roundrect></a>
-              <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href=https://monostreet.alwaysdata.net/pageReinitialisation/reinitialisation.php class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Réinitialiser le mot de passe !</a></span><!--<![endif]--></td>
+              <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#8928c6;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href=https://monostreet.alwaysdata.net class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:16px;display:inline-block;background:#8928c6;border-radius:30px;font-family:Poppins, sans-serif;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;padding:15px 35px 15px 35px;border-color:#8928c6">Rendez vous sur le Monostreet !</a></span><!--<![endif]--></td>
               </tr>
               </table></td>
               </tr>
@@ -160,11 +188,20 @@ if(isset($_POST['confirmer'])){
               
               $entete  = 'MIME-Version: 1.0' . "\r\n";
               $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-              mail($_POST['mail'],$objetMail,$message,$entete);
+              mail($id[2],$objetMail,$message,$entete);
 
         header ('location: ../index.php');
+    }
+    else{
+      echo "Les nouveaux mots de passe ne correspondent pas";
+    }
+    
+  }
+  else{
+    echo "L'ancien mot de passe est incorrect. Veuillez vérifier que vous avez saisi le bon";
+  }
+  }
 
-}
 
 
 
@@ -205,14 +242,21 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
 }</style></header>
     <section class="u-align-left u-clearfix u-image u-shading u-section-1" src="" data-image-width="1503" data-image-height="1000" id="sec-7434">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-hover-feature u-text u-text-default u-title u-text-1">reinitialisation du mot de passe</h1>
+        <h1 class="u-hover-feature u-text u-text-default u-title u-text-1">modification du mot de passe</h1>
         <div class="u-form u-form-1">
           <form  method="POST" action="nouveauMdp.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
-            <div class="u-form-group u-form-name">
-              <label for="name-c594" class="u-label u-label-1">Saisir votre adresse mail pour recevoir le lien de réinitialisation</label>
-              <input type="email" placeholder="Saisir votre adresse mail" id="name-c594" name="mail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+          <div class="u-form-group u-form-name">
+              <label for="name-c594" class="u-label u-label-1">Ancien mot de passe</label>
+              <input type="password" placeholder="Saisir votre ancien mot de passe" id="name-c594" name="ancienMdp" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
             </div>
-            
+            <div class="u-form-group u-form-name">
+              <label for="name-c594" class="u-label u-label-1">Nouveau mot de passe</label>
+              <input type="password" placeholder="Saisir votre nouveau mot de passe" id="name-c594" name="mdp" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+            </div>
+            <div class="u-form-email u-form-group">
+              <label for="email-c594" class="u-label u-label-2">Confirmation du nouveau mot de passe</label>
+              <input type="password" placeholder="Confirmer votre nouveau mot de passe" id="email-c594" name="bonMdp" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+            </div>
             <div class="u-align-left u-form-group u-form-submit">
               
             </div>
