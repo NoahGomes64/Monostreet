@@ -19,25 +19,28 @@ $email = $stmt->fetch();
 // si le bouton "Enregistré" est cliqué
 if(isset($_POST['confirmer'])){
 
-  $stmt = $connection->prepare("SELECT id,mdp,email FROM compte WHERE nom=:nom");
-    $stmt->bindParam(':nom', $_SESSION['pseudo'], PDO::PARAM_STR);
+  $stmt = $connection->prepare("SELECT * FROM compte WHERE email=:email");
+    $stmt->bindParam(':email', $_POST['mail'], PDO::PARAM_STR);
     $stmt->execute();
-    $id=$stmt->fetch();
-    $AncienMotDePasse=$_POST['ancienMdp'];
+    $result=$stmt->fetch();
     $MotDePasse = password_hash(strip_tags($_POST['mdp']),PASSWORD_DEFAULT);
+    if ($stmt->rowCount() > 0) {
+      if ($result[7]==1){
 
-    if (password_verify($AncienMotDePasse, $id[1])){
+      
+    
+
+
 
     if (password_verify($_POST['bonMdp'], $MotDePasse)){
 
     
         
-        $stmt = $connection->prepare("UPDATE compte SET mdp= :mdp WHERE id=$id[0]");
+        $stmt = $connection->prepare("UPDATE compte SET mdp= :mdp WHERE id=$result[0]");
         $stmt->bindParam(':mdp', $MotDePasse, PDO::PARAM_STR);
         $stmt->execute();
-        $_SESSION['pseudo'] = $_POST['pseudo'];
-        $_SESSION['mdp'] = $MotDePasse;
-        $objetMail='Confirmation changement mot de passe';
+
+        $objetMail='Confirmation réinitialisation du mot de passe';
               $message='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
               <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, "helvetica neue", helvetica, sans-serif">
               <head>
@@ -147,7 +150,7 @@ if(isset($_POST['confirmer'])){
               <td align="center" valign="top" style="padding:0;Margin:0;width:470px">
               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
               <tr>
-              <td align="center" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:38px;font-style:normal;font-weight:bold;color:#5d541d">Confirmation du changement du mot de passe de votre compte</h1></td>
+              <td align="center" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:38px;font-style:normal;font-weight:bold;color:#5d541d">Confirmation de la réinitialisation du mot de passe de votre compte</h1></td>
               </tr>
               <tr>
               <td align="center" style="padding:0;Margin:0;padding-top:40px;padding-bottom:40px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#5D541D"></h3><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px"><br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:27px;color:#5D541D;font-size:18px">Si vous n\'êtes pas à l\'origine de ce changement veuillez contacter au plus vite un administrateur.</p></td>
@@ -191,16 +194,24 @@ if(isset($_POST['confirmer'])){
               mail($id[2],$objetMail,$message,$entete);
 
         header ('location: ../index.php');
-    }
-    else{
+      }
+      else{
+
       echo "Les nouveaux mots de passe ne correspondent pas";
-    }
+      }
+
+
     
+    }
+      else{
+          echo "Vous avez saisi une adresse mail différente de celle dans la demande de réinitialisation ";
+          }
   }
   else{
-    echo "L'ancien mot de passe est incorrect. Veuillez vérifier que vous avez saisi le bon";
-  }
-  }
+    echo "L'adresse mail saisie ne correspond à aucun compte. Veuillez resaisir ! ";
+    }
+
+}
 
 
 
@@ -246,8 +257,8 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         <div class="u-form u-form-1">
           <form  method="POST" action="nouveauMdp.php" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
           <div class="u-form-group u-form-name">
-              <label for="name-c594" class="u-label u-label-1">Ancien mot de passe</label>
-              <input type="password" placeholder="Saisir votre ancien mot de passe" id="name-c594" name="ancienMdp" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
+              <label for="name-c594" class="u-label u-label-1">Adresse mail de votre compte</label>
+              <input type="email" placeholder="Saisir votre ancien mot de passe" id="name-c594" name="mail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">
             </div>
             <div class="u-form-group u-form-name">
               <label for="name-c594" class="u-label u-label-1">Nouveau mot de passe</label>
