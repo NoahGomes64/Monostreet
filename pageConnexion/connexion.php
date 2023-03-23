@@ -128,7 +128,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                       </div>
                      <br>
                       <button type="submit" name="connexion" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">CONNEXION</button>
-                      <a href="../pageInscription/inscription.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Mot de passe oublié ?</a>
+                      <a href="../pageMdpOublie/oublie.php" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">Mot de passe oublié ?</a>
                     </form>
                   </div>
                   
