@@ -15,6 +15,7 @@ if (isset($_POST['sauvegarder'])) {
   system($command);
 
   echo "<p>La base de données a été sauvegardée dans le fichier $backup_file</p>";
+  file_put_contents($backup_file);
 }
 
 
