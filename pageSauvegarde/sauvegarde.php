@@ -15,7 +15,7 @@ if (isset($_POST['sauvegarder'])) {
   system($command);
 
   echo "<p>La base de données a été sauvegardée dans le fichier $backup_file</p>";
-  file_put_contents($backup_file);
+
 }
 
 
@@ -81,10 +81,11 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         <h2 class="u-text u-text-default u-text-2">BIENVENUE :  <?php echo $_SESSION['pseudo']; ?></h2>
         <h3 class="u-align-center u-text u-text-default u-text-white u-text-3">Sur cette page vous pouvez sauvegarder et restaurer la base de données</h3>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <form action="" method="POST">
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <form action="" method="POST">
+
                 <div class="u-container-layout u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
                   <button type="submit" name="sauvegarder" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-1">SAUVEGARDER</button>
                 </div>
@@ -93,7 +94,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-container-layout u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
                 <button type="submit" name="restaurer" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-5-base u-palette-3-base u-radius-50 u-btn-2">RESTAURER</button>
                 </div>
-</form>
+              </form>
               </div>
             </div>
           </div>
